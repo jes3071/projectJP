@@ -6,6 +6,7 @@ public class CardSpawn : MonoBehaviour {
 
     public int curCount = 0;
     public int maxCount = 4;
+    public int curTime;
     public Transform[] spawnPoints;
     public GameObject card;
 
@@ -19,6 +20,8 @@ public class CardSpawn : MonoBehaviour {
             Instantiate(card, spawnPoints[3]);
             curCount = 4;
           }
+
+        //curTime += Time.deltaTime;
     }
 
 }

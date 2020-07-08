@@ -59,11 +59,11 @@ public class Arranger : MonoBehaviour
         return result;
     }
 
-    public void SwapCard(int index01, int index02)
-    {
-        Central.SwapCards(children[index01], children[index02]);
-        UpdateChildren();
-    }
+    //public void SwapCard(int index01, int index02)
+    //{
+    //    Central.SwapCards(children[index01], children[index02]);
+    //    UpdateChildren();
+    //}
 
     // Update is called once per frame
     void Update()

@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
-    Transform root;
-    void Start()
+    private RectTransform rectTransform;
+    private CanvasGroup canvasGroup;
+    public float ori_x;
+    public float ori_y;
+
+    private void Awake()
     {
-        root = transform.root;
+        rectTransform = GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>();
     }
 
     // Update is called once per frame
@@ -16,25 +21,47 @@ public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
 
     }
+
+    bool ContainPos(RectTransform rt, Vector2 pos)
+    {
+        return RectTransformUtility.RectangleContainsScreenPoint(rt, pos);
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
-        root.BroadcastMessage("BeginDrag", transform, SendMessageOptions.DontRequireReceiver);
+        //Debug.Log("OnBeginDrag");
+        canvasGroup.blocksRaycasts = false;
+
+        //workingArranger = arrangers.Find(t => ContainPos(t.transform as RectTransform, eventData.position));
+        //rectTransform.position.x;
+        ori_x = eventData.position.x;
+        ori_y = eventData.position.y;
+        //rectTransform.BroadcastMessage("BeginDrag", transform, SendMessageOptions.DontRequireReceiver);
         //throw new System.NotImplementedException();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = eventData.position;
-        root.BroadcastMessage("Drag", transform, SendMessageOptions.DontRequireReceiver);
+        //Debug.Log("OnDrag");
+        //transform.position = eventData.position;
+        rectTransform.anchoredPosition += eventData.delta;
+        //rectTransform.BroadcastMessage("Drag", transform, SendMessageOptions.DontRequireReceiver);
         //throw new System.NotImplementedException();
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        root.BroadcastMessage("EndDrag", transform, SendMessageOptions.DontRequireReceiver);
+        //Debug.Log("OnEndDrag");
+        canvasGroup.blocksRaycasts = true;
+        if (eventData.pointerDrag != null)
+            rectTransform.anchoredPosition = eventData.delta;
+        //rectTransform.BroadcastMessage("EndDrag", transform, SendMessageOptions.DontRequireReceiver);
         //throw new System.NotImplementedException();
     }
 
-    // Start is called before the first frame update
+    public void OnDrop(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
+    }
 
 }

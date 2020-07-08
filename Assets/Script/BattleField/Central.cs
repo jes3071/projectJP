@@ -73,14 +73,18 @@ public class Central : MonoBehaviour
 
         if (whichArrangerCard == null)
         {
-            bool updateChildren = transform != invisibleCard.parent;
+            //정렬 다시하는 부분
+            //bool updateChildren = transform != invisibleCard.parent;
 
+            //invisibleCard.SetParent(transform);
+
+            //if (updateChildren)
+            //{
+            //    arrangers.ForEach(t => t.UpdateChildren());
+            //}
+            //Debug.Log("call");
             invisibleCard.SetParent(transform);
-
-            if (updateChildren)
-            {
-                arrangers.ForEach(t => t.UpdateChildren());
-            }
+            arrangers.ForEach(t => t.UpdateChildren());
         }
         else
         {
@@ -95,15 +99,15 @@ public class Central : MonoBehaviour
             }
             else
             {
-                int invisibleCardIndex = invisibleCard.GetSiblingIndex();
-                int targetIndex = whichArrangerCard.GetIndexByPosition(card, invisibleCardIndex);
+                //카드끼리 위치바꾸는 부분
+                //int invisibleCardIndex = invisibleCard.GetSiblingIndex();
+                //int targetIndex = whichArrangerCard.GetIndexByPosition(card, invisibleCardIndex);
 
-                if (invisibleCardIndex != targetIndex)
-                {
-                    whichArrangerCard.SwapCard(invisibleCardIndex, targetIndex);
-                }
-
-                //Debug.Log(whichArrangerCard.GetIndexByPosition(card,invisibleCard.GetSiblingIndex()));
+                //if (invisibleCardIndex != targetIndex)
+                //{
+                //    whichArrangerCard.SwapCard(invisibleCardIndex, targetIndex);
+                //}
+                Debug.Log(whichArrangerCard.GetIndexByPosition(card, invisibleCard.GetSiblingIndex()));
             }
 
         }
@@ -118,10 +122,12 @@ public class Central : MonoBehaviour
             workingArranger.InsertCard(card, oriIndex);
             workingArranger = null;
             oriIndex = -1;
+            Debug.Log("이건 뭔데");
         }
         else
         {
             SwapCardsinHierarchy(invisibleCard, card);
+            Debug.Log(" 그 자리에 있나요");
         }
     }
 }

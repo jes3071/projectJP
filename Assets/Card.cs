@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 [System.Serializable]
 public class Card {
+   // List<int> reinforce = new List<int> ();
 
 	public int id;
     public GameObject cardImage;
@@ -12,6 +13,7 @@ public class Card {
     public int cost;
     public int power;
     public string cardDesciption;
+    public List<int> reinforce = new List<int>(3);
 
     public Sprite thisImage;
 
