@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1061,7 +1061,7 @@ GameObject:
   - component: {fileID: 1185381153}
   - component: {fileID: 1185381154}
   m_Layer: 5
-  m_Name: UIBattlePlayerHand
+  m_Name: UIBattleEnemyHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1590,6 +1590,7 @@ MonoBehaviour:
   - "\uC5D8\uD504\uC758 \uD65C"
   - "\uB4DC\uC6CC\uD504\uC758 \uB9DD\uCE58"
   - "\uD504\uB9AC\uC2A4\uD2B8\uC758 \uC2ED\uC790\uAC00"
+  ResultList: []
 --- !u!114 &1723038848
 MonoBehaviour:
   m_ObjectHideFlags: 0
