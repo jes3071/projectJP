@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224522739412651276}
   m_Layer: 5
-  m_Name: TurnCostObject
+  m_Name: TurnCostEnemyObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 19e2311fa43f6bc4c90e61736e5e8f65, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 21d9dacc8d0d1eb42b9390955da02575, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -106,7 +106,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 07c093feca28d6a4caf9cffd92a2e69d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00f279cd97042c445b2820caed2d9347, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
