@@ -5,26 +5,28 @@ using UnityEngine.EventSystems;
 
 public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
+    //public card
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    public float ori_x;
-    public float ori_y;
+    public GameObject cardObject;
+
+    //public Card aaa;
+
+    public bool Flag = false;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        cardObject = GetComponent<GameObject>();
+        //aaa = GetComponent<Card>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    bool ContainPos(RectTransform rt, Vector2 pos)
-    {
-        return RectTransformUtility.RectangleContainsScreenPoint(rt, pos);
+        
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -34,8 +36,6 @@ public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
         //workingArranger = arrangers.Find(t => ContainPos(t.transform as RectTransform, eventData.position));
         //rectTransform.position.x;
-        ori_x = eventData.position.x;
-        ori_y = eventData.position.y;
         //rectTransform.BroadcastMessage("BeginDrag", transform, SendMessageOptions.DontRequireReceiver);
         //throw new System.NotImplementedException();
     }
@@ -53,14 +53,24 @@ public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         //Debug.Log("OnEndDrag");
         canvasGroup.blocksRaycasts = true;
-        if (eventData.pointerDrag != null)
-            rectTransform.anchoredPosition = eventData.delta;
+        rectTransform.anchoredPosition = eventData.delta;
+        //Debug.Log(eventData.position);
+        if (eventData.position.x <= 700 && eventData.position.x >= 500 &&
+            eventData.position.y >= 400 && eventData.position.y <= 800)
+        {
+            //aaa.turnCost = gameObject.
+            Destroy(gameObject);
+        }
+        //Destroy(gameObject);
         //rectTransform.BroadcastMessage("EndDrag", transform, SendMessageOptions.DontRequireReceiver);
         //throw new System.NotImplementedException();
     }
 
     public void OnDrop(PointerEventData eventData)
     {
+        //gameObject.SetActive(false);
+        //Destroy(gameObject);
+        //Debug.Log("OnDrop");
         throw new System.NotImplementedException();
     }
 

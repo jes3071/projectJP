@@ -12,8 +12,10 @@ public class CardSpawn : MonoBehaviour {
 
     private void Update()
     {
+        //Debug.Log("!");
         if (curCount < maxCount)
         {
+            Debug.Log("!");
             Instantiate(card, spawnPoints[0]);
             Instantiate(card, spawnPoints[1]);
             Instantiate(card, spawnPoints[2]);
