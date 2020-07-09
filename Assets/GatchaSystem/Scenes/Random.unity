@@ -193,6 +193,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbb9c9323490854093a81b638949230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uCard:
+    itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  cardObject: {fileID: 0}
 --- !u!1 &38094522
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +291,7 @@ RectTransform:
   - {fileID: 455609056}
   - {fileID: 959819102}
   - {fileID: 93934850}
-  - {fileID: 1774593740}
+  - {fileID: 790003219}
   - {fileID: 611631740}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -743,6 +751,16 @@ RectTransform:
   m_AnchoredPosition: {x: 350, y: -300}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &790003218 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1452640668376476, guid: 6ac12f40fe1f59c4080cb5d674959bbe,
+    type: 2}
+  m_PrefabInternal: {fileID: 1399759900}
+--- !u!224 &790003219 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224532661386493228, guid: 6ac12f40fe1f59c4080cb5d674959bbe,
+    type: 2}
+  m_PrefabInternal: {fileID: 1399759900}
 --- !u!1 &888372445
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,12 +845,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curCount: 0
   maxCount: 4
+  curTime: 0
   spawnPoints:
   - {fileID: 1163364328}
   - {fileID: 1092535847}
   - {fileID: 888372446}
   - {fileID: 654003389}
-  card: {fileID: 1162196003213652, guid: 6ac12f40fe1f59c4080cb5d674959bbe, type: 2}
+  card: {fileID: 790003218}
 --- !u!1 &1092535846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,6 +1025,11 @@ Prefab:
       propertyPath: m_BlocksRaycasts
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224532661386493228, guid: 6ac12f40fe1f59c4080cb5d674959bbe,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 225371935030920904, guid: 6ac12f40fe1f59c4080cb5d674959bbe, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6ac12f40fe1f59c4080cb5d674959bbe, type: 2}
@@ -1038,335 +1062,253 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck:
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
   container:
-  - id: 0
-    cardImage: {fileID: 0}
-    cardName: 
-    cost: 0
-    power: 0
-    cardDesciption: 
-    reinforce: 
-    thisImage: {fileID: 0}
+  - itemName: 
+    itemDescription: 
+    reinforceValue: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
   x: 0
   deckSize: 0
 --- !u!4 &1415829963
@@ -1422,27 +1364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98397a6f6bdcffb47bfc3ad5db699442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1774593739 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1162196003213652, guid: 6ac12f40fe1f59c4080cb5d674959bbe,
-    type: 2}
-  m_PrefabInternal: {fileID: 1399759900}
---- !u!224 &1774593740 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224588639462624834, guid: 6ac12f40fe1f59c4080cb5d674959bbe,
-    type: 2}
-  m_PrefabInternal: {fileID: 1399759900}
---- !u!225 &1774593741
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1774593739}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &2050305662
 GameObject:
   m_ObjectHideFlags: 0

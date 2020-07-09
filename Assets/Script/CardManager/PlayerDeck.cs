@@ -14,11 +14,11 @@ public class PlayerDeck : MonoBehaviour {
     // Use this for initialization
     void Start () {
         x = 0;
-        deckSize = 40;
+        deckSize = 20;
 
         for(int i=0 ; i < deckSize; i++)
         {
-            x = Random.Range(0, 5);
+            x = Random.Range(0, 19);
             deck[i] = CardDataBase.cardList[x];
         }
 	}
