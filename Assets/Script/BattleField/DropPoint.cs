@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class DropPoint : MonoBehaviour ,IDropHandler{
 
-    public Card uCard;
+    public List<Card> uCard = new List<Card>();
 
     public GameObject cardObject;
 
@@ -20,16 +20,11 @@ public class DropPoint : MonoBehaviour ,IDropHandler{
         if(eventData.pointerDrag != null)
         {
             Debug.Log("효과를 발동한다!");
+            //uCard. = eventData.pointerDrag;
 
-            //eventData.gameObject;
+            //eventData.pointerDrag = cardObject;
 
-            //Dragable.
-            //Destroy(gameObject);
-            //Debug.Log(eventData);
-
-            //gameObject.SetActive(false);
-            //eventData.Destroy();
-            //eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            Destroy(eventData.pointerDrag);
         }
     }
 }

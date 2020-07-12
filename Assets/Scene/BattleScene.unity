@@ -222,6 +222,57 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5879ce3a74699746b025b99b6e35796, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &583961893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 583961895}
+  - component: {fileID: 583961894}
+  m_Layer: 0
+  m_Name: Battlemanger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &583961894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 583961893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4444565a4e8894f9b8586c079acdef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tictok: 100
+  curTic: 0
+  totalTurn: 0
+  turnOnOff: 1
+  runTime: 0
+  playerTurnCost: 3
+  enemyTurnCost: 1
+  playerFillCheck: {fileID: 0}
+  enemyFillCheck: {fileID: 0}
+  playerTurnCheck: {fileID: 0}
+  TurnText: {fileID: 1914073152}
+--- !u!4 &583961895
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 583961893}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 933.44293, y: 317.79922, z: -2.875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &650321374
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +442,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1027755085578716, guid: 229ad51b22bf67845842fadb5cd07880, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475428517227532, guid: 229ad51b22bf67845842fadb5cd07880,
+        type: 2}
+      propertyPath: cardObject
+      value: 
+      objectReference: {fileID: 1680180656317544, guid: 6ac12f40fe1f59c4080cb5d674959bbe,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 229ad51b22bf67845842fadb5cd07880, type: 2}
   m_IsPrefabParent: 0
@@ -404,7 +465,7 @@ GameObject:
   - component: {fileID: 949588189}
   - component: {fileID: 949588188}
   m_Layer: 0
-  m_Name: Deck
+  m_Name: PlayerDeck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -421,130 +482,127 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d910fb491ef3e5d43ba668e28a5eb062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deck:
+  container:
   - itemName: 
     itemDescription: 
     reinforceValue: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
   - itemName: 
     itemDescription: 
     reinforceValue: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
   - itemName: 
     itemDescription: 
     reinforceValue: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
   - itemName: 
     itemDescription: 
     reinforceValue: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
   - itemName: 
     itemDescription: 
     reinforceValue: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
   - itemName: 
     itemDescription: 
     reinforceValue: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
   - itemName: 
     itemDescription: 
     reinforceValue: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
   - itemName: 
     itemDescription: 
     reinforceValue: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
   - itemName: 
     itemDescription: 
     reinforceValue: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
   - itemName: 
     itemDescription: 
     reinforceValue: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
+  playerHand:
   - itemName: 
     itemDescription: 
     reinforceValue: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
   - itemName: 
     itemDescription: 
     reinforceValue: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
   - itemName: 
     itemDescription: 
     reinforceValue: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
   - itemName: 
     itemDescription: 
     reinforceValue: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
-  - itemName: 
-    itemDescription: 
-    reinforceValue: 0
-    turnCost: 0
-    cardType: 0
-    damageValue: 0
-  - itemName: 
-    itemDescription: 
-    reinforceValue: 0
-    turnCost: 0
-    cardType: 0
-    damageValue: 0
-  - itemName: 
-    itemDescription: 
-    reinforceValue: 0
-    turnCost: 0
-    cardType: 0
-    damageValue: 0
-  - itemName: 
-    itemDescription: 
-    reinforceValue: 0
-    turnCost: 0
-    cardType: 0
-    damageValue: 0
-  - itemName: 
-    itemDescription: 
-    reinforceValue: 0
-    turnCost: 0
-    cardType: 0
-    damageValue: 0
-  - itemName: 
-    itemDescription: 
-    reinforceValue: 0
-    turnCost: 0
-    cardType: 0
-    damageValue: 0
-  container: []
+    inPlayerDeck: 0
+    inPlayerHand: 0
   x: 0
-  deckSize: 0
+  y: 0
+  CardToHand: {fileID: 0}
+  CardBack: {fileID: 0}
+  Deck: {fileID: 0}
+  Clones: []
+  Hand: {fileID: 0}
 --- !u!4 &949588189
 Transform:
   m_ObjectHideFlags: 0
@@ -770,6 +828,32 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 114516175928784052, guid: ce251545215ce944fab873ea7570dbf3,
+        type: 2}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 1680180656317544, guid: 6ac12f40fe1f59c4080cb5d674959bbe,
+        type: 2}
+    - target: {fileID: 114516175928784052, guid: ce251545215ce944fab873ea7570dbf3,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114444102211148908, guid: ce251545215ce944fab873ea7570dbf3,
+        type: 2}
+      propertyPath: m_ChildForceExpandWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114444102211148908, guid: ce251545215ce944fab873ea7570dbf3,
+        type: 2}
+      propertyPath: m_ChildForceExpandHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114444102211148908, guid: ce251545215ce944fab873ea7570dbf3,
+        type: 2}
+      propertyPath: m_Spacing
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce251545215ce944fab873ea7570dbf3, type: 2}
   m_IsPrefabParent: 0
@@ -878,6 +962,46 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224664523791220724, guid: de6bcb9faac0742418d9ee987d9e39b6,
     type: 2}
   m_PrefabInternal: {fileID: 1172231293}
+--- !u!1 &1218289960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1218289962}
+  - component: {fileID: 1218289961}
+  m_Layer: 0
+  m_Name: CardDataBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1218289961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218289960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98397a6f6bdcffb47bfc3ad5db699442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1218289962
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218289960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 973.51074, y: 515.2781, z: -2.875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1506843482 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224319136605412960, guid: d5879ce3a74699746b025b99b6e35796,
@@ -1102,6 +1226,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1652414933}
+  - {fileID: 1914073154}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1122,6 +1247,80 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invisibleCard: {fileID: 0}
+--- !u!1 &1914073151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1914073154}
+  - component: {fileID: 1914073153}
+  - component: {fileID: 1914073152}
+  m_Layer: 5
+  m_Name: TurnText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1914073152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1914073151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 50
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &1914073153
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1914073151}
+--- !u!224 &1914073154
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1914073151}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1801053416}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -798, y: 476}
+  m_SizeDelta: {x: 300, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1955668655
 GameObject:
   m_ObjectHideFlags: 0

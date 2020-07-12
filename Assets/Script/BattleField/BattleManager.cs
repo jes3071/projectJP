@@ -5,19 +5,20 @@ using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour {
 
-    public static List<Card> cardList = new List<Card>();
-
-    public Dragable ddd;
-
     public int tictok = 100;
     public int curTic;
     public int totalTurn;
+
+    public bool turnOnOff = true;
+
     public float runTime = .0f;
     public int playerTurnCost = 3; // 받아올 예정
     public int enemyTurnCost = 1;
     public GameObject playerFillCheck;
     public GameObject enemyFillCheck;
     public GameObject playerTurnCheck;
+
+    public Text TurnText;
 
     //public GameObject usingCard;
 
@@ -32,15 +33,6 @@ public class BattleManager : MonoBehaviour {
         playerFillCheck = GameObject.Find("PlayerTurnCostInner");
         enemyFillCheck = GameObject.Find("EnemyTurnCostInner");
 
-        //usingCard = new Card();
-
-        //cardList[0].itemName = "??";
-        //cardList[0].itemDescription = "??";
-        //cardList[0].reinforceValue = 0;
-        //cardList[0].turnCost = 0;// usingCard.turnCost;
-        //cardList[0].cardType = 0;
-        //cardList[0].damageValue = 0;
-
         playerFillCheck.GetComponent<Image>().fillAmount = .0f;
         enemyFillCheck.GetComponent<Image>().fillAmount = .0f;
         //Debug.Log(fillCheck.gameObject);
@@ -49,6 +41,11 @@ public class BattleManager : MonoBehaviour {
     public void PlayerCostActive()
     {
         //ddd.gameObject. ==
+        if(playerTurnCheck != null)
+        {
+            playerTurnCheck.SetActive(false); // 그 전에 켜진 코스트 이미지는 꺼준다?
+        }
+
         if (playerTurnCost == 1)
         {
             playerTurnCheck = GameObject.Find("PlayerBase").transform.Find("PlayerTurnCost" + 0).gameObject;
@@ -68,14 +65,44 @@ public class BattleManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        runTime += Time.deltaTime;
+        //if (')
+        //{
+
+        //}
+        TurnText.text = ((int)runTime).ToString() + " Turn";
+
+        if(turnOnOff == true)
+        {
+            runTime += Time.deltaTime;
+        }
+        else
+        {
+            //runTime = runTime;
+        }
+        //runTime += Time.deltaTime;
+
+        if (playerFillCheck.GetComponent<Image>().fillAmount != 1 && turnOnOff == true)
+        {
+            PlayerTurnChecker();
+        }
+        else if (playerFillCheck.GetComponent<Image>().fillAmount == 1)
+        {
+            turnOnOff = false;
+        }
 
         //if (GameOn())
       //  {
-            PlayerTurnChecker();
+            //PlayerTurnChecker();
       //  }
 
     }
+
+    private void StartGame()
+    {
+        turnOnOff = true;
+    }
+
+
 
     private void PlayerTurnChecker()
     {

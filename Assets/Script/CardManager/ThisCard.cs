@@ -23,6 +23,15 @@ public class ThisCard : MonoBehaviour
     public Text cardTypeText;
     public Text damageValueText;
 
+    public GameObject Hand;
+
+    public int numberOfCardInDeck;
+
+    //private int i = 0;
+    private int rand;
+
+
+
     //public Sprite thisSprite;
     //public Image thatImage;
 
@@ -33,18 +42,18 @@ public class ThisCard : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //for (int i = 0; i < 4; i++)
-        //{
-        //    int rand = Random.Range(0, CardDataBase.cardList.Count);
-        //    thisCard[0] = CardDataBase.cardList[rand];
-        //    Draw();
-        //    //CardDataBase.cardList.RemoveAt(rand);
-        //}
-        Draw();
+        rand = Random.Range(0, PlayerDeck.playerDeck.Count);
+        thisCard[0] = PlayerDeck.playerDeck[rand];
+        numberOfCardInDeck = PlayerDeck.deckSize;
 
+        PlayerDeck.playerDeck[rand].inPlayerHand = 1;
+
+        //PlayerDeck.playerDeck.RemoveAt(rand);
+
+        DrawCard();
     }
 
-    public void Draw()
+    public void DrawCard()
     {
         itemName = thisCard[0].itemName;
         itemDescription = thisCard[0].itemDescription;
@@ -53,24 +62,32 @@ public class ThisCard : MonoBehaviour
         cardType = thisCard[0].cardType;
         damageValue = thisCard[0].damageValue;
 
-        //thisSprite = thisCard[0].thisImage;
-
-        itemNameText.text = "" + itemName;
-        itemDescriptionText.text = " " + itemDescription;
+        itemNameText.text = itemName;
+        itemDescriptionText.text = itemDescription;
         reinforceValueText.text = "" + reinforceValue;
         turnCostText.text = "" + turnCost;
         cardTypeText.text = "" + cardType;
         damageValueText.text = " " + damageValue;
-
-        //thatImage.sprite = thisSprite;
-
-        //staticCardBack = cardBack;
+        
     }
-
     // Update is called once per frame
     void Update()
     {
-        //staticCardBack = cardBack;
+        //Hand = GameObject.Find("Hand");
+        //if(this.transform.parent == Hand.transform.parent)
+        //{
+        //    //cardBack = false;
+        //}
+        
+
+
+        if (this.tag == "Clone")
+        {
+            thisCard[0] = PlayerDeck.playerDeck[numberOfCardInDeck];
+            numberOfCardInDeck -= 1;
+            PlayerDeck.deckSize -= 1;
+            this.tag = "Untagged";
+        }
 
     }
 }

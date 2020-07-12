@@ -10,6 +10,9 @@ public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private CanvasGroup canvasGroup;
     public GameObject cardObject;
 
+    float ori_x;
+    float ori_y;
+
     //public Card aaa;
 
     public bool Flag = false;
@@ -38,6 +41,8 @@ public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         //rectTransform.position.x;
         //rectTransform.BroadcastMessage("BeginDrag", transform, SendMessageOptions.DontRequireReceiver);
         //throw new System.NotImplementedException();
+        ori_x = gameObject.transform.position.x;
+        ori_y = gameObject.transform.position.y;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -51,26 +56,14 @@ public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnEndDrag");
         canvasGroup.blocksRaycasts = true;
         rectTransform.anchoredPosition = eventData.delta;
-        //Debug.Log(eventData.position);
-        if (eventData.position.x <= 700 && eventData.position.x >= 500 &&
-            eventData.position.y >= 400 && eventData.position.y <= 800)
-        {
-            //aaa.turnCost = gameObject.
-            Destroy(gameObject);
-        }
-        //Destroy(gameObject);
-        //rectTransform.BroadcastMessage("EndDrag", transform, SendMessageOptions.DontRequireReceiver);
-        //throw new System.NotImplementedException();
+
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        //gameObject.SetActive(false);
-        //Destroy(gameObject);
-        //Debug.Log("OnDrop");
+
         throw new System.NotImplementedException();
     }
 

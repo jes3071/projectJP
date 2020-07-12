@@ -14,11 +14,12 @@ public class CardDataBase : MonoBehaviour {
 
         for (var i = 0; i < data.Count; i++)
         {
-            Debug.Log("index " + (i).ToString() + ": " + data[i]["ItemName"] + " " + data[i]["ItemDescription"] + " " + data[i]["ReinforceValue"] + " " +
-                data[i]["TurnCost"] + " " + data[i]["CardType"] + " " + data[i]["DamageValue"]);
+            //Debug.Log("index " + (i).ToString() + ": " + data[i]["ItemName"] + " " + data[i]["ItemDescription"] + " " + data[i]["ReinforceValue"] + " " +
+            //    data[i]["TurnCost"] + " " + data[i]["CardType"] + " " + data[i]["DamageValue"] + " " + data[i]["InPlayerDeck"]);
             cardList.Add(new Card((string)data[i]["ItemName"], (string)data[i]["ItemDescription"],
                 (int)data[i]["ReinforceValue"], (int)data[i]["TurnCost"],
-                (int)data[i]["CardType"], (int)data[i]["DamageValue"]));
+                (int)data[i]["CardType"], (int)data[i]["DamageValue"], (int)data[i]["InPlayerDeck"],
+                (int)data[i]["InPlayerHand"]));
         }
 
         //cardList.Add(new Card()
