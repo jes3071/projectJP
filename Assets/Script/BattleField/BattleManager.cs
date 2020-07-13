@@ -38,12 +38,13 @@ public class BattleManager : MonoBehaviour {
 
 
         CardTouchBlock.GetComponent<Image>().raycastTarget = false;
+        //CardTouchBlock.SetActive(false);
 
         if (DropPoint.uCard != null)
         {
             playerCardInfo[0].itemName = DropPoint.uCard.itemName;
             playerCardInfo[0].itemDescription = DropPoint.uCard.itemDescription;
-            playerCardInfo[0].reinforceValue = DropPoint.uCard.reinforceValue;
+            playerCardInfo[0].itemType = DropPoint.uCard.itemType;
             playerCardInfo[0].turnCost = DropPoint.uCard.turnCost;
             playerCardInfo[0].cardType = DropPoint.uCard.cardType;
             playerCardInfo[0].damageValue = DropPoint.uCard.damageValue;
@@ -140,7 +141,7 @@ public class BattleManager : MonoBehaviour {
         {
             playerCardInfo[0].itemName = DropPoint.uCard.itemName;
             playerCardInfo[0].itemDescription = DropPoint.uCard.itemDescription;
-            playerCardInfo[0].reinforceValue = DropPoint.uCard.reinforceValue;
+            playerCardInfo[0].itemType = DropPoint.uCard.itemType;
             playerCardInfo[0].turnCost = DropPoint.uCard.turnCost;
             playerCardInfo[0].cardType = DropPoint.uCard.cardType;
             playerCardInfo[0].damageValue = DropPoint.uCard.damageValue;
@@ -152,7 +153,8 @@ public class BattleManager : MonoBehaviour {
             //EnemyCostActive();
             if (playerFillCheck.GetComponent<Image>().fillAmount != 1 && turnOnOff == true)
             {
-                CardTouchBlock.SetActive(true);
+                CardTouchBlock.GetComponent<Image>().raycastTarget = true;
+                //CardTouchBlock.SetActive(true);
                 PlayerTurnChecker();
             }
             if (playerFillCheck.GetComponent<Image>().fillAmount == 1)
@@ -161,7 +163,8 @@ public class BattleManager : MonoBehaviour {
                 Destroy(DropPoint.cardObject);
                 turnTime = 0;
                 turnOnOff = false;
-                CardTouchBlock.SetActive(false);
+                CardTouchBlock.GetComponent<Image>().raycastTarget = false;
+                //CardTouchBlock.SetActive(false);
                 //BattleStart();
                 playerFillCheck.GetComponent<Image>().fillAmount = .0f; // 배틀 끝나고 초기화
             }

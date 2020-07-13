@@ -11,7 +11,7 @@ public class ThisCard : MonoBehaviour
 
     public string itemName;
     public string itemDescription;
-    public int reinforceValue;
+    public int itemType;
     public int turnCost;
     public int cardType;
     public int damageValue;
@@ -19,7 +19,7 @@ public class ThisCard : MonoBehaviour
 
     public Text itemNameText;
     public Text itemDescriptionText;
-    //public Text reinforceValueText;
+    //public Text ItemTypeText;
     public Text turnCostText;
     //public Text cardTypeText;
     public Text damageValueText;
@@ -74,7 +74,7 @@ public class ThisCard : MonoBehaviour
     {
         itemName = thisCard[0].itemName;
         itemDescription = thisCard[0].itemDescription;
-        reinforceValue = thisCard[0].reinforceValue;
+        itemType = thisCard[0].itemType;
         turnCost = thisCard[0].turnCost;
         cardType = thisCard[0].cardType;
         damageValue = thisCard[0].damageValue;
@@ -82,15 +82,15 @@ public class ThisCard : MonoBehaviour
 
         if (cardType == 1) //공
         {
-            if (reinforceValue == 0) //0강
+            if (itemType == 1) //숏소드
             {
                 thisSprite = Resources.Load<Sprite>("UI/Battle/WeaponCardBase0");
             }
-            else if (reinforceValue == 1) //1강
+            else if (itemType == 2) //롱소드
             {
                 thisSprite = Resources.Load<Sprite>("UI/Battle/WeaponCardBase1");
             }
-            else if (reinforceValue == 2) //2강
+            else if (itemType == 3) //대검류
             {
                 thisSprite = Resources.Load<Sprite>("UI/Battle/WeaponCardBase2");
             }
@@ -107,15 +107,15 @@ public class ThisCard : MonoBehaviour
 
         if (cardType == 2) //방
         {
-            if (reinforceValue == 0) //0강
+            if (itemType == 1) //나무방패
             {
                 thisSprite = Resources.Load<Sprite>("UI/Battle/ShieldCardBase0");
             }
-            else if (reinforceValue == 1) //1강
+            else if (itemType == 2) //구리방패
             {
                 thisSprite = Resources.Load<Sprite>("UI/Battle/ShieldCardBase1");
             }
-            else if (reinforceValue == 2) //2강
+            else if (itemType == 3) //철,금방패
             {
                 thisSprite = Resources.Load<Sprite>("UI/Battle/ShieldCardBase2");
             }
@@ -136,7 +136,7 @@ public class ThisCard : MonoBehaviour
         //thisSprite = ;
         itemNameText.text = itemName;
         itemDescriptionText.text = itemDescription;
-        //reinforceValueText.text = "" + reinforceValue;
+        //ItemTypeText.text = "" + ItemType;
         turnCostText.text = "" + turnCost;
         //cardTypeText.text = "" + cardType;
         damageValueText.text = " " + damageValue;

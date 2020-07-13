@@ -8,7 +8,7 @@ public class Card {
    
     public string itemName;
     public string itemDescription;
-    public int reinforceValue;
+    public int itemType;
     public int turnCost;
     public int cardType;
     public int damageValue;
@@ -25,13 +25,13 @@ public class Card {
 
     }
 
-    public Card(string ItemName, string ItemDescription, int ReinforceVale, int TurnCost,
+    public Card(string ItemName, string ItemDescription, int ItemType, int TurnCost,
         int CardType, int DamageValue, int InPlayerDeck, int InPlayerHand, Sprite CardImage, Sprite ThisImage)
     {
 
         itemName = ItemName;
         itemDescription = ItemDescription;
-        reinforceValue = ReinforceVale;
+        itemType = ItemType;
         turnCost = TurnCost;
         cardType = CardType;
         damageValue = DamageValue;

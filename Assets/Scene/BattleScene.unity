@@ -249,6 +249,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4444565a4e8894f9b8586c079acdef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCardInfo:
+  - itemName: 
+    itemDescription: 
+    itemType: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   tictok: 100
   curTic: 0
   totalTurn: 0
@@ -273,7 +284,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &650321374
 GameObject:
@@ -541,7 +552,7 @@ MonoBehaviour:
   container:
   - itemName: 
     itemDescription: 
-    reinforceValue: 0
+    itemType: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
@@ -551,7 +562,7 @@ MonoBehaviour:
     thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
-    reinforceValue: 0
+    itemType: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
@@ -561,7 +572,7 @@ MonoBehaviour:
     thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
-    reinforceValue: 0
+    itemType: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
@@ -571,7 +582,7 @@ MonoBehaviour:
     thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
-    reinforceValue: 0
+    itemType: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
@@ -581,7 +592,7 @@ MonoBehaviour:
     thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
-    reinforceValue: 0
+    itemType: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
@@ -591,7 +602,7 @@ MonoBehaviour:
     thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
-    reinforceValue: 0
+    itemType: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
@@ -601,7 +612,7 @@ MonoBehaviour:
     thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
-    reinforceValue: 0
+    itemType: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
@@ -611,7 +622,7 @@ MonoBehaviour:
     thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
-    reinforceValue: 0
+    itemType: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
@@ -621,7 +632,7 @@ MonoBehaviour:
     thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
-    reinforceValue: 0
+    itemType: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
@@ -631,7 +642,7 @@ MonoBehaviour:
     thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
-    reinforceValue: 0
+    itemType: 0
     turnCost: 0
     cardType: 0
     damageValue: 0
@@ -639,47 +650,7 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  playerHand:
-  - itemName: 
-    itemDescription: 
-    reinforceValue: 0
-    turnCost: 0
-    cardType: 0
-    damageValue: 0
-    inPlayerDeck: 0
-    inPlayerHand: 0
-    cardImage: {fileID: 0}
-    thisImage: {fileID: 0}
-  - itemName: 
-    itemDescription: 
-    reinforceValue: 0
-    turnCost: 0
-    cardType: 0
-    damageValue: 0
-    inPlayerDeck: 0
-    inPlayerHand: 0
-    cardImage: {fileID: 0}
-    thisImage: {fileID: 0}
-  - itemName: 
-    itemDescription: 
-    reinforceValue: 0
-    turnCost: 0
-    cardType: 0
-    damageValue: 0
-    inPlayerDeck: 0
-    inPlayerHand: 0
-    cardImage: {fileID: 0}
-    thisImage: {fileID: 0}
-  - itemName: 
-    itemDescription: 
-    reinforceValue: 0
-    turnCost: 0
-    cardType: 0
-    damageValue: 0
-    inPlayerDeck: 0
-    inPlayerHand: 0
-    cardImage: {fileID: 0}
-    thisImage: {fileID: 0}
+  playerHand: []
   x: 0
   y: 0
   CardToHand: {fileID: 0}
@@ -698,7 +669,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &999016422
 Prefab:
@@ -902,23 +873,32 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 65055546274752994, guid: ce251545215ce944fab873ea7570dbf3,
+    - target: {fileID: 114047389987194260, guid: ce251545215ce944fab873ea7570dbf3,
         type: 2}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_Color.r
+      value: 0.7607844
       objectReference: {fileID: 0}
-    - target: {fileID: 114516175928784052, guid: ce251545215ce944fab873ea7570dbf3,
+    - target: {fileID: 114047389987194260, guid: ce251545215ce944fab873ea7570dbf3,
         type: 2}
-      propertyPath: card
+      propertyPath: m_Color.g
+      value: 0.7607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 114047389987194260, guid: ce251545215ce944fab873ea7570dbf3,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.7607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 114047389987194260, guid: ce251545215ce944fab873ea7570dbf3,
+        type: 2}
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1527116763464612, guid: 6ac12f40fe1f59c4080cb5d674959bbe,
-        type: 2}
-    - target: {fileID: 1144794185911616, guid: ce251545215ce944fab873ea7570dbf3, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 65055546274752994, guid: ce251545215ce944fab873ea7570dbf3, type: 2}
+    - target: {fileID: 114047389987194260, guid: ce251545215ce944fab873ea7570dbf3,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce251545215ce944fab873ea7570dbf3, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &1172231294 stripped
@@ -964,7 +944,47 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1232625138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1232625140}
+  - component: {fileID: 1232625139}
+  m_Layer: 0
+  m_Name: EnemyCardDataBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1232625139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1232625138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2618a9acf848b4d93124fda216c97d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1232625140
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1232625138}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 973.51074, y: 515.2781, z: -2.875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1282561876
 Prefab:
@@ -1226,6 +1246,154 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1635826067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1635826069}
+  - component: {fileID: 1635826068}
+  m_Layer: 0
+  m_Name: EnemyDeck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1635826068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1635826067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbaeef8a886115345bea4d48efdd11ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container:
+  - itemName: 
+    itemDescription: 
+    itemType: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
+  - itemName: 
+    itemDescription: 
+    itemType: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
+  - itemName: 
+    itemDescription: 
+    itemType: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
+  - itemName: 
+    itemDescription: 
+    itemType: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
+  - itemName: 
+    itemDescription: 
+    itemType: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
+  - itemName: 
+    itemDescription: 
+    itemType: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
+  - itemName: 
+    itemDescription: 
+    itemType: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
+  - itemName: 
+    itemDescription: 
+    itemType: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
+  - itemName: 
+    itemDescription: 
+    itemType: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
+  - itemName: 
+    itemDescription: 
+    itemType: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
+  x: 0
+  y: 0
+  CardToHand: {fileID: 0}
+  CardBack: {fileID: 0}
+  Deck: {fileID: 0}
+  Clones: []
+  Hand: {fileID: 0}
+--- !u!4 &1635826069
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1635826067}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 999.2661, y: 526.7254, z: -2.875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1652414932
 GameObject:

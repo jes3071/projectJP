@@ -26,7 +26,7 @@ public class DropPoint : MonoBehaviour ,IDropHandler{
             
             dropCard[0].itemName = uCard.itemName;
             dropCard[0].itemDescription = uCard.itemDescription;
-            dropCard[0].reinforceValue = uCard.reinforceValue;
+            dropCard[0].itemType = uCard.itemType;
             dropCard[0].turnCost = uCard.turnCost;
             dropCard[0].cardType = uCard.cardType;
             dropCard[0].damageValue = uCard.damageValue;
@@ -38,7 +38,7 @@ public class DropPoint : MonoBehaviour ,IDropHandler{
 
 
             PlayerDeck.playerDeck.Add(new Card(dropCard[0].itemName, dropCard[0].itemDescription,
-               dropCard[0].reinforceValue, dropCard[0].turnCost, dropCard[0].cardType, dropCard[0].damageValue,
+               dropCard[0].itemType, dropCard[0].turnCost, dropCard[0].cardType, dropCard[0].damageValue,
                1, 0, null, null));
 
             //uCard = null;

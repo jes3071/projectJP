@@ -12,7 +12,7 @@ public class test : MonoBehaviour {
 
         for(var i = 0; i < data.Count; i++)
         {
-            Debug.Log("index " + (i).ToString() + ": " + data[i]["ItemName"] + " " + data[i]["ItemDescription"] + " " + data[i]["ReinforceValue"] + " " +
+            Debug.Log("index " + (i).ToString() + ": " + data[i]["ItemName"] + " " + data[i]["ItemDescription"] + " " + data[i]["ItemType"] + " " +
                 data[i]["TurnCost"] + " " + data[i]["CardType"] + " " + data[i]["DamageValue"]);
         }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardDataBase : MonoBehaviour {
+public class EnemyCardDataBase : MonoBehaviour {
 
     public object _index;
 
@@ -19,11 +19,11 @@ public class CardDataBase : MonoBehaviour {
             cardList.Add(new Card((string)data[i]["ItemName"], (string)data[i]["ItemDescription"],
                 (int)data[i]["ItemType"], (int)data[i]["TurnCost"],
                 (int)data[i]["CardType"], (int)data[i]["DamageValue"], (int)data[i]["InPlayerDeck"],
-                (int)data[i]["InPlayerHand"],Resources.Load<Sprite>(""), Resources.Load<Sprite>("") ));
+                (int)data[i]["InPlayerHand"], Resources.Load<Sprite>(""), Resources.Load<Sprite>("")));
         }
 
         //cardList.Add(new Card()
         //cardList.Add(new Card(0, "용사의 검", 3, 3, "Sword", Resources.Load <Sprite>("1")));
-        
+
     }
 }
