@@ -5,13 +5,15 @@ using UnityEngine.EventSystems;
 
 public class DropPoint : MonoBehaviour ,IDropHandler{
 
-    public List<Card> uCard = new List<Card>();
+    public List<Card> dropCard = new List<Card>(new Card[1]);
 
-    public GameObject cardObject;
+    public static ThisCard uCard;
+
+    public static GameObject cardObject;
 
     private void Awake()
     {
-        cardObject = GetComponent<GameObject>();
+        //cardObject = GetComponent<GameObject>();
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -19,12 +21,31 @@ public class DropPoint : MonoBehaviour ,IDropHandler{
         //Debug.Log("OnDrop");
         if(eventData.pointerDrag != null)
         {
-            Debug.Log("효과를 발동한다!");
-            //uCard. = eventData.pointerDrag;
+            cardObject = eventData.pointerDrag;
+            uCard = cardObject.GetComponent<ThisCard>();
+            
+            dropCard[0].itemName = uCard.itemName;
+            dropCard[0].itemDescription = uCard.itemDescription;
+            dropCard[0].reinforceValue = uCard.reinforceValue;
+            dropCard[0].turnCost = uCard.turnCost;
+            dropCard[0].cardType = uCard.cardType;
+            dropCard[0].damageValue = uCard.damageValue;
 
-            //eventData.pointerDrag = cardObject;
+            Debug.Log(uCard.itemName);
+            uCard.inPlayerHand = 0;
 
-            Destroy(eventData.pointerDrag);
+            eventData.pointerDrag.SetActive(false);
+
+
+            PlayerDeck.playerDeck.Add(new Card(dropCard[0].itemName, dropCard[0].itemDescription,
+               dropCard[0].reinforceValue, dropCard[0].turnCost, dropCard[0].cardType, dropCard[0].damageValue,
+               1, 0, null, null));
+
+            //uCard = null;
+
+            BattleManager.turnOnOff = true;
+
+            //CardSpawn.curCount--;
         }
     }
 }

@@ -10,9 +10,6 @@ public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private CanvasGroup canvasGroup;
     public GameObject cardObject;
 
-    float ori_x;
-    float ori_y;
-
     //public Card aaa;
 
     public bool Flag = false;
@@ -36,13 +33,6 @@ public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         //Debug.Log("OnBeginDrag");
         canvasGroup.blocksRaycasts = false;
-
-        //workingArranger = arrangers.Find(t => ContainPos(t.transform as RectTransform, eventData.position));
-        //rectTransform.position.x;
-        //rectTransform.BroadcastMessage("BeginDrag", transform, SendMessageOptions.DontRequireReceiver);
-        //throw new System.NotImplementedException();
-        ori_x = gameObject.transform.position.x;
-        ori_y = gameObject.transform.position.y;
     }
 
     public void OnDrag(PointerEventData eventData)

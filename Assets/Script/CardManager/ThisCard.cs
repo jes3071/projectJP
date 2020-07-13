@@ -15,12 +15,13 @@ public class ThisCard : MonoBehaviour
     public int turnCost;
     public int cardType;
     public int damageValue;
+    public int inPlayerHand;
 
     public Text itemNameText;
     public Text itemDescriptionText;
-    public Text reinforceValueText;
+    //public Text reinforceValueText;
     public Text turnCostText;
-    public Text cardTypeText;
+    //public Text cardTypeText;
     public Text damageValueText;
 
     public GameObject Hand;
@@ -32,8 +33,11 @@ public class ThisCard : MonoBehaviour
 
 
 
-    //public Sprite thisSprite;
-    //public Image thatImage;
+    public Sprite cardSprite;
+    public Image cardImage;
+
+    public Sprite thisSprite;
+    public Image thisimage;
 
     //public bool cardBack;
     //public static bool staticCardBack;
@@ -43,10 +47,23 @@ public class ThisCard : MonoBehaviour
     void Start()
     {
         rand = Random.Range(0, PlayerDeck.playerDeck.Count);
+
+        while(PlayerDeck.playerDeck[rand].inPlayerHand == 1)
+            rand = Random.Range(0, PlayerDeck.playerDeck.Count);
+        //if (PlayerDeck.playerDeck[rand].inPlayerHand == 1)
+
+
+        //rand = Random.Range(0, PlayerDeck.playerDeck.Count);
+        //Debug.Log(PlayerDeck.playerDeck[rand].itemName);
         thisCard[0] = PlayerDeck.playerDeck[rand];
         numberOfCardInDeck = PlayerDeck.deckSize;
 
         PlayerDeck.playerDeck[rand].inPlayerHand = 1;
+
+        
+        //Debug.Log("1");
+
+
 
         //PlayerDeck.playerDeck.RemoveAt(rand);
 
@@ -61,14 +78,74 @@ public class ThisCard : MonoBehaviour
         turnCost = thisCard[0].turnCost;
         cardType = thisCard[0].cardType;
         damageValue = thisCard[0].damageValue;
+        inPlayerHand = thisCard[0].inPlayerHand;
 
+        if (cardType == 1) //공
+        {
+            if (reinforceValue == 0) //0강
+            {
+                thisSprite = Resources.Load<Sprite>("UI/Battle/WeaponCardBase0");
+            }
+            else if (reinforceValue == 1) //1강
+            {
+                thisSprite = Resources.Load<Sprite>("UI/Battle/WeaponCardBase1");
+            }
+            else if (reinforceValue == 2) //2강
+            {
+                thisSprite = Resources.Load<Sprite>("UI/Battle/WeaponCardBase2");
+            }
+
+            for(int i = 0; i < 10; i++)
+            {
+                if(damageValue == i)
+                {
+                    cardSprite = Resources.Load<Sprite>("UI/Battle/Item/WeaponCardItemImage" + i);
+                    break;
+                }
+            }
+        }
+
+        if (cardType == 2) //방
+        {
+            if (reinforceValue == 0) //0강
+            {
+                thisSprite = Resources.Load<Sprite>("UI/Battle/ShieldCardBase0");
+            }
+            else if (reinforceValue == 1) //1강
+            {
+                thisSprite = Resources.Load<Sprite>("UI/Battle/ShieldCardBase1");
+            }
+            else if (reinforceValue == 2) //2강
+            {
+                thisSprite = Resources.Load<Sprite>("UI/Battle/ShieldCardBase2");
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                if (damageValue == i)
+                {
+                    cardSprite = Resources.Load<Sprite>("UI/Battle/Item/ShieldCardItemImage" + i);
+                    break;
+                }
+            }
+        }
+
+        //cardSprite = thisCard[0].cardImage; //검 방패
+        //thisSprite = thisCard[0].thisImage; //겉 테두리, 공방
+
+        //thisSprite = GameObject.Find("PlayerTurnCostInner");
+        //thisSprite = ;
         itemNameText.text = itemName;
         itemDescriptionText.text = itemDescription;
-        reinforceValueText.text = "" + reinforceValue;
+        //reinforceValueText.text = "" + reinforceValue;
         turnCostText.text = "" + turnCost;
-        cardTypeText.text = "" + cardType;
+        //cardTypeText.text = "" + cardType;
         damageValueText.text = " " + damageValue;
-        
+
+        cardImage.sprite = cardSprite;
+        thisimage.sprite = thisSprite;
+        cardImage.SetNativeSize();
+        thisimage.SetNativeSize();
+
     }
     // Update is called once per frame
     void Update()
@@ -78,7 +155,7 @@ public class ThisCard : MonoBehaviour
         //{
         //    //cardBack = false;
         //}
-        
+        //DrawCard();
 
 
         if (this.tag == "Clone")

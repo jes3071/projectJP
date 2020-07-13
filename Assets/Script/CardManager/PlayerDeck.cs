@@ -7,7 +7,7 @@ public class PlayerDeck : MonoBehaviour {
 
     public static List<Card> playerDeck = new List<Card>(new Card[10]);
     public List<Card> container = new List<Card>(new Card[10]);
-    public List<Card> playerHand = new List<Card>(new Card[4]);
+    public List<Card> playerHand = new List<Card>();
 
     public int x;
     public int y;
@@ -28,7 +28,7 @@ public class PlayerDeck : MonoBehaviour {
         deckSize = 20;
 
         //플레이어 덱에 구성되는 10장의 카드
-        for(int i=0 ; i < deckSize; i++)
+        for (int i = 0; i < deckSize; i++) 
         {
             if(CardDataBase.cardList[i].inPlayerDeck == 1)
             {
@@ -41,7 +41,7 @@ public class PlayerDeck : MonoBehaviour {
 
         //SeeDeck();
 
-        StartCoroutine(StartGame());
+        //StartCoroutine(StartGame());
 
     }
 
@@ -49,32 +49,23 @@ public class PlayerDeck : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        for (int i = 0; i < playerDeck.Count; i++)
-        {
-            container[i] = playerDeck[i];
-        }
-
-        y = 0;
-        for (int j = 0; j < playerDeck.Count; j++)
-        {
-            if (playerDeck[j].inPlayerHand == 1)
-            {
-                playerHand[y] = playerDeck[j];
-                y++;
-            }
-
-        }
-
         for (int j = 0; j < playerDeck.Count; j++)
         {
             if (playerDeck[j].inPlayerHand == 1)
             {
                 playerDeck.RemoveAt(j);
-                container.RemoveAt(j);
+                //container.RemoveAt(j);
                 //Debug.Log("1");
             }
 
         }
+        for (int i = 0; i < playerDeck.Count; i++)
+        {
+            container[i] = playerDeck[i];
+        }
+
+
+
     }
 
     public void SeeDeck()

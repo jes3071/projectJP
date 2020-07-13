@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -252,13 +252,15 @@ MonoBehaviour:
   tictok: 100
   curTic: 0
   totalTurn: 0
-  turnOnOff: 1
   runTime: 0
+  turnTime: 0
   playerTurnCost: 3
   enemyTurnCost: 1
   playerFillCheck: {fileID: 0}
   enemyFillCheck: {fileID: 0}
   playerTurnCheck: {fileID: 0}
+  enemyTurnCheck: {fileID: 0}
+  CardTouchBlock: {fileID: 0}
   TurnText: {fileID: 1914073152}
 --- !u!4 &583961895
 Transform:
@@ -545,6 +547,8 @@ MonoBehaviour:
     damageValue: 0
     inPlayerDeck: 0
     inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
     reinforceValue: 0
@@ -553,6 +557,8 @@ MonoBehaviour:
     damageValue: 0
     inPlayerDeck: 0
     inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
     reinforceValue: 0
@@ -561,6 +567,8 @@ MonoBehaviour:
     damageValue: 0
     inPlayerDeck: 0
     inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
     reinforceValue: 0
@@ -569,6 +577,8 @@ MonoBehaviour:
     damageValue: 0
     inPlayerDeck: 0
     inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
     reinforceValue: 0
@@ -577,6 +587,8 @@ MonoBehaviour:
     damageValue: 0
     inPlayerDeck: 0
     inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
     reinforceValue: 0
@@ -585,6 +597,8 @@ MonoBehaviour:
     damageValue: 0
     inPlayerDeck: 0
     inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
     reinforceValue: 0
@@ -593,6 +607,8 @@ MonoBehaviour:
     damageValue: 0
     inPlayerDeck: 0
     inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
     reinforceValue: 0
@@ -601,6 +617,8 @@ MonoBehaviour:
     damageValue: 0
     inPlayerDeck: 0
     inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
     reinforceValue: 0
@@ -609,6 +627,8 @@ MonoBehaviour:
     damageValue: 0
     inPlayerDeck: 0
     inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
     reinforceValue: 0
@@ -617,6 +637,8 @@ MonoBehaviour:
     damageValue: 0
     inPlayerDeck: 0
     inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   playerHand:
   - itemName: 
     itemDescription: 
@@ -626,6 +648,8 @@ MonoBehaviour:
     damageValue: 0
     inPlayerDeck: 0
     inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
     reinforceValue: 0
@@ -634,6 +658,8 @@ MonoBehaviour:
     damageValue: 0
     inPlayerDeck: 0
     inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
     reinforceValue: 0
@@ -642,6 +668,8 @@ MonoBehaviour:
     damageValue: 0
     inPlayerDeck: 0
     inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   - itemName: 
     itemDescription: 
     reinforceValue: 0
@@ -650,6 +678,8 @@ MonoBehaviour:
     damageValue: 0
     inPlayerDeck: 0
     inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   x: 0
   y: 0
   CardToHand: {fileID: 0}
@@ -872,7 +902,23 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 65055546274752994, guid: ce251545215ce944fab873ea7570dbf3,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114516175928784052, guid: ce251545215ce944fab873ea7570dbf3,
+        type: 2}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 1527116763464612, guid: 6ac12f40fe1f59c4080cb5d674959bbe,
+        type: 2}
+    - target: {fileID: 1144794185911616, guid: ce251545215ce944fab873ea7570dbf3, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 65055546274752994, guid: ce251545215ce944fab873ea7570dbf3, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ce251545215ce944fab873ea7570dbf3, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &1172231294 stripped
@@ -920,6 +966,106 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1282561876
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 292701903}
+    m_Modifications:
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -743
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224881638307272362, guid: d70a90b4e00fe524286de9cbe9e970d5,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d70a90b4e00fe524286de9cbe9e970d5, type: 2}
+  m_IsPrefabParent: 0
 --- !u!224 &1506843482 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224319136605412960, guid: d5879ce3a74699746b025b99b6e35796,
