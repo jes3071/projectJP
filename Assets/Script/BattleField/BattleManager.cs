@@ -39,7 +39,7 @@ public class BattleManager : MonoBehaviour {
     void Start () {
 
 
-        CardTouchBlock.GetComponent<Image>().raycastTarget = false;
+        //CardTouchBlock.GetComponent<Image>().raycastTarget = false;
 
         timer = .0f;
         CostValueInitialize();
@@ -86,6 +86,7 @@ public class BattleManager : MonoBehaviour {
             enemyFillCheck.GetComponent<Image>().fillAmount = .0f;
             enemyTurnCheck.SetActive(false);
         }
+        CardTouchBlock.GetComponent<Image>().raycastTarget = false;
     }
 
     public void PlayerCostActive()
@@ -206,10 +207,11 @@ public class BattleManager : MonoBehaviour {
                 Destroy(DropPoint.cardObject);
                 turnTime = 0;
                 turnOnOff = false;
-                CardTouchBlock.GetComponent<Image>().raycastTarget = false;
+                
                 //CardTouchBlock.SetActive(false);
                 //BattleStart();
                 Invoke("CostValueInitialize", 1);
+                //CardTouchBlock.GetComponent<Image>().raycastTarget = false;
                 //playerFillCheck.GetComponent<Image>().fillAmount = .0f; // 배틀 끝나고 초기화
             }
         }

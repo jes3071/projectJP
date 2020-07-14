@@ -10,7 +10,7 @@ public class CardDataBase : MonoBehaviour {
 
     void Awake()
     {
-        List<Dictionary<string, object>> data = CSVReader.Read("GameData - Card");
+        List<Dictionary<string, object>> data = CSVReader.Read("GameData/GameData - Card");
 
         for (var i = 0; i < data.Count; i++)
         {

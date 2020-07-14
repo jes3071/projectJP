@@ -40,9 +40,14 @@ public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         //Debug.Log("OnDrag");
         //transform.position = eventData.position;
         rectTransform.anchoredPosition += eventData.delta;
-        //rectTransform.BroadcastMessage("Drag", transform, SendMessageOptions.DontRequireReceiver);
-        //throw new System.NotImplementedException();
-    }
+        if (eventData.pointerDrag != null)
+        {
+            Debug.Log("1");
+        }
+
+            //rectTransform.BroadcastMessage("Drag", transform, SendMessageOptions.DontRequireReceiver);
+            //throw new System.NotImplementedException();
+        }
 
     public void OnEndDrag(PointerEventData eventData)
     {
