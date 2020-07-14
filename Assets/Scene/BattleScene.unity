@@ -113,6 +113,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &152867112 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114936758183658930, guid: 229ad51b22bf67845842fadb5cd07880,
+    type: 2}
+  m_PrefabInternal: {fileID: 785380163}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!224 &292701903 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224390490209585670, guid: 229ad51b22bf67845842fadb5cd07880,
@@ -447,6 +453,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114564954932313424, guid: 229ad51b22bf67845842fadb5cd07880,
+        type: 2}
+      propertyPath: state
+      value: 
+      objectReference: {fileID: 1808797163}
+    - target: {fileID: 114564954932313424, guid: 229ad51b22bf67845842fadb5cd07880,
+        type: 2}
+      propertyPath: damageValueText
+      value: 
+      objectReference: {fileID: 152867112}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 229ad51b22bf67845842fadb5cd07880, type: 2}
   m_IsPrefabParent: 0
@@ -869,6 +885,22 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1140290374484296, guid: ce251545215ce944fab873ea7570dbf3, type: 2}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662128923664942, guid: ce251545215ce944fab873ea7570dbf3, type: 2}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310549622544386, guid: ce251545215ce944fab873ea7570dbf3, type: 2}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813616375372814, guid: ce251545215ce944fab873ea7570dbf3, type: 2}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce251545215ce944fab873ea7570dbf3, type: 2}
   m_IsPrefabParent: 0
@@ -1048,6 +1080,7 @@ GameObject:
   - component: {fileID: 1619903672}
   - component: {fileID: 1619903671}
   - component: {fileID: 1619903670}
+  - component: {fileID: 1619903674}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1118,6 +1151,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1619903674
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1619903669}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ab294ad7e4f9434468780d97820ad295, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 1
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1635826067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,6 +1534,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invisibleCard: {fileID: 0}
+--- !u!114 &1808797163 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114513566808166032, guid: 229ad51b22bf67845842fadb5cd07880,
+    type: 2}
+  m_PrefabInternal: {fileID: 785380163}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1914073151
 GameObject:
   m_ObjectHideFlags: 0
