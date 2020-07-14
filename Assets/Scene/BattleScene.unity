@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -218,6 +218,18 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5879ce3a74699746b025b99b6e35796, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &376664349 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114564954932313424, guid: 229ad51b22bf67845842fadb5cd07880,
+    type: 2}
+  m_PrefabInternal: {fileID: 1539107263}
+  m_Script: {fileID: 11500000, guid: 56eb2c665bf693d4ea0fcad50fb79c06, type: 3}
+--- !u!114 &394656002 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114416860307445008, guid: 229ad51b22bf67845842fadb5cd07880,
+    type: 2}
+  m_PrefabInternal: {fileID: 1539107263}
+  m_Script: {fileID: 11500000, guid: 2f183cb6aed211342a380eb094eb46f8, type: 3}
 --- !u!1 &583961893
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +273,7 @@ MonoBehaviour:
   totalTurn: 0
   runTime: 0
   turnTime: 0
+  eTurnTime: 0
   playerTurnCost: 3
   enemyTurnCost: 1
   playerFillCheck: {fileID: 0}
@@ -268,7 +281,9 @@ MonoBehaviour:
   playerTurnCheck: {fileID: 0}
   enemyTurnCheck: {fileID: 0}
   CardTouchBlock: {fileID: 0}
-  equipCard: {fileID: 0}
+  playerEquipCard: {fileID: 376664349}
+  enemyEquipCard: {fileID: 1220975832}
+  enemyCard: {fileID: 394656002}
   TurnText: {fileID: 1914073152}
 --- !u!4 &583961895
 Transform:
@@ -718,6 +733,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1220975832 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114048751273958156, guid: 229ad51b22bf67845842fadb5cd07880,
+    type: 2}
+  m_PrefabInternal: {fileID: 1539107263}
+  m_Script: {fileID: 11500000, guid: bab6085d3af509e43b6f5242afff5a3e, type: 3}
 --- !u!1 &1232625138
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,43 +21,64 @@ public class Enemy : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        //cardObject = GetComponent<GameObject>();
         hp = 10;
-        //ackValue = 0;
-        //shieldValue = 0;
+        damageValue = 0;
+        ackValue = 0;
+        shieldValue = 0;
 
         hpText.text = "" + hp;
-        //ackValueText.text = "" + ackValue;
-        //shieldValueText.text = "" + shieldValue;
+        damageValueText.text = "" + damageValue;
+        ackValueText.text = "" + ackValue;
+        shieldValueText.text = "" + shieldValue;
+        state.sprite = null;
     }
 
     public void Equip()
     {
-        //ackValue = 0;
-        //shieldValue = 0;
 
+        damageValue = EnemyCard.damageValue;
+        if (EnemyCard.cardType == 1)
+        {
+            //리소스에서 공격 이미지 불러오기
+            cardType = Resources.Load<Sprite>("UI/AttackState");
+            state.sprite = cardType;
+        }
+        else
+        {
+            //리소스에서 방어 이미지 불러오기
+            cardType = Resources.Load<Sprite>("UI/ShieldState");
+            state.sprite = cardType;
+        }
 
-        //if (DropPoint.uCard.cardType == 1)
-        //{
-        //    ackValue = DropPoint.uCard.damageValue;
-        //}
-        //else
-        //{
-        //    shieldValue = DropPoint.uCard.damageValue;
-        //}
+        damageValueText.text = "" + damageValue;
+    }
 
-        //hpText.text = "" + hp;
-        //ackValueText.text = "" + ackValue;
-        //shieldValueText.text = "" + shieldValue;
+    public void UnEquip()
+    {
+        state.sprite = null;
+        damageValueText.text = "";
+    }
+
+    public void Apply() // 실제 공 방에 적용되는 부분
+    {
+        if (EnemyCard.cardType == 1)
+        {
+            ackValue = damageValue;
+            ackValueText.text = "" + ackValue;
+        }
+        else
+        {
+            shieldValue += damageValue;
+            shieldValueText.text = "" + shieldValue;
+        }
+
+        hpText.text = "" + hp;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (DropPoint.uCard != null)
-        //{
-        //    Equip();
-        //}
-        hpText.text = "" + hp;
+
     }
 }
