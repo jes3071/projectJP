@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ec9c70111119cdb43b0cc6fd68ff3eb8
+guid: fe531f7c6708e9041ad9b881eee38ff2
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -61,7 +61,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -71,7 +71,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
