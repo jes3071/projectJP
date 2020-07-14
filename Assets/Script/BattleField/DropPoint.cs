@@ -23,7 +23,7 @@ public class DropPoint : MonoBehaviour ,IDropHandler{
         {
             cardObject = eventData.pointerDrag;
             uCard = cardObject.GetComponent<ThisCard>();
-            
+
             dropCard[0].itemName = uCard.itemName;
             dropCard[0].itemDescription = uCard.itemDescription;
             dropCard[0].itemType = uCard.itemType;
