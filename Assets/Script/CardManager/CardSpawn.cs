@@ -33,8 +33,8 @@ public class CardSpawn : MonoBehaviour {
                 break;
             }
         }
-    
 
+        
         //curTime += Time.deltaTime;
     }
 

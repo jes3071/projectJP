@@ -3,24 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+public class Dragable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
-    //public card
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    public GameObject cardObject;
-
-    //public Card aaa;
-
-    public bool Flag = false;
+    public GameObject parentObject;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        cardObject = GetComponent<GameObject>();
-        //aaa = GetComponent<Card>();
-
+        parentObject = transform.parent.gameObject;
     }
 
     // Update is called once per frame
@@ -29,10 +22,17 @@ public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         
     }
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        parentObject.transform.SetAsLastSibling();
+        //throw new System.NotImplementedException();
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         //Debug.Log("OnBeginDrag");
         canvasGroup.blocksRaycasts = false;
+        
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -40,14 +40,10 @@ public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         //Debug.Log("OnDrag");
         //transform.position = eventData.position;
         rectTransform.anchoredPosition += eventData.delta;
-        if (eventData.pointerDrag != null)
-        {
-            Debug.Log("1");
-        }
 
-            //rectTransform.BroadcastMessage("Drag", transform, SendMessageOptions.DontRequireReceiver);
-            //throw new System.NotImplementedException();
-        }
+        //rectTransform.BroadcastMessage("Drag", transform, SendMessageOptions.DontRequireReceiver);
+        //throw new System.NotImplementedException();
+    }
 
     public void OnEndDrag(PointerEventData eventData)
     {
@@ -58,8 +54,10 @@ public class Dragable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnDrop(PointerEventData eventData)
     {
-
-        throw new System.NotImplementedException();
+        if (eventData.pointerDrag != null)
+        {
+            return;
+        }
+            throw new System.NotImplementedException();
     }
-
 }

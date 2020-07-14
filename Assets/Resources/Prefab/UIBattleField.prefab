@@ -1470,6 +1470,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   hpText: {fileID: 114381376336331422}
+  damageValueText: {fileID: 114936758183658930}
+  cardType: {fileID: 0}
+  state: {fileID: 114513566808166032}
   card: {fileID: 0}
 --- !u!114 &114587497799194868
 MonoBehaviour:
