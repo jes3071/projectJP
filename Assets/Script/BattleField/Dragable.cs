@@ -32,7 +32,7 @@ public class Dragable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         //Debug.Log("OnBeginDrag");
         canvasGroup.blocksRaycasts = false;
-        
+        //Debug.Log(eventData.delta);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -48,8 +48,8 @@ public class Dragable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
-        rectTransform.anchoredPosition = eventData.delta;
-
+        //eventData.delta = (0, 0);
+        rectTransform.anchoredPosition = new Vector2(0, 0);
     }
 
     public void OnDrop(PointerEventData eventData)
