@@ -11,6 +11,8 @@ public class DropPoint : MonoBehaviour ,IDropHandler{
 
     public static GameObject cardObject;
 
+    public Player equipCard;
+
     private void Awake()
     {
         //cardObject = GetComponent<GameObject>();
@@ -42,6 +44,8 @@ public class DropPoint : MonoBehaviour ,IDropHandler{
                1, 0, null, null));
 
             //uCard = null;
+
+            equipCard.Equip(); // 장비 장착
 
             BattleManager.turnOnOff = true;
 

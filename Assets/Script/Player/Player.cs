@@ -9,31 +9,33 @@ public class Player : MonoBehaviour {
     public static int hp;
 
     public static int damageValue;
+    public int ackValue;
+    public int shieldValue;
 
     public Text hpText;
     public Text damageValueText;
+    public Text ackValueText;
+    public Text shieldValueText;
     public Sprite cardType;
     public Image state;
-
-   // public GameObject cardObject;
-    public ThisCard card;
-
 
     // Use this for initialization
     void Start () {
         //cardObject = GetComponent<GameObject>();
         hp = 10;
         damageValue = 0;
+        ackValue = 0;
+        shieldValue = 0;
 
         hpText.text = "" + hp;
         damageValueText.text = "" + damageValue;
+        ackValueText.text = "" + ackValue;
+        shieldValueText.text = "" + shieldValue;
         state.sprite = null;
     }
 
-    public void Equip()
+    public void Equip() //장착한거 보여주는 용
     {
-        //damageValue = 0;
-
         damageValue = DropPoint.uCard.damageValue;
         if (DropPoint.uCard.cardType == 1)
         {
@@ -48,16 +50,34 @@ public class Player : MonoBehaviour {
             state.sprite = cardType;
         }
 
-        hpText.text = "" + hp;
         damageValueText.text = "" + damageValue;
-        //shieldValueText.text = "" + shieldValue;
+    }
+
+    public void UnEquip()
+    {
+        state.sprite = null;
+        damageValueText.text = "";
+    }
+
+    public void Apply() // 실제 공 방에 적용되는 부분
+    {
+        if (DropPoint.uCard.cardType == 1)
+        {
+            ackValue = damageValue;
+            ackValueText.text = "" + ackValue;
+        }
+        else
+        {
+            shieldValue += damageValue;
+            shieldValueText.text = "" + shieldValue;
+        }
+
+        hpText.text = "" + hp;
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if(DropPoint.uCard != null)
-        {
-            Equip();
-        }
+
 	}
 }

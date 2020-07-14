@@ -26,6 +26,8 @@ public class BattleManager : MonoBehaviour {
 
     public GameObject CardTouchBlock;
 
+    public Player equipCard;
+
     public Text TurnText;
 
     //public GameObject usingCard;
@@ -202,12 +204,12 @@ public class BattleManager : MonoBehaviour {
                 }
 
 
-
+                equipCard.Apply(); // 공 방 적용
                 DropPoint.uCard = null; //해당 업데이트안에 있는 if문 발동 해제용
                 Destroy(DropPoint.cardObject);
                 turnTime = 0;
                 turnOnOff = false;
-                
+                equipCard.UnEquip();
                 //CardTouchBlock.SetActive(false);
                 //BattleStart();
                 Invoke("CostValueInitialize", 1);

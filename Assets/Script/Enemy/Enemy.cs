@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
-    public int level;
     public static int hp;
-    //public int ackValue;
-    //public int shieldValue;
+
+    public static int damageValue;
+    public int ackValue;
+    public int shieldValue;
 
     public Text hpText;
-    //public Text ackValueText;
-    //public Text shieldValueText;
-
-    // public GameObject cardObject;
-    public ThisCard card;
-
+    public Text damageValueText;
+    public Text ackValueText;
+    public Text shieldValueText;
+    public Sprite cardType;
+    public Image state;
 
     // Use this for initialization
     void Start()
