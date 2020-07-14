@@ -74,13 +74,13 @@ public class BattleManager : MonoBehaviour {
     {
         for(int i = 0; i < 3; i++)
         {
-            playerTurnCheck = GameObject.Find("PlayerBase").transform.Find("PlayerTurnCost" + i).gameObject;
+            playerTurnCheck = GameObject.Find("Player").transform.Find("PlayerTurnCost" + i).gameObject;
             playerTurnCheck.SetActive(true);
             playerFillCheck = GameObject.Find("PlayerTurnCostInner");
             playerFillCheck.GetComponent<Image>().fillAmount = .0f;
             playerTurnCheck.SetActive(false);
 
-            enemyTurnCheck = GameObject.Find("EnemyBase").transform.Find("EnemyTurnCost" + 0).gameObject;
+            enemyTurnCheck = GameObject.Find("Enemy").transform.Find("EnemyTurnCost" + 0).gameObject;
             enemyTurnCheck.SetActive(true);
             enemyFillCheck = GameObject.Find("EnemyTurnCostInner");
             enemyFillCheck.GetComponent<Image>().fillAmount = .0f;
@@ -98,16 +98,16 @@ public class BattleManager : MonoBehaviour {
 
         if (playerTurnCost == 1)
         {
-            playerTurnCheck = GameObject.Find("PlayerBase").transform.Find("PlayerTurnCost" + 0).gameObject;
+            playerTurnCheck = GameObject.Find("Player").transform.Find("PlayerTurnCost" + 0).gameObject;
             playerTurnCheck.SetActive(true);
         }
         else if (playerTurnCost == 2)
         {
-            playerTurnCheck = GameObject.Find("PlayerBase").transform.Find("PlayerTurnCost" + 1).gameObject;
+            playerTurnCheck = GameObject.Find("Player").transform.Find("PlayerTurnCost" + 1).gameObject;
             playerTurnCheck.SetActive(true);
         }
         else if (playerTurnCost == 3) {
-            playerTurnCheck = GameObject.Find("PlayerBase").transform.Find("PlayerTurnCost" + 2).gameObject;
+            playerTurnCheck = GameObject.Find("Player").transform.Find("PlayerTurnCost" + 2).gameObject;
             playerTurnCheck.SetActive(true);
         }
 
@@ -125,17 +125,17 @@ public class BattleManager : MonoBehaviour {
 
         if (enemyTurnCost == 1)
         {
-            enemyTurnCheck = GameObject.Find("EnemyBase").transform.Find("EnemyTurnCost" + 0).gameObject;
+            enemyTurnCheck = GameObject.Find("Enemy").transform.Find("EnemyTurnCost" + 0).gameObject;
             enemyTurnCheck.SetActive(true);
         }
         else if (enemyTurnCost == 2)
         {
-            enemyTurnCheck = GameObject.Find("EnemyBase").transform.Find("EnemyTurnCost" + 1).gameObject;
+            enemyTurnCheck = GameObject.Find("Enemy").transform.Find("EnemyTurnCost" + 1).gameObject;
             enemyTurnCheck.SetActive(true);
         }
         else if (enemyTurnCost == 3)
         {
-            enemyTurnCheck = GameObject.Find("EnemyBase").transform.Find("EnemyTurnCost" + 2).gameObject;
+            enemyTurnCheck = GameObject.Find("Enemy").transform.Find("EnemyTurnCost" + 2).gameObject;
             enemyTurnCheck.SetActive(true);
         }
 
@@ -196,7 +196,7 @@ public class BattleManager : MonoBehaviour {
                 //플레이어랑 적 누가 방어를 사용했는지, 사용했으면 방어 먼저 사용하게
                 if(playerCardInfo[0].cardType == 1) // 공격 , 뒤에 && 적이 공격...등
                 {
-                    Enemy.hp -= Player.ackValue;
+                    Enemy.hp -= Player.damageValue;
                     Debug.Log("적을 공격!");
                 }
 

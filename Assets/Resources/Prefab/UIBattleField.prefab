@@ -52,6 +52,8 @@ GameObject:
   m_Component:
   - component: {fileID: 224025579691357762}
   - component: {fileID: 222907322743053396}
+  - component: {fileID: 114564954932313424}
+  - component: {fileID: 114602221030530138}
   m_Layer: 5
   m_Name: Player
   m_TagString: Untagged
@@ -452,7 +454,7 @@ GameObject:
   - component: {fileID: 222108297948763322}
   - component: {fileID: 114291913965647960}
   m_Layer: 5
-  m_Name: PlayerBase
+  m_Name: EnemyBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -532,6 +534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224323481096169864}
   - component: {fileID: 222480505502037876}
+  - component: {fileID: 114048751273958156}
   m_Layer: 5
   m_Name: Enemy
   m_TagString: Untagged
@@ -732,6 +735,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114048751273958156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1691314942294834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab6085d3af509e43b6f5242afff5a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  hpText: {fileID: 114102193664813088}
+  card: {fileID: 0}
 --- !u!114 &114050461587263282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1194,6 +1211,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114564954932313424
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1045715220586374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb2c665bf693d4ea0fcad50fb79c06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  hpText: {fileID: 114381376336331422}
+  card: {fileID: 0}
 --- !u!114 &114587497799194868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1221,6 +1252,28 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114602221030530138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1045715220586374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fbb9c9323490854093a81b638949230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropCard:
+  - itemName: 
+    itemDescription: 
+    itemType: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
 --- !u!114 &114612039309172028
 MonoBehaviour:
   m_ObjectHideFlags: 1
