@@ -101,16 +101,16 @@ public class BattleManager : MonoBehaviour {
 
         if (playerTurnCost == 1)
         {
-            playerTurnCheck = GameObject.Find("Player").transform.Find("PlayerTurnCost" + 0).gameObject;
+            playerTurnCheck = GameObject.Find("PlayerTurnState").transform.Find("PlayerTurnCost" + 0).gameObject;
             playerTurnCheck.SetActive(true);
         }
         else if (playerTurnCost == 2)
         {
-            playerTurnCheck = GameObject.Find("Player").transform.Find("PlayerTurnCost" + 1).gameObject;
+            playerTurnCheck = GameObject.Find("PlayerTurnState").transform.Find("PlayerTurnCost" + 1).gameObject;
             playerTurnCheck.SetActive(true);
         }
         else if (playerTurnCost == 3) {
-            playerTurnCheck = GameObject.Find("Player").transform.Find("PlayerTurnCost" + 2).gameObject;
+            playerTurnCheck = GameObject.Find("PlayerTurnState").transform.Find("PlayerTurnCost" + 2).gameObject;
             playerTurnCheck.SetActive(true);
         }
 
@@ -127,17 +127,17 @@ public class BattleManager : MonoBehaviour {
 
         if (enemyTurnCost == 1)
         {
-            enemyTurnCheck = GameObject.Find("Enemy").transform.Find("EnemyTurnCost" + 0).gameObject;
+            enemyTurnCheck = GameObject.Find("EnemyTurnState").transform.Find("EnemyTurnCost" + 0).gameObject;
             enemyTurnCheck.SetActive(true);
         }
         else if (enemyTurnCost == 2)
         {
-            enemyTurnCheck = GameObject.Find("Enemy").transform.Find("EnemyTurnCost" + 1).gameObject;
+            enemyTurnCheck = GameObject.Find("EnemyTurnState").transform.Find("EnemyTurnCost" + 1).gameObject;
             enemyTurnCheck.SetActive(true);
         }
         else if (enemyTurnCost == 3)
         {
-            enemyTurnCheck = GameObject.Find("Enemy").transform.Find("EnemyTurnCost" + 2).gameObject;
+            enemyTurnCheck = GameObject.Find("EnemyTurnState").transform.Find("EnemyTurnCost" + 2).gameObject;
             enemyTurnCheck.SetActive(true);
         }
 
