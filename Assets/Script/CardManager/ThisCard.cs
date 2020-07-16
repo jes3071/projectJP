@@ -139,7 +139,7 @@ public class ThisCard : MonoBehaviour
         //ItemTypeText.text = "" + ItemType;
         turnCostText.text = "" + turnCost;
         //cardTypeText.text = "" + cardType;
-        damageValueText.text = " " + damageValue;
+        damageValueText.text = "" + damageValue;
 
         cardImage.sprite = cardSprite;
         thisimage.sprite = thisSprite;

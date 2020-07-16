@@ -11,16 +11,16 @@ public class BattleManager : MonoBehaviour {
     public int curTic;
     public int totalTurn;
 
-    public static bool turnOnOff = false;
+    public static bool turnOnOff = false; // 플레이어에게 턴을 넘겨주기 위한 용도
 
-    float pTimer;
-    float eTimer;
+    float pTimer; // 플레이어 턴코스트 1칸씩 차오르게 보이는 용도
+    float eTimer; // 적 턴코스트 1칸씩 차오르게 보이는 용도
 
-    public float runTime = .0f;
+    public float runTime = .0f; // 전체 턴 수 측정용
 
 
-    public float turnTime = .0f;
-    public float eTurnTime = .0f;
+    public float turnTime = .0f; //플레이어 턴코스트 제어용 0~1
+    public float eTurnTime = .0f; //적 턴코스트 제어용 0~1
 
 
     public int playerTurnCost = 3; // 받아올 예정
@@ -60,31 +60,8 @@ public class BattleManager : MonoBehaviour {
         enemyTurnCost = enemyCard.turnCost;
         enemyEquipCard.Equip(); // 해당 카드 장착(공,방 및 데미지 확인)
         EnemyCostActive();
-        //CardTouchBlock.SetActive(false);
-
-        //if (DropPoint.uCard != null)
-        //{
-        //    playerCardInfo[0].itemName = DropPoint.uCard.itemName;
-        //    playerCardInfo[0].itemDescription = DropPoint.uCard.itemDescription;
-        //    playerCardInfo[0].itemType = DropPoint.uCard.itemType;
-        //    playerCardInfo[0].turnCost = DropPoint.uCard.turnCost;
-        //    playerCardInfo[0].cardType = DropPoint.uCard.cardType;
-        //    playerCardInfo[0].damageValue = DropPoint.uCard.damageValue;
-        //    playerTurnCost = playerCardInfo[0].turnCost;
-        //}
 
         TurnText.text = "0 Turn";
-        //GetCardCost(); // 드래그 드랍된 카드의 코스트를 받아오는 함수(만들예정)
-
-        //PlayerCostActive(); // 플레이어 카드의 코스트를 받아온 후 비활성화된 코스트 이미지 활성화
-        //EnemyCostActive();
-
-        //playerFillCheck = GameObject.Find("PlayerTurnCostInner");
-        //enemyFillCheck = GameObject.Find("EnemyTurnCostInner");
-        
-        //playerFillCheck.GetComponent<Image>().fillAmount = .0f;
-        //enemyFillCheck.GetComponent<Image>().fillAmount = .0f;
-        //Debug.Log(fillCheck.gameObject);
     }
 
     public void PlayerCostInitialize()
@@ -171,11 +148,7 @@ public class BattleManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
-        //if (')
-        //{
-
-        //}
+        
         TurnText.text = ((int)runTime).ToString() + " Turn";
 
         if(turnOnOff == true)
@@ -243,72 +216,30 @@ public class BattleManager : MonoBehaviour {
                 enemyFillCheck.GetComponent<Image>().fillAmount == 1)
             {
                 //플레이어랑 적 누가 방어를 사용했는지, 사용했으면 방어 먼저 사용하게
-                if (playerCardInfo[0].cardType == 1) // 공격 , 뒤에 && 적이 공격...등
-                {
-                    Enemy.hp -= Player.damageValue;
-                    Debug.Log("적을 공격!");
-                }
+                //if (playerCardInfo[0].cardType == 1) // 공격 , 뒤에 && 적이 공격...등
+                //{
+                //    Enemy.hp -= Player.damageValue;
+                //    Debug.Log("적을 공격!");
+                //}
 
-                enemyEquipCard.Apply();
-                playerEquipCard.Apply(); // 공 방 적용
-                DropPoint.uCard = null; //해당 업데이트안에 있는 if문 발동 해제용
-                Destroy(DropPoint.cardObject);
-                turnTime = 0;
-                eTurnTime = 0;
-                turnOnOff = false;
-                playerEquipCard.UnEquip();
-                enemyEquipCard.UnEquip();
-                //CardTouchBlock.SetActive(false);
-                //BattleStart();
-                Invoke("PlayerCostInitialize", 1);
-                Invoke("EnemyCostInitialize", 1);
-                enemyCard.DrawCard(); // 시작할때 적의 카드 드로우
-                enemyTurnCost = enemyCard.turnCost;
-                enemyEquipCard.Equip(); // 해당 카드 장착(공,방 및 데미지 확인)
-                //EnemyCostActive();
-                //CardTouchBlock.GetComponent<Image>().raycastTarget = false;
-                //playerFillCheck.GetComponent<Image>().fillAmount = .0f; // 배틀 끝나고 초기화
+                EnemyEquipCtrl();
+                PlayerEquipCtrl();
             }
             else if (playerFillCheck.GetComponent<Image>().fillAmount == 1)
             {
-                if (playerCardInfo[0].cardType == 1) // 공격 , 뒤에 && 적이 공격...등
-                {
-                    Enemy.hp -= Player.damageValue;
-                    Debug.Log("적을 공격!");
-                }
-                playerEquipCard.Apply(); // 공 방 적용
-                DropPoint.uCard = null; //해당 업데이트안에 있는 if문 발동 해제용
-                Destroy(DropPoint.cardObject);
-                turnTime = 0;
-                turnOnOff = false;
-                playerEquipCard.UnEquip();
-
-                Invoke("PlayerCostInitialize", 1);
+                //if (playerCardInfo[0].cardType == 1) // 공격 , 뒤에 && 적이 공격...등
+                //{
+                //    Enemy.hp -= Player.damageValue;
+                //    Debug.Log("적을 공격!");
+                //}
+                PlayerEquipCtrl();
             }
             else if (enemyFillCheck.GetComponent<Image>().fillAmount == 1)
             {
 
-                enemyEquipCard.Apply();
-                //DropPoint.uCard = null; //해당 업데이트안에 있는 if문 발동 해제용
-                //Destroy(DropPoint.cardObject);
-                eTurnTime = 0;
-                turnOnOff = false;
-                enemyEquipCard.UnEquip();
-
-                Invoke("EnemyCostInitialize", 1);
-                enemyCard.DrawCard(); // 시작할때 적의 카드 드로우
-                enemyTurnCost = enemyCard.turnCost;
-                enemyEquipCard.Equip(); // 해당 카드 장착(공,방 및 데미지 확인)
-                //EnemyCostActive();
+                EnemyEquipCtrl();
             }
         }
-        
-
-        //if (GameOn())
-      //  {
-            //PlayerTurnChecker();
-      //  }
-
     }
 
     public void BattleStart()
@@ -318,10 +249,28 @@ public class BattleManager : MonoBehaviour {
         EnemyCostActive();
     }
 
-    //private void StartGame()
-    //{
-    //    turnOnOff = true;
-    //}
+    public void PlayerEquipCtrl()
+    {
+        playerEquipCard.Apply(); // 공 방 적용
+        DropPoint.uCard = null; //해당 업데이트안에 있는 if문 발동 해제용
+        Destroy(DropPoint.cardObject);
+        turnTime = 0;
+        turnOnOff = false;
+        playerEquipCard.UnEquip();
+        Invoke("PlayerCostInitialize", 1);
+    }
+
+    public void EnemyEquipCtrl()
+    {
+        enemyEquipCard.Apply();
+        eTurnTime = 0;
+        enemyCard.DrawCard(); // 시작할때 적의 카드 드로우
+        enemyTurnCost = enemyCard.turnCost;
+        enemyEquipCard.Equip(); // 해당 카드 장착(공,방 및 데미지 확인)
+        EnemyCostActive();
+        Invoke("EnemyCostInitialize", 1);
+
+    }
 
 
 
