@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 222286169315114746}
   - component: {fileID: 114247083124155240}
   m_Layer: 5
-  m_Name: State
+  m_Name: EnemyTurnState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -723,7 +723,7 @@ GameObject:
   - component: {fileID: 222966664338503518}
   - component: {fileID: 114981716019241328}
   m_Layer: 5
-  m_Name: State
+  m_Name: PlayerTurnState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
