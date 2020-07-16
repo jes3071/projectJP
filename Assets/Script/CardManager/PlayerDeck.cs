@@ -15,11 +15,14 @@ public class PlayerDeck : MonoBehaviour {
 
     private void Awake()
     {
-        Deck = GetComponent<GameObject>();
+        Deck = GameObject.Find("FixedUIHelper").transform.Find("UIBattlePlayerDeckPopup").gameObject;
+        //Deck = GameObject.Find("Enemy").transform.Find("EnemyTurnCost" + 2).gameObject;
     }
 
     // Use this for initialization
     void Start () {
+
+        //Deck = GetComponent<GameObject>
 
         x = 0;
         deckSize = 20;
