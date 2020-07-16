@@ -999,7 +999,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ackValue: 0
-  shieldValue: 0
   hpText: {fileID: 114102193664813088}
   damageValueText: {fileID: 114383181306654622}
   ackValueText: {fileID: 114816668849153556}
@@ -1479,13 +1478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f183cb6aed211342a380eb094eb46f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - itemName: 
-    itemDescription: 
-    turnCost: 0
-    cardType: 0
-    damageValue: 0
-    monsterType: 0
   container:
   - itemName: 
     itemDescription: 
@@ -1662,7 +1654,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   ackValue: 0
-  shieldValue: 0
   hpText: {fileID: 114381376336331422}
   damageValueText: {fileID: 114936758183658930}
   ackValueText: {fileID: 114838406400421706}

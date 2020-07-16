@@ -33,7 +33,7 @@ public class DropPoint : MonoBehaviour ,IDropHandler{
             dropCard[0].cardType = uCard.cardType;
             dropCard[0].damageValue = uCard.damageValue;
 
-            Debug.Log(uCard.itemName);
+            //Debug.Log(uCard.itemName);
             uCard.inPlayerHand = 0;
 
             eventData.pointerDrag.SetActive(false);

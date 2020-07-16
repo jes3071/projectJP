@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
 
     public static int damageValue;
     public int ackValue;
-    public int shieldValue;
+    public static int shieldValue;
 
     public Text hpText;
     public Text damageValueText;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour {
         damageValueText.text = "" + damageValue;
         ackValueText.text = "" + ackValue;
         shieldValueText.text = "" + shieldValue;
-        state.sprite = null;
+        state.sprite = Resources.Load<Sprite>("UI/NullImage");
     }
 
     public void Equip() //장착한거 보여주는 용
@@ -40,13 +40,13 @@ public class Player : MonoBehaviour {
         if (DropPoint.uCard.cardType == 1)
         {
             //리소스에서 공격 이미지 불러오기
-            cardType = Resources.Load<Sprite>("UI/AttackState");
+            cardType = Resources.Load<Sprite>("UI/PlayerAttackStateIcon");
             state.sprite = cardType;
         }
         else
         {
             //리소스에서 방어 이미지 불러오기
-            cardType = Resources.Load<Sprite>("UI/ShieldState");
+            cardType = Resources.Load<Sprite>("UI/PlayerShieldStateIcon");
             state.sprite = cardType;
         }
 
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour {
 
     public void UnEquip()
     {
-        state.sprite = null;
+        state.sprite = Resources.Load<Sprite>("UI/NullImage");
         damageValueText.text = "";
     }
 
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour {
         }
         else
         {
-            shieldValue += damageValue;
+            //shieldValue += damageValue;
             shieldValueText.text = "" + shieldValue;
         }
 
@@ -78,6 +78,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-	}
+        hpText.text = "" + hp;
+        //shieldValueText.text = "" + shieldValue;
+    }
 }

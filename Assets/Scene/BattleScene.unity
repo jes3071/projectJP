@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -273,6 +273,13 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
+  enemyCardInfo:
+  - itemName: 
+    itemDescription: 
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+    monsterType: 0
   tictok: 100
   curTic: 0
   totalTurn: 0
@@ -570,6 +577,7 @@ MonoBehaviour:
     thisImage: {fileID: 0}
   x: 0
   Deck: {fileID: 978312157}
+  DeckOpen: {fileID: 0}
 --- !u!4 &949588189
 Transform:
   m_ObjectHideFlags: 0
@@ -583,6 +591,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &952251802 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114196468101305476, guid: eaf2edaef1b22a44f88a966a54443448,
+    type: 2}
+  m_PrefabInternal: {fileID: 1882073525}
+  m_Script: {fileID: 11500000, guid: e838af899a1558448951880f4daeb18f, type: 3}
 --- !u!1 &978312157 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1344366529963120, guid: eaf2edaef1b22a44f88a966a54443448,
@@ -690,11 +704,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114380533399036226, guid: 51737d9e947294a449f61bf4f13c712f,
+    - target: {fileID: 114338476017653436, guid: 51737d9e947294a449f61bf4f13c712f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 949588188}
+      objectReference: {fileID: 952251802}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51737d9e947294a449f61bf4f13c712f, type: 2}
   m_IsPrefabParent: 0

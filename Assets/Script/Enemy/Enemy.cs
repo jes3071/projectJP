@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour {
 
     public static int damageValue;
     public int ackValue;
-    public int shieldValue;
+    public static int shieldValue;
 
     public Text hpText;
     public Text damageValueText;
@@ -39,13 +39,13 @@ public class Enemy : MonoBehaviour {
         if (EnemyCardInfo.cardType == 1)
         {
             //리소스에서 공격 이미지 불러오기
-            cardType = Resources.Load<Sprite>("UI/AttackState");
+            cardType = Resources.Load<Sprite>("UI/EnemyAttackStateIcon");
             state.sprite = cardType;
         }
         else
         {
             //리소스에서 방어 이미지 불러오기
-            cardType = Resources.Load<Sprite>("UI/ShieldState");
+            cardType = Resources.Load<Sprite>("UI/EnemyShieldStateIcon");
             state.sprite = cardType;
         }
 
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour {
 
     public void UnEquip()
     {
-        state.sprite = null;
+        state.sprite = Resources.Load<Sprite>("UI/NullImage");
         damageValueText.text = "";
     }
 
@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour {
         }
         else
         {
-            shieldValue += damageValue;
+            //shieldValue += damageValue;
             shieldValueText.text = "" + shieldValue;
         }
 
@@ -78,6 +78,7 @@ public class Enemy : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
+        hpText.text = "" + hp;
+        shieldValueText.text = "" + shieldValue;
     }
 }

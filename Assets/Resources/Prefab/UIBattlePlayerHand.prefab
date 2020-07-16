@@ -199,6 +199,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e838af899a1558448951880f4daeb18f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropCard:
+  - itemName: 
+    itemDescription: 
+    itemType: 0
+    turnCost: 0
+    cardType: 0
+    damageValue: 0
+    inPlayerDeck: 0
+    inPlayerHand: 0
+    cardImage: {fileID: 0}
+    thisImage: {fileID: 0}
   curCount: 0
   maxCount: 4
   curTime: 0
@@ -208,6 +219,8 @@ MonoBehaviour:
   - {fileID: 224194108875033818}
   - {fileID: 224103427738198770}
   card: {fileID: 1527116763464612, guid: 6ac12f40fe1f59c4080cb5d674959bbe, type: 2}
+  Deck: {fileID: 0}
+  cardClone: []
 --- !u!114 &114700088606230638
 MonoBehaviour:
   m_ObjectHideFlags: 1

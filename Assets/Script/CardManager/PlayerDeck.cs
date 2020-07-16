@@ -13,6 +13,8 @@ public class PlayerDeck : MonoBehaviour {
 
     public GameObject Deck;
 
+    public CardSpawn DeckOpen;
+
     private void Awake()
     {
         Deck = GameObject.Find("FixedUIHelper").transform.Find("UIBattlePlayerDeckPopup").gameObject;
@@ -66,20 +68,6 @@ public class PlayerDeck : MonoBehaviour {
 
         //SeeDeck();
 
-    }
-
-    public void SeeDeck()
-    {
-        if(Deck.activeSelf == true)
-            Deck.SetActive(false);
-        else
-            Deck.SetActive(true);
-
-        for (int i = 0; i < playerDeck.Count; i++)
-        {
-            Debug.Log(playerDeck[i].itemName);
-        }
-        
     }
 
     //public void Shuffle()
