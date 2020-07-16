@@ -44,8 +44,13 @@ public class CardSpawn : MonoBehaviour {
         }
         else if(maxCount == 6)
         {
+            i = 0;
             if (curCount < maxCount)
             {
+                while(PlayerDeck.playerDeck[i].inPlayerHand == 0)
+                {
+                    
+                }
                 Instantiate(card, spawnPoints[0]);
                 Instantiate(card, spawnPoints[1]);
                 Instantiate(card, spawnPoints[2]);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyCardInfo : MonoBehaviour {
 
-    public List<EnemyCard> thisCard = new List<EnemyCard>(new EnemyCard[1]);
+    public static List<EnemyCard> thisCard = new List<EnemyCard>(new EnemyCard[1]);
     public List<EnemyCard> container = new List<EnemyCard>(new EnemyCard[1]);
 
     public int turnCost;
@@ -19,8 +19,6 @@ public class EnemyCardInfo : MonoBehaviour {
     void Start()
     {
         //CardDataBase.cardList[i];
-
-        
         //DrawCard();
     }
 

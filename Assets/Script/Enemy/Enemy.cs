@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour {
     void Start()
     {
         hp = 10;
-        damageValue = 0;
+        //damageValue = 0;
         ackValue = 0;
         shieldValue = 0;
 
