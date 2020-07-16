@@ -30,14 +30,13 @@ public class Enemy : MonoBehaviour {
         damageValueText.text = "" + damageValue;
         ackValueText.text = "" + ackValue;
         shieldValueText.text = "" + shieldValue;
-        state.sprite = null;
     }
 
     public void Equip()
     {
 
-        damageValue = EnemyCard.damageValue;
-        if (EnemyCard.cardType == 1)
+        damageValue = EnemyCardInfo.damageValue;
+        if (EnemyCardInfo.cardType == 1)
         {
             //리소스에서 공격 이미지 불러오기
             cardType = Resources.Load<Sprite>("UI/AttackState");
@@ -61,7 +60,7 @@ public class Enemy : MonoBehaviour {
 
     public void Apply() // 실제 공 방에 적용되는 부분
     {
-        if (EnemyCard.cardType == 1)
+        if (EnemyCardInfo.cardType == 1)
         {
             ackValue = damageValue;
             ackValueText.text = "" + ackValue;

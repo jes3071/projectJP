@@ -7,19 +7,16 @@ public class PlayerDeck : MonoBehaviour {
 
     public static List<Card> playerDeck = new List<Card>(new Card[10]);
     public List<Card> container = new List<Card>(new Card[10]);
-    public List<Card> playerHand = new List<Card>();
 
     public int x;
-    public int y;
     public static int deckSize;
 
-    public GameObject CardToHand;
-    public GameObject CardBack;
     public GameObject Deck;
 
-    public GameObject[] Clones;
-
-    public GameObject Hand;
+    private void Awake()
+    {
+        Deck = GetComponent<GameObject>();
+    }
 
     // Use this for initialization
     void Start () {
@@ -64,58 +61,53 @@ public class PlayerDeck : MonoBehaviour {
             container[i] = playerDeck[i];
         }
 
-
+        //SeeDeck();
 
     }
 
     public void SeeDeck()
     {
+        if(Deck.activeSelf == true)
+            Deck.SetActive(false);
+        else
+            Deck.SetActive(true);
+
         for (int i = 0; i < playerDeck.Count; i++)
         {
-            container[i] = playerDeck[i];
+            Debug.Log(playerDeck[i].itemName);
         }
-        x = 0;
-        for(int j = 0; j < playerDeck.Count; j++)
-        {
-            if(playerDeck[j].inPlayerHand == 1)
-            {
-                playerHand[x] = playerDeck[j];
-                //playerDeck.RemoveAt(j);
-                x++;
-            }
-            
-        }
+        
     }
 
-    public void Shuffle()
-    {
-        for (int i = 0; i < deckSize; i++)
-        {
-            container[0] = playerDeck[i];
-            int randomIndex= Random.Range(i, deckSize);
-            playerDeck[i] = playerDeck[randomIndex];
-            playerDeck[randomIndex] = container[0];
-        }
-    }
+    //public void Shuffle()
+    //{
+    //    for (int i = 0; i < deckSize; i++)
+    //    {
+    //        container[0] = playerDeck[i];
+    //        int randomIndex= Random.Range(i, deckSize);
+    //        playerDeck[i] = playerDeck[randomIndex];
+    //        playerDeck[randomIndex] = container[0];
+    //    }
+    //}
 
-    IEnumerator Example()
-    {
-        yield return new WaitForSeconds(1);
-        Clones = GameObject.FindGameObjectsWithTag("Clones");
+    //IEnumerator Example()
+    //{
+    //    yield return new WaitForSeconds(1);
+    //    Clones = GameObject.FindGameObjectsWithTag("Clones");
 
-        foreach(GameObject Clone in Clones)
-        {
-            Destroy(Clone);
-        }
-    }
+    //    foreach(GameObject Clone in Clones)
+    //    {
+    //        Destroy(Clone);
+    //    }
+    //}
 
-    IEnumerator StartGame()
-    {
-        for(int i = 0; i < 4; i++)
-        {
-            yield return new WaitForSeconds(1);
-            Instantiate(CardToHand, transform.position, transform.rotation);
-        }
-    }
+    //IEnumerator StartGame()
+    //{
+    //    for(int i = 0; i < 4; i++)
+    //    {
+    //        yield return new WaitForSeconds(1);
+    //        Instantiate(CardToHand, transform.position, transform.rotation);
+    //    }
+    //}
 
 }

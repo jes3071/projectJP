@@ -16,14 +16,7 @@ public class Card {
     public int inPlayerHand;
     public Sprite cardImage;
     public Sprite thisImage;
-
-    //public Sprite thisImage;
-
-    public Card()
-    {
-
-
-    }
+    
 
     public Card(string ItemName, string ItemDescription, int ItemType, int TurnCost,
         int CardType, int DamageValue, int InPlayerDeck, int InPlayerHand, Sprite CardImage, Sprite ThisImage)
@@ -39,8 +32,5 @@ public class Card {
         inPlayerHand = InPlayerHand;
         cardImage = CardImage;
         thisImage = ThisImage;
-
-        //thisImage = ThisImage;
-
     }
 }
