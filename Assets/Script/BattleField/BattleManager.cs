@@ -261,6 +261,7 @@ public class BattleManager : MonoBehaviour {
                     }
                     else if(Player.shieldValue < Enemy.damageValue)
                     {
+                        Player.shieldValue = 0;
                         Player.hp -= (Enemy.damageValue - Player.shieldValue);
                     }
 
@@ -270,6 +271,7 @@ public class BattleManager : MonoBehaviour {
                     }
                     else if (Enemy.shieldValue < Player.damageValue)
                     {
+                        Enemy.shieldValue = 0;
                         Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
                     }
 
@@ -298,6 +300,7 @@ public class BattleManager : MonoBehaviour {
                     }
                     else if (Enemy.shieldValue < Player.damageValue)
                     {
+                        Enemy.shieldValue = 0;
                         Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
                     }
 
@@ -324,6 +327,7 @@ public class BattleManager : MonoBehaviour {
                     }
                     else if (Player.shieldValue < Enemy.damageValue)
                     {
+                        Player.shieldValue = 0;
                         Player.hp -= (Enemy.damageValue - Player.shieldValue);
                     }
                 }

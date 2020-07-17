@@ -53,14 +53,14 @@ public class CardSpawn : MonoBehaviour {
     public void DeckOpen()
     {
         Deck.SetActive(true);
-        Debug.Log("덱 오픈");
+        //Debug.Log("덱 오픈");
 
         for (int i = 0; i < 6; i++)
         {
             Instantiate(card, spawnPoints[i]);
             cardClone[i] = GameObject.Find("Deck" + (i+1)).transform.Find("Card(Clone)").gameObject;
         }
-        Debug.Log("덱에 카드 클론들 생성됨");
+        //Debug.Log("덱에 카드 클론들 생성됨");
         //Debug.Log(PlayerDeck.playerDeck.Count);
     }
 
@@ -80,7 +80,7 @@ public class CardSpawn : MonoBehaviour {
             PlayerDeck.playerDeck[i].damageValue = uCard.damageValue;
             Destroy(cardClone[i]);
         }
-        Debug.Log("카드 클론들 다시 플레이어덱에 추가하고 삭제시킴");
+        //Debug.Log("카드 클론들 다시 플레이어덱에 추가하고 삭제시킴");
 
         Deck.SetActive(false);
     }
