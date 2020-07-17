@@ -272,7 +272,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCardInfo:
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -283,7 +284,8 @@ MonoBehaviour:
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
   enemyCardInfo:
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     turnCost: 0
     cardType: 0
@@ -302,6 +304,7 @@ MonoBehaviour:
   playerTurnCheck: {fileID: 0}
   enemyTurnCheck: {fileID: 0}
   CardTouchBlock: {fileID: 0}
+  victoryPage: {fileID: 0}
   playerEquipCard: {fileID: 376664349}
   enemyEquipCard: {fileID: 1220975832}
   enemyCard: {fileID: 394656002}
@@ -433,7 +436,7 @@ Prefab:
     - target: {fileID: 224619296741073454, guid: 4e7e9b897571f5247b9a0f6cca93b295,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 224619296741073454, guid: 4e7e9b897571f5247b9a0f6cca93b295,
         type: 2}
@@ -589,7 +592,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container:
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -599,7 +603,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -609,7 +614,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -619,7 +625,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -629,7 +636,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -639,7 +647,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -649,7 +658,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -659,7 +669,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -669,7 +680,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -679,7 +691,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -1191,6 +1204,111 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1529869802}
+--- !u!1001 &1559092478
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1652414933}
+    m_Modifications:
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a46584ef6f5f08d42ac351212f1d5642, type: 2}
+  m_IsPrefabParent: 0
+--- !u!224 &1559092479 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
+    type: 2}
+  m_PrefabInternal: {fileID: 1559092478}
 --- !u!1 &1619903669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,7 +1499,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container:
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -1391,7 +1510,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -1401,7 +1521,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -1411,7 +1532,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -1421,7 +1543,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -1431,7 +1554,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -1441,7 +1565,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -1451,7 +1576,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -1461,7 +1587,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -1471,7 +1598,8 @@ MonoBehaviour:
     inPlayerHand: 0
     cardImage: {fileID: 0}
     thisImage: {fileID: 0}
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
@@ -1535,6 +1663,7 @@ RectTransform:
   - {fileID: 521278007}
   - {fileID: 978312158}
   - {fileID: 78625134}
+  - {fileID: 1559092479}
   - {fileID: 733858833}
   m_Father: {fileID: 1801053416}
   m_RootOrder: 0
@@ -1753,6 +1882,10 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1344366529963120, guid: eaf2edaef1b22a44f88a966a54443448, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eaf2edaef1b22a44f88a966a54443448, type: 2}
