@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        hp = 10;
+        hp = 5;
         //damageValue = 0;
         ackValue = 0;
         shieldValue = 0;

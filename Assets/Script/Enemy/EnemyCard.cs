@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class EnemyCard{
 
+    public int index;
     public string itemName;
     public string itemDescription;
     public int turnCost;
@@ -14,10 +15,10 @@ public class EnemyCard{
     public int monsterType;
 
 
-    public EnemyCard(string ItemName, string ItemDescription, int TurnCost,
+    public EnemyCard(int Index, string ItemName, string ItemDescription, int TurnCost,
         int CardType, int DamageValue, int MonsterType)
     {
-
+        index = Index;
         itemName = ItemName;
         itemDescription = ItemDescription;
         turnCost = TurnCost;

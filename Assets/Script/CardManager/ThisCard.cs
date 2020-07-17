@@ -9,6 +9,7 @@ public class ThisCard : MonoBehaviour
 
     public List<Card> thisCard = new List<Card>();
 
+    public int index;
     public string itemName;
     public string itemDescription;
     public int itemType;
@@ -26,12 +27,14 @@ public class ThisCard : MonoBehaviour
 
     public GameObject Hand;
 
+    public GameObject Deck;
+
     public int numberOfCardInDeck;
 
     //private int i = 0;
     private int rand;
-
-
+    public static int _index = 0;
+    public int j = 0;
 
     public Sprite cardSprite;
     public Image cardImage;
@@ -42,36 +45,85 @@ public class ThisCard : MonoBehaviour
     //public bool cardBack;
     //public static bool staticCardBack;
 
+    private void Awake()
+    {
+        Deck = GameObject.Find("FixedUIHelper").transform.Find("UIBattlePlayerDeckPopup").gameObject;
+    }
 
     // Use this for initialization
     void Start()
     {
-        rand = Random.Range(0, PlayerDeck.playerDeck.Count);
-
-        while(PlayerDeck.playerDeck[rand].inPlayerHand == 1)
+        if (Deck.activeSelf == false)
+        {
+            //IndexDeckOpen();
             rand = Random.Range(0, PlayerDeck.playerDeck.Count);
-        //if (PlayerDeck.playerDeck[rand].inPlayerHand == 1)
 
+            while (PlayerDeck.playerDeck[rand].inPlayerHand == 1)
+                rand = Random.Range(0, PlayerDeck.playerDeck.Count);
 
-        //rand = Random.Range(0, PlayerDeck.playerDeck.Count);
-        //Debug.Log(PlayerDeck.playerDeck[rand].itemName);
-        thisCard[0] = PlayerDeck.playerDeck[rand];
-        numberOfCardInDeck = PlayerDeck.deckSize;
+            thisCard[0] = PlayerDeck.playerDeck[rand];
+            numberOfCardInDeck = PlayerDeck.deckSize;
 
-        PlayerDeck.playerDeck[rand].inPlayerHand = 1;
-
-        
-        //Debug.Log("1");
-
-
-
-        //PlayerDeck.playerDeck.RemoveAt(rand);
-
+            PlayerDeck.playerDeck[rand].inPlayerHand = 1;
+        }
+        else if(Deck.activeSelf == true)
+        {
+            Bubble_sort(PlayerDeck.playerDeck, 6);
+            IndexDeckOpen();
+        }
         DrawCard();
+    }
+
+    void Bubble_sort(List<Card> index, int n)
+    {
+        int i, j;
+        Card temp;
+
+        for (i = n - 1; i > 0; i--)
+        {
+            // 0 ~ (i-1)까지 반복
+            for (j = 0; j < i; j++)
+            {
+                // j번째와 j+1번째의 요소가 크기 순이 아니면 교환
+                if (index[j].index > index[j + 1].index)
+                {
+                    temp = index[j];
+                    index[j] = index[j + 1];
+                    index[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public void IndexDeckOpen()
+    {
+        while (PlayerDeck.playerDeck[_index].inPlayerHand != 1)
+        {
+
+            if (PlayerDeck.playerDeck[_index].inPlayerHand != 1)
+            {
+                Debug.Log(PlayerDeck.playerDeck[_index].index);
+                thisCard[0] = PlayerDeck.playerDeck[_index++];
+                //Debug.Log(thisCard[0].itemName);
+                break;
+            }
+            _index++;
+        }
+        //_index++;
+
+
+        //Debug.Log(_index);
+        if (_index >= 6)
+        {
+            //Debug.Log(PlayerDeck.playerDeck.Count);
+            _index = 0;
+            //Debug.Log("Check");
+        }
     }
 
     public void DrawCard()
     {
+        index = thisCard[0].index;
         itemName = thisCard[0].itemName;
         itemDescription = thisCard[0].itemDescription;
         itemType = thisCard[0].itemType;

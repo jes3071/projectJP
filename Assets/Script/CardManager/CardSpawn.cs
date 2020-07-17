@@ -53,13 +53,15 @@ public class CardSpawn : MonoBehaviour {
     public void DeckOpen()
     {
         Deck.SetActive(true);
-        //Debug.Log(Deck);
-        // if (maxCount == 6)
-        for(int i = 0; i < 6; i++)
+        Debug.Log("덱 오픈");
+
+        for (int i = 0; i < 6; i++)
         {
             Instantiate(card, spawnPoints[i]);
             cardClone[i] = GameObject.Find("Deck" + (i+1)).transform.Find("Card(Clone)").gameObject;
         }
+        Debug.Log("덱에 카드 클론들 생성됨");
+        //Debug.Log(PlayerDeck.playerDeck.Count);
     }
 
     public void DeckClose()
@@ -69,19 +71,16 @@ public class CardSpawn : MonoBehaviour {
         {
             uCard = cardClone[i].GetComponent<ThisCard>();
 
-            dropCard[0].itemName = uCard.itemName;
-            dropCard[0].itemDescription = uCard.itemDescription;
-            dropCard[0].itemType = uCard.itemType;
-            dropCard[0].turnCost = uCard.turnCost;
-            dropCard[0].cardType = uCard.cardType;
-            dropCard[0].damageValue = uCard.damageValue;
-
-            PlayerDeck.playerDeck.Add(new Card(dropCard[0].itemName, dropCard[0].itemDescription,
-                   dropCard[0].itemType, dropCard[0].turnCost, dropCard[0].cardType, dropCard[0].damageValue,
-                   1, 0, null, null));
+            PlayerDeck.playerDeck[i].index = uCard.index;
+            PlayerDeck.playerDeck[i].itemName = uCard.itemName;
+            PlayerDeck.playerDeck[i].itemDescription = uCard.itemDescription;
+            PlayerDeck.playerDeck[i].itemType = uCard.itemType;
+            PlayerDeck.playerDeck[i].turnCost = uCard.turnCost;
+            PlayerDeck.playerDeck[i].cardType = uCard.cardType;
+            PlayerDeck.playerDeck[i].damageValue = uCard.damageValue;
             Destroy(cardClone[i]);
         }
-        
+        Debug.Log("카드 클론들 다시 플레이어덱에 추가하고 삭제시킴");
 
         Deck.SetActive(false);
     }

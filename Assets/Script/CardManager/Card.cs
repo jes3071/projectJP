@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 [System.Serializable]
 public class Card {
-   
+
+    public int index;
     public string itemName;
     public string itemDescription;
     public int itemType;
@@ -18,10 +19,10 @@ public class Card {
     public Sprite thisImage;
     
 
-    public Card(string ItemName, string ItemDescription, int ItemType, int TurnCost,
+    public Card(int Index, string ItemName, string ItemDescription, int ItemType, int TurnCost,
         int CardType, int DamageValue, int InPlayerDeck, int InPlayerHand, Sprite CardImage, Sprite ThisImage)
     {
-
+        index = Index;
         itemName = ItemName;
         itemDescription = ItemDescription;
         itemType = ItemType;

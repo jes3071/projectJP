@@ -61,9 +61,10 @@ public class PlayerDeck : MonoBehaviour {
             }
 
         }
-        for (int i = 0; i < playerDeck.Count; i++)
+        for (int i = 0; i < 6; i++)
         {
-            container[i] = playerDeck[i];
+             container[i] = playerDeck[i];
+
         }
 
         //SeeDeck();

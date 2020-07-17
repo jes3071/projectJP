@@ -16,7 +16,7 @@ public class EnemyCardDataBase : MonoBehaviour {
         {
             //Debug.Log("index " + (i).ToString() + ": " + data[i]["ItemName"] + " " + data[i]["ItemDescription"] + " " + data[i]["ItemType"] + " " +
             //    data[i]["TurnCost"] + " " + data[i]["CardType"] + " " + data[i]["DamageValue"] + " " + data[i]["InPlayerDeck"]);
-            cardList.Add(new EnemyCard((string)data[i]["ItemName"], (string)data[i]["ItemDescription"],
+            cardList.Add(new EnemyCard((int)data[i]["Index"], (string)data[i]["ItemName"], (string)data[i]["ItemDescription"],
                 (int)data[i]["TurnCost"], (int)data[i]["CardType"], (int)data[i]["DamageValue"],(int)data[i]["MonsterType"]));
         }
 

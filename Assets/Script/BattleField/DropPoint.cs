@@ -23,6 +23,7 @@ public class DropPoint : MonoBehaviour ,IDropHandler{
         //Debug.Log("OnDrop");
         if(eventData.pointerDrag != null)
         {
+            Debug.Log("카드 드랍됨");
             cardObject = eventData.pointerDrag;
             uCard = cardObject.GetComponent<ThisCard>();
 
@@ -38,11 +39,10 @@ public class DropPoint : MonoBehaviour ,IDropHandler{
 
             eventData.pointerDrag.SetActive(false);
 
-
-            PlayerDeck.playerDeck.Add(new Card(dropCard[0].itemName, dropCard[0].itemDescription,
+            PlayerDeck.playerDeck.Add(new Card(dropCard[0].index, dropCard[0].itemName, dropCard[0].itemDescription,
                dropCard[0].itemType, dropCard[0].turnCost, dropCard[0].cardType, dropCard[0].damageValue,
                1, 0, null, null));
-
+            Debug.Log("카드 덱에 추가됨");
             //uCard = null;
 
             equipCard.Equip(); // 장비 장착

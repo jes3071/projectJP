@@ -32,6 +32,7 @@ public class BattleManager : MonoBehaviour {
     public GameObject enemyTurnCheck;
 
     public GameObject CardTouchBlock;
+    public GameObject victoryPage;
 
     public Player playerEquipCard;
     public Enemy enemyEquipCard;
@@ -49,12 +50,14 @@ public class BattleManager : MonoBehaviour {
     public void Awake()
     {
         CardTouchBlock = GameObject.Find("CardTouchBlock");
+        victoryPage = GameObject.Find("FixedUIHelper").transform.Find("UIBattleVictoryPopup").gameObject;
     }
 
     // Use this for initialization
     void Start () {
         PlayerCostInitialize();
         EnemyCostInitialize();
+        victoryPage.SetActive(false);
         pTimer = .0f;
         eTimer = .0f;
         enemyCard.DrawCard(); // 시작할때 적의 카드 드로우
@@ -147,6 +150,7 @@ public class BattleManager : MonoBehaviour {
 
     public void InsertPlayerCard()
     {
+        playerCardInfo[0].index = DropPoint.uCard.index;
         playerCardInfo[0].itemName = DropPoint.uCard.itemName;
         playerCardInfo[0].itemDescription = DropPoint.uCard.itemDescription;
         playerCardInfo[0].itemType = DropPoint.uCard.itemType;
@@ -157,6 +161,7 @@ public class BattleManager : MonoBehaviour {
 
     public void InsertEnemyCard()
     {
+        enemyCardInfo[0].index = EnemyCardInfo.thisCard[0].index;
         enemyCardInfo[0].itemName = EnemyCardInfo.thisCard[0].itemName;
         enemyCardInfo[0].itemDescription = EnemyCardInfo.thisCard[0].itemDescription;
         enemyCardInfo[0].turnCost = EnemyCardInfo.thisCard[0].turnCost;
@@ -219,58 +224,33 @@ public class BattleManager : MonoBehaviour {
                 //플레이어랑 적 누가 방어를 사용했는지, 사용했으면 방어 먼저 사용하게
                 if (playerCardInfo[0].cardType == 1 && enemyCardInfo[0].cardType == 2) // 공격 , 뒤에 && 적이 공격...등
                 {
-                    Enemy.damageValue -= Player.damageValue;
-                    if (Enemy.damageValue < 0)
+                    Enemy.shieldValue += Enemy.damageValue;
+                    if(Player.damageValue > Enemy.shieldValue)
                     {
-                        if(Enemy.shieldValue >= -Enemy.damageValue)
-                        {
-                            Enemy.shieldValue += Enemy.damageValue;
-                        }
-                        else if(Enemy.shieldValue <= -Enemy.damageValue)
-                        {
-                            Enemy.hp += (Enemy.damageValue + Enemy.shieldValue);
-                            Enemy.shieldValue = 0;
-                        }
+                        Enemy.shieldValue = 0;
+                        Enemy.hp -= (Player.damageValue - Enemy.damageValue);
                     }
-                    else
+                    else if(Player.damageValue <= Enemy.shieldValue)
                     {
-                        if (Enemy.shieldValue >= -Enemy.damageValue)
-                        {
-                            Enemy.shieldValue += Enemy.damageValue;
-                        }
-                        else if (Enemy.shieldValue <= -Enemy.damageValue)
-                        {
-                            Enemy.hp += (Enemy.damageValue + Enemy.shieldValue);
-                            Enemy.shieldValue = 0;
-                        }
+                        Enemy.shieldValue -= Player.damageValue;
+                    }
+
+                    if (Enemy.hp <= 0)
+                    {
+                        victoryPage.SetActive(true);
                     }
                 }
                 else if (playerCardInfo[0].cardType == 2 && enemyCardInfo[0].cardType == 1)
                 {
-                    Player.damageValue -= Enemy.damageValue;
-                    if (Player.damageValue < 0)
+                    Player.shieldValue += Player.damageValue;
+                    if (Enemy.damageValue > Player.shieldValue)
                     {
-                        if (Player.shieldValue >= -Player.damageValue)
-                        {
-                            Player.shieldValue += Player.damageValue;
-                        }
-                        else if (Player.shieldValue <= -Player.damageValue)
-                        {
-                            Player.hp += (Player.damageValue + Player.shieldValue);
-                            Player.shieldValue = 0;
-                        }
+                        Player.shieldValue = 0;
+                        Player.hp -= (Enemy.damageValue - Player.damageValue);
                     }
-                    else
+                    else if (Enemy.damageValue <= Player.shieldValue)
                     {
-                        if (Player.shieldValue >= -Player.damageValue)
-                        {
-                            Player.shieldValue += Player.damageValue;
-                        }
-                        else if (Player.shieldValue <= -Player.damageValue)
-                        {
-                            Player.hp += (Player.damageValue + Player.shieldValue);
-                            Player.shieldValue = 0;
-                        }
+                        Player.shieldValue -= Enemy.damageValue;
                     }
                 }
                 else if (playerCardInfo[0].cardType == 1 && enemyCardInfo[0].cardType == 1)
@@ -292,6 +272,11 @@ public class BattleManager : MonoBehaviour {
                     {
                         Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
                     }
+
+                    if (Enemy.hp <= 0)
+                    {
+                        victoryPage.SetActive(true);
+                    }
                 }
                 else if(playerCardInfo[0].cardType == 2 && enemyCardInfo[0].cardType == 2)
                 {
@@ -301,7 +286,7 @@ public class BattleManager : MonoBehaviour {
 
                 EnemyEquipCtrl();
                 PlayerEquipCtrl();
-                Debug.Log("동시");
+                //Debug.Log("동시");
             }
             else if (playerFillCheck.GetComponent<Image>().fillAmount == 1)
             {
@@ -315,6 +300,11 @@ public class BattleManager : MonoBehaviour {
                     {
                         Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
                     }
+
+                    if(Enemy.hp <= 0)
+                    {
+                        victoryPage.SetActive(true);
+                    }
                 }
                 else if(playerCardInfo[0].cardType == 2)
                 {
@@ -322,7 +312,7 @@ public class BattleManager : MonoBehaviour {
                 }
 
                 PlayerEquipCtrl();
-                Debug.Log("플레이어 먼저");
+                //Debug.Log("플레이어 먼저");
             }
             else if (enemyFillCheck.GetComponent<Image>().fillAmount == 1)
             {
@@ -343,7 +333,7 @@ public class BattleManager : MonoBehaviour {
                 }
 
                 EnemyEquipCtrl();
-                Debug.Log("적 먼저");
+                //Debug.Log("적 먼저");
             }
         }
     }

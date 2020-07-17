@@ -14,16 +14,11 @@ public class CardDataBase : MonoBehaviour {
 
         for (var i = 0; i < data.Count; i++)
         {
-            //Debug.Log("index " + (i).ToString() + ": " + data[i]["ItemName"] + " " + data[i]["ItemDescription"] + " " + data[i]["ItemType"] + " " +
-            //    data[i]["TurnCost"] + " " + data[i]["CardType"] + " " + data[i]["DamageValue"] + " " + data[i]["InPlayerDeck"]);
-            cardList.Add(new Card((string)data[i]["ItemName"], (string)data[i]["ItemDescription"],
+            cardList.Add(new Card((int)data[i]["Index"], (string)data[i]["ItemName"], (string)data[i]["ItemDescription"],
                 (int)data[i]["ItemType"], (int)data[i]["TurnCost"],
                 (int)data[i]["CardType"], (int)data[i]["DamageValue"], (int)data[i]["InPlayerDeck"],
                 (int)data[i]["InPlayerHand"],Resources.Load<Sprite>(""), Resources.Load<Sprite>("") ));
         }
-
-        //cardList.Add(new Card()
-        //cardList.Add(new Card(0, "용사의 검", 3, 3, "Sword", Resources.Load <Sprite>("1")));
         
     }
 }
