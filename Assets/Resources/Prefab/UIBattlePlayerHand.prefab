@@ -200,7 +200,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropCard:
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0

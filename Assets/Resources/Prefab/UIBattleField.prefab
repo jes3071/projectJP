@@ -1418,7 +1418,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container:
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     turnCost: 0
     cardType: 0
@@ -1671,7 +1672,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropCard:
-  - itemName: 
+  - index: 0
+    itemName: 
     itemDescription: 
     itemType: 0
     turnCost: 0
