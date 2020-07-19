@@ -11,6 +11,7 @@ public class PopupSystem : MonoBehaviour {
     public GameObject mapClick;
     public GameObject mapSelect;
     public GameObject buttonOnOff;
+    public GameObject toStart;
 
     public bool battleMap = false;
 
@@ -18,6 +19,8 @@ public class PopupSystem : MonoBehaviour {
     {
         mapPopup = GameObject.Find("FixedUIHelper").transform.Find("UIMapPopup").gameObject;
         victoryPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleVictoryPopup").gameObject;
+        toStart = GameObject.Find("UILobbyStartPopup").gameObject; 
+
         InitilaizeButton();
     }
 
@@ -25,6 +28,16 @@ public class PopupSystem : MonoBehaviour {
     void Start () {
         
 
+    }
+
+    public void TouchToStart()
+    {
+        mapPopup.SetActive(true);
+        mapClick = GameObject.Find("Area" + 0).transform.Find("Position" + 0).gameObject;
+        mapClick.GetComponent<Button>().interactable = true;
+        mapSelect = GameObject.Find("Area" + 0).transform.Find("Position" + 0).transform.Find("SelectActive").gameObject;
+        mapSelect.SetActive(true);
+        toStart.SetActive(false);
     }
 
     public void VictoryButton()
@@ -77,6 +90,11 @@ public class PopupSystem : MonoBehaviour {
     {
         if (BattleManager.stageLevel == 0)
         {
+            mapClick = GameObject.Find("Area" + 0).transform.Find("Position" + 0).gameObject;
+            mapClick.GetComponent<Button>().interactable = false;
+            mapSelect = GameObject.Find("Area" + 0).transform.Find("Position" + 0).transform.Find("SelectActive").gameObject;
+            mapSelect.SetActive(false);
+
             mapClick = GameObject.Find("Area" + 1).transform.Find("Position" + 0).gameObject;
             mapClick.GetComponent<Button>().interactable = true;
             mapSelect = GameObject.Find("Area" + 1).transform.Find("Position" + 0).transform.Find("SelectActive").gameObject;

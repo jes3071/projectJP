@@ -44,11 +44,6 @@ public class CardSpawn : MonoBehaviour {
 
         if (mapCheck.battleMap == true)
         {
-            //Debug.Log(mapCheck.battleMap);
-            //mapCheck.battleMap = false;
-            //Debug.Log("덱 다시 받아옴");
-            child = GameObject.Find("CardSpawner").transform.Find("1").gameObject;
-
             for (int i = 0; i < 4; i++)
             {
                 child = GameObject.Find("CardSpawner").transform.Find(""+(i+1)).gameObject;
