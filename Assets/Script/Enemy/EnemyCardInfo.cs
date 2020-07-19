@@ -24,7 +24,7 @@ public class EnemyCardInfo : MonoBehaviour {
 
     public void DrawCard()
     {
-        if(BattleManager.stageLevel == 0)
+        if(BattleManager.stageLevel == -1)
         {
             thisCard[0] = EnemyCardDataBase.cardList[routine++];
             if (routine == 4)

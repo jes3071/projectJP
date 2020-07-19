@@ -97,27 +97,19 @@ public class ThisCard : MonoBehaviour
 
     public void IndexDeckOpen()
     {
-        while (PlayerDeck.playerDeck[_index].inPlayerHand != 1)
-        {
+        //while (PlayerDeck.playerDeck[_index].inPlayerHand != 1)
+        //{
+        //        //Debug.Log(PlayerDeck.playerDeck[_index].index);
+        thisCard[0] = PlayerDeck.playerDeck[_index++];
+        //        //_index++;
+        //        //Debug.Log(thisCard[0].index);
+        //        break;
 
-            if (PlayerDeck.playerDeck[_index].inPlayerHand != 1)
-            {
-                Debug.Log(PlayerDeck.playerDeck[_index].index);
-                thisCard[0] = PlayerDeck.playerDeck[_index++];
-                //Debug.Log(thisCard[0].itemName);
-                break;
-            }
-            _index++;
-        }
-        //_index++;
-
-
+        //}
         //Debug.Log(_index);
         if (_index >= 6)
         {
-            //Debug.Log(PlayerDeck.playerDeck.Count);
             _index = 0;
-            //Debug.Log("Check");
         }
     }
 

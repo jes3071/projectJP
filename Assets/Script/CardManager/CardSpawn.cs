@@ -11,12 +11,14 @@ public class CardSpawn : MonoBehaviour {
     public int curTime;
     public Transform[] spawnPoints;
     public GameObject card;
+    public GameObject child;
 
     public GameObject Deck;
     public GameObject[] cardClone;
     public static int i = 0;
 
     public static ThisCard uCard;
+    public PopupSystem mapCheck;
 
     public void Start()
     {
@@ -26,7 +28,8 @@ public class CardSpawn : MonoBehaviour {
 
     private void Update()
     {
-        if(maxCount == 4)
+
+        if (maxCount == 4)
         {
             if (curCount < maxCount)
             {
@@ -37,15 +40,38 @@ public class CardSpawn : MonoBehaviour {
                 curCount = 4;
                 //Debug.Log(spawnPoints[0]);
             }
+        }
 
-            for (i = 0; i < 4; i++)
+        if (mapCheck.battleMap == true)
+        {
+            //Debug.Log(mapCheck.battleMap);
+            mapCheck.battleMap = false;
+            //Debug.Log("덱 다시 받아옴");
+            child = GameObject.Find("CardSpawner").transform.Find("1").gameObject;
+
+            for (int i = 0; i < 4; i++)
             {
-                if (spawnPoints[i].childCount == 0)
-                {
-                    Instantiate(card, spawnPoints[i]);
-                    curCount++;
-                    break;
-                }
+                child = GameObject.Find("CardSpawner").transform.Find(""+(i+1)).gameObject;
+                uCard = child.transform.GetChild(0).GetComponent<ThisCard>();
+
+                PlayerDeck.playerDeck.Add(new Card(uCard.index, uCard.itemName, uCard.itemDescription,
+               uCard.itemType, uCard.turnCost, uCard.cardType, uCard.damageValue,
+               1, 0, null, null));
+                
+               Destroy(child.transform.GetChild(0).gameObject);
+            }
+
+            //child.transform.GetChild(0);
+            //Destroy(child.transform.GetChild(0).gameObject);
+        }
+
+        for (i = 0; i < 4; i++)
+        {
+            if (spawnPoints[i].childCount == 0)
+            {
+                Instantiate(card, spawnPoints[i]);
+                curCount++;
+                break;
             }
         }
     }

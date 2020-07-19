@@ -8,42 +8,36 @@ public class BattleManager : MonoBehaviour {
     public List<Card> playerCardInfo = new List<Card>(new Card[1]);
     public List<EnemyCard> enemyCardInfo = new List<EnemyCard>(new EnemyCard[1]);
 
-    public int tictok = 100;
-    public int curTic;
-    public int totalTurn;
-
     public static bool turnOnOff = false; // 플레이어에게 턴을 넘겨주기 위한 용도
 
     float pTimer; // 플레이어 턴코스트 1칸씩 차오르게 보이는 용도
     float eTimer; // 적 턴코스트 1칸씩 차오르게 보이는 용도
 
     public float runTime = .0f; // 전체 턴 수 측정용
-
-
     public float turnTime = .0f; //플레이어 턴코스트 제어용 0~1
     public float eTurnTime = .0f; //적 턴코스트 제어용 0~1
 
-
     public int playerTurnCost = 3; // 받아올 예정
     public int enemyTurnCost = 1;
+
     public GameObject playerFillCheck;
     public GameObject enemyFillCheck;
     public GameObject playerTurnCheck;
     public GameObject enemyTurnCheck;
-
     public GameObject CardTouchBlock;
     public GameObject victoryPage;
 
     public Player playerEquipCard;
     public Enemy enemyEquipCard;
-
     public EnemyCardInfo enemyCard;
-
     public PlayerDeck playerDeck;
+    public PopupSystem mapCheck;
+    public CardSpawn cardToHand;
 
     public Text TurnText;
 
-    public static int stageLevel = 0;
+    public static int stageLevel = -1;
+    public int lastLevel = -1;
 
     //public GameObject usingCard;
 
@@ -55,6 +49,12 @@ public class BattleManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+        StartCoroutine("GameStart");
+    }
+
+    public void Play()
+    {
         PlayerCostInitialize();
         EnemyCostInitialize();
         victoryPage.SetActive(false);
@@ -66,7 +66,10 @@ public class BattleManager : MonoBehaviour {
         EnemyCostActive();
 
         TurnText.text = "0 Turn";
-    }
+        runTime = .0f; // 전체 턴 수 측정용
+        turnTime = .0f; //플레이어 턴코스트 제어용 0~1
+        eTurnTime = .0f; //적 턴코스트 제어용 0~1
+}
 
     public void PlayerCostInitialize()
     {
@@ -173,6 +176,12 @@ public class BattleManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if(mapCheck.battleMap == true)
+        {
+            Debug.Log("배틀매니저" + mapCheck.battleMap);
+            mapCheck.battleMap = false;
+            StartCoroutine("GameStart");
+        }
 
         TurnText.text = ((int)runTime).ToString() + " Turn";
 
@@ -238,6 +247,7 @@ public class BattleManager : MonoBehaviour {
                     if (Enemy.hp <= 0)
                     {
                         victoryPage.SetActive(true);
+                        stageLevel++;
                     }
                 }
                 else if (playerCardInfo[0].cardType == 2 && enemyCardInfo[0].cardType == 1)
@@ -278,6 +288,7 @@ public class BattleManager : MonoBehaviour {
                     if (Enemy.hp <= 0)
                     {
                         victoryPage.SetActive(true);
+                        stageLevel++;
                     }
                 }
                 else if(playerCardInfo[0].cardType == 2 && enemyCardInfo[0].cardType == 2)
@@ -307,6 +318,7 @@ public class BattleManager : MonoBehaviour {
                     if(Enemy.hp <= 0)
                     {
                         victoryPage.SetActive(true);
+                        stageLevel++;
                     }
                 }
                 else if(playerCardInfo[0].cardType == 2)
@@ -395,6 +407,12 @@ public class BattleManager : MonoBehaviour {
         {
             enemyFillCheck.GetComponent<Image>().fillAmount = eTurnTime / enemyTurnCost;
         }
+    }
+
+    IEnumerator GameStart()
+    {
+        Play();
+        yield return null;
     }
 
 }
