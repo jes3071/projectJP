@@ -220,6 +220,7 @@ MonoBehaviour:
   - {fileID: 224793294083503752}
   - {fileID: 224568605822941378}
   card: {fileID: 1527116763464612, guid: 6ac12f40fe1f59c4080cb5d674959bbe, type: 2}
+  child: {fileID: 0}
   Deck: {fileID: 1344366529963120}
   cardClone:
   - {fileID: 0}
@@ -228,6 +229,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  mapCheck: {fileID: 0}
 --- !u!114 &114240004205581892
 MonoBehaviour:
   m_ObjectHideFlags: 1

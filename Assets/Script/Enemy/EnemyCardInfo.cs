@@ -26,9 +26,25 @@ public class EnemyCardInfo : MonoBehaviour {
     {
         if(BattleManager.stageLevel == -1)
         {
-            thisCard[0] = EnemyCardDataBase.cardList[routine++];
-            if (routine == 4)
-                routine = 0;
+            if(EnemyCardDataBase.cardList[routine].monsterType == 0)
+            {
+                thisCard[0] = EnemyCardDataBase.cardList[routine++];
+                if (routine == 4)
+                    routine = 0;
+            }
+            //thisCard[0] = EnemyCardDataBase.cardList[routine++];
+            
+        }
+        else if (BattleManager.stageLevel == 0)
+        {
+            if (EnemyCardDataBase.cardList[routine].monsterType == 1)
+            {
+                thisCard[0] = EnemyCardDataBase.cardList[routine++];
+                if (routine == 4)
+                    routine = 0;
+            }
+            //thisCard[0] = EnemyCardDataBase.cardList[routine++];
+
         }
 
         //rand = Random.Range(0, EnemyCardDataBase.cardList.Count);
