@@ -43,13 +43,13 @@ public class BattleManager : MonoBehaviour {
 
     public void Awake()
     {
-        CardTouchBlock = GameObject.Find("CardTouchBlock");
-        victoryPage = GameObject.Find("FixedUIHelper").transform.Find("UIBattleVictoryPopup").gameObject;
+        
     }
 
     // Use this for initialization
     void Start () {
-
+        CardTouchBlock = GameObject.Find("FixedUIHelper").transform.Find("UIBattlePlayerHand/CardTouchBlock").gameObject;
+        victoryPage = GameObject.Find("FixedUIHelper").transform.Find("UIBattleVictoryPopup").gameObject;
         StartCoroutine("GameStart");
     }
 
@@ -80,7 +80,7 @@ public class BattleManager : MonoBehaviour {
     {
         for(int i = 0; i < 3; i++)
         {
-            playerTurnCheck = GameObject.Find("PlayerTurnState").transform.Find("PlayerTurnCost" + i).gameObject;
+            playerTurnCheck = GameObject.Find("FixedUIHelper").transform.Find("UIBattleField/Player/PlayerTurnState/PlayerTurnCost" + i).gameObject;
             playerTurnCheck.SetActive(true);
             playerFillCheck = GameObject.Find("PlayerTurnCostInner");
             playerFillCheck.GetComponent<Image>().fillAmount = .0f;
@@ -360,6 +360,7 @@ public class BattleManager : MonoBehaviour {
 
     public void PlayerEquipCtrl()
     {
+        //cardToHand.ReDraw();
         turnOnOff = false;
         playerEquipCard.Apply(); // 공 방 적용
         DropPoint.uCard = null; //해당 업데이트안에 있는 if문 발동 해제용

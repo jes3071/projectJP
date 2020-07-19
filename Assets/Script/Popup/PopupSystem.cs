@@ -12,6 +12,7 @@ public class PopupSystem : MonoBehaviour {
     public GameObject mapSelect;
     public GameObject buttonOnOff;
     public GameObject toStart;
+    public GameObject battleOnOff;
 
     public bool battleMap = false;
 
@@ -37,6 +38,9 @@ public class PopupSystem : MonoBehaviour {
         mapClick.GetComponent<Button>().interactable = true;
         mapSelect = GameObject.Find("Area" + 0).transform.Find("Position" + 0).transform.Find("SelectActive").gameObject;
         mapSelect.SetActive(true);
+        battleOnOff = GameObject.Find("FixedUIHelper").transform.Find("UIBattleTop").gameObject;
+        battleOnOff.SetActive(true);
+
         toStart.SetActive(false);
     }
 
@@ -47,6 +51,14 @@ public class PopupSystem : MonoBehaviour {
         SeeMapRoad();
         MapMove();
         victoryPopup.SetActive(false);
+        battleOnOff = GameObject.Find("FixedUIHelper/UIBattleField").gameObject;
+        battleOnOff.SetActive(false);
+        battleOnOff = GameObject.Find("FixedUIHelper/UIBattlePlayerHand").gameObject;
+        battleOnOff.SetActive(false);
+        battleOnOff = GameObject.Find("FixedUIHelper/UIBattlePlayerDeck").gameObject;
+        battleOnOff.SetActive(false);
+        battleOnOff = GameObject.Find("System").transform.Find("BattleManger").gameObject;
+        battleOnOff.SetActive(false);
     }
 
     public void SeeMapRoad()
@@ -174,5 +186,13 @@ public class PopupSystem : MonoBehaviour {
     {
         battleMap = true;
         mapPopup.SetActive(false);
+        battleOnOff = GameObject.Find("FixedUIHelper").transform.Find("UIBattleField").gameObject;
+        battleOnOff.SetActive(true);
+        battleOnOff = GameObject.Find("FixedUIHelper").transform.Find("UIBattlePlayerHand").gameObject;
+        battleOnOff.SetActive(true);
+        battleOnOff = GameObject.Find("FixedUIHelper").transform.Find("UIBattlePlayerDeck").gameObject;
+        battleOnOff.SetActive(true);
+        battleOnOff = GameObject.Find("System").transform.Find("BattleManger").gameObject;
+        battleOnOff.SetActive(true);
     }
 }

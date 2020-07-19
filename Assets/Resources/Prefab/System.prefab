@@ -68,12 +68,12 @@ GameObject:
   - component: {fileID: 4490866821058334}
   - component: {fileID: 114481466810523430}
   m_Layer: 0
-  m_Name: Battlemanger
+  m_Name: BattleManger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1259169038503700
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +256,10 @@ MonoBehaviour:
   victoryPopup: {fileID: 0}
   fireImage: {fileID: 0}
   mapClick: {fileID: 0}
+  mapSelect: {fileID: 0}
+  buttonOnOff: {fileID: 0}
+  toStart: {fileID: 0}
+  battleOnOff: {fileID: 0}
   battleMap: 0
 --- !u!114 &114481466810523430
 MonoBehaviour:

@@ -24,12 +24,12 @@ public class EnemyCardInfo : MonoBehaviour {
 
     public void DrawCard()
     {
-        Debug.Log(BattleManager.stageLevel);
+        //Debug.Log(BattleManager.stageLevel);
         if(BattleManager.stageLevel == -1)
         {
             if(EnemyCardDataBase.cardList[routine].monsterType == 0)
             {
-                Debug.Log("스테이지1");
+               // Debug.Log("스테이지1");
                 thisCard[0] = EnemyCardDataBase.cardList[routine++];
                 if (routine == 4)
                     routine = 0;
@@ -41,7 +41,7 @@ public class EnemyCardInfo : MonoBehaviour {
         {
             if (EnemyCardDataBase.cardList[routine].monsterType == 1)
             {
-                Debug.Log("스테이지2");
+                //Debug.Log("스테이지2");
                 thisCard[0] = EnemyCardDataBase.cardList[routine++];
                 if (routine == 4)
                     routine = 0;

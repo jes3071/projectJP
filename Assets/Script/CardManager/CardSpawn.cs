@@ -28,7 +28,24 @@ public class CardSpawn : MonoBehaviour {
 
     private void Update()
     {
+        if (mapCheck.battleMap == true)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (spawnPoints[i].childCount != 0)
+                {
+                    child = GameObject.Find("CardSpawner").transform.Find("" + (i + 1)).gameObject;
+                    uCard = child.transform.GetChild(0).GetComponent<ThisCard>();
 
+                    PlayerDeck.playerDeck.Add(new Card(uCard.index, uCard.itemName, uCard.itemDescription,
+                   uCard.itemType, uCard.turnCost, uCard.cardType, uCard.damageValue,
+                   1, 0, null, null));
+
+                    Destroy(child.transform.GetChild(0).gameObject);
+                }
+                    
+            }
+        }
         if (maxCount == 4)
         {
             if (curCount < maxCount)
@@ -42,21 +59,21 @@ public class CardSpawn : MonoBehaviour {
             }
         }
 
-        if (mapCheck.battleMap == true)
+        
+        for (i = 0; i < 4; i++)
         {
-            for (int i = 0; i < 4; i++)
+            if (spawnPoints[i].childCount == 0)
             {
-                child = GameObject.Find("CardSpawner").transform.Find(""+(i+1)).gameObject;
-                uCard = child.transform.GetChild(0).GetComponent<ThisCard>();
-
-                PlayerDeck.playerDeck.Add(new Card(uCard.index, uCard.itemName, uCard.itemDescription,
-               uCard.itemType, uCard.turnCost, uCard.cardType, uCard.damageValue,
-               1, 0, null, null));
-                
-               Destroy(child.transform.GetChild(0).gameObject);
+                Instantiate(card, spawnPoints[i]);
+                curCount++;
+                break;
             }
         }
 
+    }
+
+    public void ReDraw()
+    {
         for (i = 0; i < 4; i++)
         {
             if (spawnPoints[i].childCount == 0)
