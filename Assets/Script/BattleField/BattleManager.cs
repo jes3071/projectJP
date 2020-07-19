@@ -69,6 +69,11 @@ public class BattleManager : MonoBehaviour {
         runTime = .0f; // 전체 턴 수 측정용
         turnTime = .0f; //플레이어 턴코스트 제어용 0~1
         eTurnTime = .0f; //적 턴코스트 제어용 0~1
+        Player.damageValue = 0;
+        Player.hp = 10;
+        Player.shieldValue = 0;
+        Enemy.hp = 1;
+        Enemy.shieldValue = 0;
 }
 
     public void PlayerCostInitialize()
@@ -178,7 +183,6 @@ public class BattleManager : MonoBehaviour {
     {
         if(mapCheck.battleMap == true)
         {
-            Debug.Log("배틀매니저" + mapCheck.battleMap);
             mapCheck.battleMap = false;
             StartCoroutine("GameStart");
         }
