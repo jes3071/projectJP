@@ -37,14 +37,39 @@ public class EnemyCardInfo : MonoBehaviour {
             //thisCard[0] = EnemyCardDataBase.cardList[routine++];
             
         }
-        else if (BattleManager.stageLevel == 0)
+        if (BattleManager.stageLevel == 0)
         {
-            if (EnemyCardDataBase.cardList[routine].monsterType == 1)
+            if(BattleManager.randomMonster == 0)
             {
-                //Debug.Log("스테이지2");
-                thisCard[0] = EnemyCardDataBase.cardList[routine++];
-                if (routine == 4)
-                    routine = 0;
+                if (routine < 4)
+                {
+                    routine = 4;
+                }
+                if (EnemyCardDataBase.cardList[routine].monsterType == 1)
+                {
+                    //Debug.Log("스테이지2");
+                    Debug.Log(EnemyCardDataBase.cardList[routine].itemName);
+                    thisCard[0] = EnemyCardDataBase.cardList[routine++];
+
+                    if (routine == 8)
+                        routine = 4;
+                }
+            }
+            else if (BattleManager.randomMonster == 1)
+            {
+                if (routine < 8)
+                {
+                    routine = 8;
+                }
+                if (EnemyCardDataBase.cardList[routine].monsterType == 2)
+                {
+                    //Debug.Log("스테이지2");
+                    Debug.Log(EnemyCardDataBase.cardList[routine].itemName);
+                    thisCard[0] = EnemyCardDataBase.cardList[routine++];
+
+                    if (routine == 10)
+                        routine = 8;
+                }
             }
             //thisCard[0] = EnemyCardDataBase.cardList[routine++];
 

@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
-    public static int hp;
+    public List<MonsterData> monsterData = new List<MonsterData>(new MonsterData[1]);
 
+    public static int hp;
     public static int damageValue;
     public int ackValue;
     public static int shieldValue;
+    public int blueSoul;
+    public int redSoulPercent;
+    public int redSoul;
+    public int exp;
 
     public Text hpText;
     public Text damageValueText;
@@ -21,10 +26,53 @@ public class Enemy : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        hp = 1;
+        if(BattleManager.stageLevel == -1)
+        {
+            monsterData[0] = EnemyDataBase.cardList[0];
+        }
+        else if(BattleManager.stageLevel == 0 && BattleManager.randomMonster == 0)
+        {
+            monsterData[0] = EnemyDataBase.cardList[1];
+        }
+        else if (BattleManager.stageLevel == 0 && BattleManager.randomMonster == 1)
+        {
+            monsterData[0] = EnemyDataBase.cardList[2];
+        }
+        else if (BattleManager.stageLevel == 1 && BattleManager.randomMonster == 0)
+        {
+            monsterData[0] = EnemyDataBase.cardList[3];
+        }
+        else if (BattleManager.stageLevel == 1 && BattleManager.randomMonster == 1)
+        {
+            monsterData[0] = EnemyDataBase.cardList[4];
+        }
+        else if (BattleManager.stageLevel == 1 && BattleManager.randomMonster == 2)
+        {
+            monsterData[0] = EnemyDataBase.cardList[5];
+        }
+        else if (BattleManager.stageLevel == 2 && BattleManager.randomMonster == 0)
+        {
+            monsterData[0] = EnemyDataBase.cardList[6];
+        }
+        else if (BattleManager.stageLevel == 2 && BattleManager.randomMonster == 1)
+        {
+            monsterData[0] = EnemyDataBase.cardList[7];
+        }
+        else if (BattleManager.stageLevel == 3 && BattleManager.randomMonster == 0)
+        {
+            monsterData[0] = EnemyDataBase.cardList[8];
+        }
+
+
+        hp = monsterData[0].hp;
         //damageValue = 0;
         ackValue = 0;
         shieldValue = 0;
+
+        blueSoul = monsterData[0].blueSoul;
+        redSoulPercent = monsterData[0].redSoulPercent;
+        redSoul = monsterData[0].redSoul;
+        exp = monsterData[0].exp;
 
         hpText.text = "" + hp;
         damageValueText.text = "" + damageValue;

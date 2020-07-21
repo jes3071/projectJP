@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyCardDataBase : MonoBehaviour {
-
-    public object _index;
-
+    
     public static List<EnemyCard> cardList = new List<EnemyCard>();
 
     void Awake()

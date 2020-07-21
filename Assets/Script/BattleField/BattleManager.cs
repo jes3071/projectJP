@@ -25,7 +25,8 @@ public class BattleManager : MonoBehaviour {
     public GameObject playerTurnCheck;
     public GameObject enemyTurnCheck;
     public GameObject CardTouchBlock;
-    public GameObject victoryPage;
+    public GameObject victoryPopup;
+    public GameObject defeatPopup;
 
     public Player playerEquipCard;
     public Enemy enemyEquipCard;
@@ -38,6 +39,7 @@ public class BattleManager : MonoBehaviour {
 
     public static int stageLevel = -1;
     public int lastLevel = -1;
+    public static int randomMonster;
 
     //public GameObject usingCard;
 
@@ -49,15 +51,27 @@ public class BattleManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         CardTouchBlock = GameObject.Find("FixedUIHelper").transform.Find("UIBattlePlayerHand/CardTouchBlock").gameObject;
-        victoryPage = GameObject.Find("FixedUIHelper").transform.Find("UIBattleVictoryPopup").gameObject;
+        victoryPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleVictoryPopup").gameObject;
+        defeatPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleDefeatPopup").gameObject;
         StartCoroutine("GameStart");
     }
 
     public void Play()
     {
+        if (stageLevel % 2 == 0)
+        {
+            randomMonster = Random.Range(0, 2);
+            Debug.Log(randomMonster);
+        }
+        else
+        {
+            randomMonster = Random.Range(0, 3);
+        }
+        
+
         PlayerCostInitialize();
         EnemyCostInitialize();
-        victoryPage.SetActive(false);
+        victoryPopup.SetActive(false);
         pTimer = .0f;
         eTimer = .0f;
         enemyCard.DrawCard(); // 시작할때 적의 카드 드로우
@@ -70,7 +84,7 @@ public class BattleManager : MonoBehaviour {
         turnTime = .0f; //플레이어 턴코스트 제어용 0~1
         eTurnTime = .0f; //적 턴코스트 제어용 0~1
         Player.damageValue = 0;
-        Player.hp = 10;
+        //Player.hp = 10;
         Player.shieldValue = 0;
         Enemy.hp = 1;
         Enemy.shieldValue = 0;
@@ -250,7 +264,7 @@ public class BattleManager : MonoBehaviour {
 
                     if (Enemy.hp <= 0)
                     {
-                        victoryPage.SetActive(true);
+                        victoryPopup.SetActive(true);
                         stageLevel++;
                     }
                 }
@@ -266,6 +280,12 @@ public class BattleManager : MonoBehaviour {
                     {
                         Player.shieldValue -= Enemy.damageValue;
                     }
+
+                    if (Player.hp <= 0)
+                    {
+                        defeatPopup.SetActive(true);
+                    }
+
                 }
                 else if (playerCardInfo[0].cardType == 1 && enemyCardInfo[0].cardType == 1)
                 {
@@ -289,9 +309,13 @@ public class BattleManager : MonoBehaviour {
                         Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
                     }
 
-                    if (Enemy.hp <= 0)
+                    if (Player.hp <= 0)
                     {
-                        victoryPage.SetActive(true);
+                        defeatPopup.SetActive(true);
+                    }
+                    else if (Enemy.hp <= 0 && Player.hp > 0)
+                    {
+                        victoryPopup.SetActive(true);
                         stageLevel++;
                     }
                 }
@@ -301,7 +325,7 @@ public class BattleManager : MonoBehaviour {
                     Enemy.shieldValue += Enemy.damageValue;
                 }
 
-                EnemyEquipCtrl();
+                Invoke("EnemyEquipCtrl", 1);
                 PlayerEquipCtrl();
                 //Debug.Log("동시");
             }
@@ -321,7 +345,7 @@ public class BattleManager : MonoBehaviour {
 
                     if(Enemy.hp <= 0)
                     {
-                        victoryPage.SetActive(true);
+                        victoryPopup.SetActive(true);
                         stageLevel++;
                     }
                 }
@@ -346,13 +370,18 @@ public class BattleManager : MonoBehaviour {
                         Player.shieldValue = 0;
                         Player.hp -= (Enemy.damageValue - Player.shieldValue);
                     }
+
+                    if (Player.hp <= 0)
+                    {
+                        defeatPopup.SetActive(true);
+                    }
                 }
                 else if(enemyCardInfo[0].cardType == 2)
                 {
                     Enemy.shieldValue += Enemy.damageValue;
                 }
 
-                EnemyEquipCtrl();
+                Invoke("EnemyEquipCtrl", 1);
                 //Debug.Log("적 먼저");
             }
         }
@@ -378,7 +407,6 @@ public class BattleManager : MonoBehaviour {
         enemyEquipCard.Equip(); // 해당 카드 장착(공,방 및 데미지 확인)
         enemyFillCheck.GetComponent<Image>().fillAmount = .0f;
         EnemyCostActive();
-        //Invoke("EnemyCostInitialize", 1);
 
     }
     

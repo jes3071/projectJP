@@ -106,6 +106,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1709067230925218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4524771485136158}
+  - component: {fileID: 114291671440466702}
+  m_Layer: 0
+  m_Name: MonsterDataBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1927958010489950
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,6 +167,7 @@ Transform:
   - {fileID: 4245317475497136}
   - {fileID: 4642099428763554}
   - {fileID: 4490866821058334}
+  - {fileID: 4524771485136158}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -192,6 +209,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4223403821707326}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4524771485136158
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709067230925218}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4223403821707326}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4610574252582788
 Transform:
@@ -254,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapPopup: {fileID: 0}
   victoryPopup: {fileID: 0}
+  defeatPopup: {fileID: 0}
   fireImage: {fileID: 0}
   mapClick: {fileID: 0}
   mapSelect: {fileID: 0}
@@ -261,6 +292,17 @@ MonoBehaviour:
   toStart: {fileID: 0}
   battleOnOff: {fileID: 0}
   battleMap: 0
+--- !u!114 &114291671440466702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709067230925218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8c3daf14d667e46b72754e17ea9d67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114481466810523430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -302,7 +344,8 @@ MonoBehaviour:
   playerTurnCheck: {fileID: 0}
   enemyTurnCheck: {fileID: 0}
   CardTouchBlock: {fileID: 0}
-  victoryPage: {fileID: 0}
+  victoryPopup: {fileID: 0}
+  defeatPopup: {fileID: 0}
   playerEquipCard: {fileID: 0}
   enemyEquipCard: {fileID: 0}
   enemyCard: {fileID: 0}

@@ -7,6 +7,7 @@ public class PopupSystem : MonoBehaviour {
 
     public GameObject mapPopup;
     public GameObject victoryPopup;
+    public GameObject defeatPopup;
     public GameObject fireImage;
     public GameObject mapClick;
     public GameObject mapSelect;
@@ -20,6 +21,7 @@ public class PopupSystem : MonoBehaviour {
     {
         mapPopup = GameObject.Find("FixedUIHelper").transform.Find("UIMapPopup").gameObject;
         victoryPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleVictoryPopup").gameObject;
+        defeatPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleDefeatPopup").gameObject;
         toStart = GameObject.Find("UILobbyStartPopup").gameObject; 
 
         InitilaizeButton();
