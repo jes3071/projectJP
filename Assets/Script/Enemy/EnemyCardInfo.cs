@@ -24,51 +24,49 @@ public class EnemyCardInfo : MonoBehaviour {
 
     public void DrawCard()
     {
-        //Debug.Log(BattleManager.stageLevel);
         if(BattleManager.stageLevel == -1)
         {
             if(EnemyCardDataBase.cardList[routine].monsterType == 0)
             {
-               // Debug.Log("스테이지1");
+                //Debug.Log(EnemyCardDataBase.cardList[routine].itemName);
                 thisCard[0] = EnemyCardDataBase.cardList[routine++];
-                if (routine == 4)
+                if (routine == 2)
                     routine = 0;
             }
             //thisCard[0] = EnemyCardDataBase.cardList[routine++];
-            
         }
         if (BattleManager.stageLevel == 0)
         {
             if(BattleManager.randomMonster == 0)
             {
-                if (routine < 4)
+                if (routine < 2)
                 {
-                    routine = 4;
+                    routine = 2;
                 }
                 if (EnemyCardDataBase.cardList[routine].monsterType == 1)
                 {
                     //Debug.Log("스테이지2");
-                    Debug.Log(EnemyCardDataBase.cardList[routine].itemName);
+                    //Debug.Log(EnemyCardDataBase.cardList[routine].itemName);
                     thisCard[0] = EnemyCardDataBase.cardList[routine++];
 
-                    if (routine == 8)
-                        routine = 4;
+                    if (routine == 4)
+                        routine = 2;
                 }
             }
             else if (BattleManager.randomMonster == 1)
             {
-                if (routine < 8)
+                if (routine < 4)
                 {
-                    routine = 8;
+                    routine = 4;
                 }
                 if (EnemyCardDataBase.cardList[routine].monsterType == 2)
                 {
                     //Debug.Log("스테이지2");
-                    Debug.Log(EnemyCardDataBase.cardList[routine].itemName);
+                    //Debug.Log(EnemyCardDataBase.cardList[routine].itemName);
                     thisCard[0] = EnemyCardDataBase.cardList[routine++];
 
-                    if (routine == 10)
-                        routine = 8;
+                    if (routine == 7)
+                        routine = 4;
                 }
             }
             //thisCard[0] = EnemyCardDataBase.cardList[routine++];

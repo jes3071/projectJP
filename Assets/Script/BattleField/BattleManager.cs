@@ -27,6 +27,7 @@ public class BattleManager : MonoBehaviour {
     public GameObject CardTouchBlock;
     public GameObject victoryPopup;
     public GameObject defeatPopup;
+    public Animator animator;
 
     public Player playerEquipCard;
     public Enemy enemyEquipCard;
@@ -53,7 +54,8 @@ public class BattleManager : MonoBehaviour {
         CardTouchBlock = GameObject.Find("FixedUIHelper").transform.Find("UIBattlePlayerHand/CardTouchBlock").gameObject;
         victoryPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleVictoryPopup").gameObject;
         defeatPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleDefeatPopup").gameObject;
-        StartCoroutine("GameStart");
+        //animator = GetComponent<Animator>();
+        //StartCoroutine("GameStart");
     }
 
     public void Play()
@@ -61,14 +63,14 @@ public class BattleManager : MonoBehaviour {
         if (stageLevel % 2 == 0)
         {
             randomMonster = Random.Range(0, 2);
-            Debug.Log(randomMonster);
         }
         else
         {
             randomMonster = Random.Range(0, 3);
         }
         
-
+        animator.SetInteger("playerdamaged", -1);
+        animator.SetInteger("enemydamaged", -1);
         PlayerCostInitialize();
         EnemyCostInitialize();
         victoryPopup.SetActive(false);
@@ -87,7 +89,7 @@ public class BattleManager : MonoBehaviour {
         //Player.hp = 10;
         Player.shieldValue = 0;
         //Enemy.hp = 1;
-        Enemy.shieldValue = 0;
+        //Enemy.shieldValue = 0;
 }
 
     public void PlayerCostInitialize()
@@ -103,6 +105,7 @@ public class BattleManager : MonoBehaviour {
         CardTouchBlock.GetComponent<Image>().raycastTarget = false;
         turnTime = 0;
         playerEquipCard.UnEquip();
+        animator.SetInteger("enemydamaged", -1);
     }
 
     public void EnemyCostInitialize()
@@ -256,16 +259,19 @@ public class BattleManager : MonoBehaviour {
                     {
                         Enemy.shieldValue = 0;
                         Enemy.hp -= (Player.damageValue - Enemy.damageValue);
+                        animator.SetInteger("enemydamaged", 1);
+                        Debug.Log("적 피 깎임");
                     }
                     else if(Player.damageValue <= Enemy.shieldValue)
                     {
                         Enemy.shieldValue -= Player.damageValue;
+                        Debug.Log("적 실드 깎임");
                     }
 
                     if (Enemy.hp <= 0)
                     {
                         victoryPopup.SetActive(true);
-                        stageLevel++;
+                        //stageLevel++;
                     }
                 }
                 else if (playerCardInfo[0].cardType == 2 && enemyCardInfo[0].cardType == 1)
@@ -275,10 +281,13 @@ public class BattleManager : MonoBehaviour {
                     {
                         Player.shieldValue = 0;
                         Player.hp -= (Enemy.damageValue - Player.damageValue);
+                        animator.SetInteger("playerdamaged", 1);
+                        Debug.Log("나 피 깎임");
                     }
                     else if (Enemy.damageValue <= Player.shieldValue)
                     {
                         Player.shieldValue -= Enemy.damageValue;
+                        Debug.Log("나 실드 깎임");
                     }
 
                     if (Player.hp <= 0)
@@ -289,24 +298,32 @@ public class BattleManager : MonoBehaviour {
                 }
                 else if (playerCardInfo[0].cardType == 1 && enemyCardInfo[0].cardType == 1)
                 {
-                    if(Player.shieldValue >= Enemy.damageValue)
+                    Debug.Log(Player.shieldValue);
+                    Debug.Log(Enemy.damageValue);
+                    if (Player.shieldValue >= Enemy.damageValue)
                     {
                         Player.shieldValue -= Enemy.damageValue;
+                        Debug.Log("나 실드 깎임22");
                     }
                     else if(Player.shieldValue < Enemy.damageValue)
                     {
-                        Player.shieldValue = 0;
                         Player.hp -= (Enemy.damageValue - Player.shieldValue);
+                        Player.shieldValue = 0;
+                        animator.SetInteger("playerdamaged", 1);
+                        Debug.Log("나 피 깎임22");
                     }
 
                     if (Enemy.shieldValue >= Player.damageValue)
                     {
                         Enemy.shieldValue -= Player.damageValue;
+                        Debug.Log("적 실드 깎임22");
                     }
                     else if (Enemy.shieldValue < Player.damageValue)
                     {
-                        Enemy.shieldValue = 0;
                         Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
+                        Enemy.shieldValue = 0;
+                        animator.SetInteger("enemydamaged", 1);
+                        Debug.Log("적 피 깎임22");
                     }
 
                     if (Player.hp <= 0)
@@ -316,7 +333,7 @@ public class BattleManager : MonoBehaviour {
                     else if (Enemy.hp <= 0 && Player.hp > 0)
                     {
                         victoryPopup.SetActive(true);
-                        stageLevel++;
+                        //stageLevel++;
                     }
                 }
                 else if(playerCardInfo[0].cardType == 2 && enemyCardInfo[0].cardType == 2)
@@ -336,17 +353,20 @@ public class BattleManager : MonoBehaviour {
                     if (Enemy.shieldValue >= Player.damageValue)
                     {
                         Enemy.shieldValue -= Player.damageValue;
+                        Debug.Log("적 실드 깎임");
                     }
                     else if (Enemy.shieldValue < Player.damageValue)
                     {
-                        Enemy.shieldValue = 0;
                         Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
+                        Enemy.shieldValue = 0;
+                        animator.SetInteger("enemydamaged", 1);
+                        Debug.Log("적 피 깎임");
                     }
 
                     if(Enemy.hp <= 0)
                     {
                         victoryPopup.SetActive(true);
-                        stageLevel++;
+                        //stageLevel++;
                     }
                 }
                 else if(playerCardInfo[0].cardType == 2)
@@ -364,11 +384,14 @@ public class BattleManager : MonoBehaviour {
                     if (Player.shieldValue >= Enemy.damageValue)
                     {
                         Player.shieldValue -= Enemy.damageValue;
+                        Debug.Log("나 실드 깎임");
                     }
                     else if (Player.shieldValue < Enemy.damageValue)
                     {
-                        Player.shieldValue = 0;
                         Player.hp -= (Enemy.damageValue - Player.shieldValue);
+                        Player.shieldValue = 0;
+                        animator.SetInteger("playerdamaged", 1);
+                        Debug.Log("나 피 깎임");
                     }
 
                     if (Player.hp <= 0)
@@ -381,7 +404,8 @@ public class BattleManager : MonoBehaviour {
                     Enemy.shieldValue += Enemy.damageValue;
                 }
 
-                Invoke("EnemyEquipCtrl", 1);
+                EnemyEquipCtrl();
+                //Invoke("EnemyEquipCtrl", 1);
                 //Debug.Log("적 먼저");
             }
         }
@@ -391,6 +415,8 @@ public class BattleManager : MonoBehaviour {
     {
         //cardToHand.ReDraw();
         turnOnOff = false;
+        //animator.SetInteger("playerdamaged", -1);
+        //animator.SetInteger("enemydamaged", -1);
         playerEquipCard.Apply(); // 공 방 적용
         DropPoint.uCard = null; //해당 업데이트안에 있는 if문 발동 해제용
         Destroy(DropPoint.cardObject);
@@ -399,6 +425,7 @@ public class BattleManager : MonoBehaviour {
 
     public void EnemyEquipCtrl()
     {
+        animator.SetInteger("playerdamaged", -1);
         enemyEquipCard.Apply();
         eTurnTime = 0;
         enemyEquipCard.UnEquip();

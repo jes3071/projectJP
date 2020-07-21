@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -534,6 +534,11 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224006134682506294, guid: 229ad51b22bf67845842fadb5cd07880,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 229ad51b22bf67845842fadb5cd07880, type: 2}
@@ -4785,6 +4790,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114895901931415834, guid: fa1fa4a362a1711488690841d032a099,
+        type: 2}
+      propertyPath: Deck
+      value: 
+      objectReference: {fileID: 978312157}
+    - target: {fileID: 114895901931415834, guid: fa1fa4a362a1711488690841d032a099,
+        type: 2}
+      propertyPath: DeckOpen
+      value: 
+      objectReference: {fileID: 952251802}
+    - target: {fileID: 114481466810523430, guid: fa1fa4a362a1711488690841d032a099,
+        type: 2}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1015287161}
     - target: {fileID: 114481466810523430, guid: fa1fa4a362a1711488690841d032a099,
         type: 2}
       propertyPath: playerEquipCard
@@ -4805,16 +4825,6 @@ Prefab:
       propertyPath: TurnText
       value: 
       objectReference: {fileID: 1914073152}
-    - target: {fileID: 114895901931415834, guid: fa1fa4a362a1711488690841d032a099,
-        type: 2}
-      propertyPath: Deck
-      value: 
-      objectReference: {fileID: 978312157}
-    - target: {fileID: 114895901931415834, guid: fa1fa4a362a1711488690841d032a099,
-        type: 2}
-      propertyPath: DeckOpen
-      value: 
-      objectReference: {fileID: 952251802}
     - target: {fileID: 114137534213442022, guid: fa1fa4a362a1711488690841d032a099,
         type: 2}
       propertyPath: mapPopup
@@ -5092,6 +5102,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd2e06ff1c871a146aa48dad4728bb5b, type: 2}
   m_IsPrefabParent: 0
+--- !u!95 &1015287161 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95527486684625432, guid: 229ad51b22bf67845842fadb5cd07880,
+    type: 2}
+  m_PrefabInternal: {fileID: 153661527}
 --- !u!1001 &1098846332
 Prefab:
   m_ObjectHideFlags: 0
@@ -5277,7 +5292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1351471612
 RectTransform:
   m_ObjectHideFlags: 0

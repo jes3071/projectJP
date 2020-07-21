@@ -79,6 +79,6 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         hpText.text = "" + hp;
-        //shieldValueText.text = "" + shieldValue;
+        shieldValueText.text = "" + shieldValue;
     }
 }

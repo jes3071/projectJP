@@ -14,12 +14,11 @@ public class MonsterData
     public int hp;
     public int shield;
     public int blueSoul;
-    public int redSoulPercent;
-    public int redSoul;
+    public int maxRedSoul;
     public int exp;
 
     public MonsterData(string MonsterName, int MonsterPrefabID, int StageLevel, string MonsterDescription, int Hp,
-        int Shield, int BlueSoul, int RedSoulPercent, int RedSoul, int Exp)
+        int Shield, int BlueSoul, int MaxRedSoul, int Exp)
     {
         monsterName = MonsterName;
         monsterPrefabID = MonsterPrefabID;
@@ -28,8 +27,7 @@ public class MonsterData
         hp = Hp;
         shield = Shield;
         blueSoul = BlueSoul;
-        redSoulPercent = RedSoulPercent;
-        redSoul = RedSoul;
+        maxRedSoul = MaxRedSoul;
         exp = Exp;
     }
 }

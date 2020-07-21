@@ -14,7 +14,7 @@ public class EnemyDataBase : MonoBehaviour
         {
             cardList.Add(new MonsterData((string)data[i]["MonsterName"], (int)data[i]["MonsterPrefabID"], (int)data[i]["StageLevel"],
                 (string)data[i]["MonsterDescription"], (int)data[i]["Hp"], (int)data[i]["Shield"], (int)data[i]["BlueSoul"],
-                (int)data[i]["RedSoulPercent"], (int)data[i]["RedSoul"], (int)data[i]["Exp"]));
+                (int)data[i]["MaxRedSoul"], (int)data[i]["Exp"]));
         }
     }
 }

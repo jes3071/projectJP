@@ -13,8 +13,7 @@ public class Enemy : MonoBehaviour {
     public static int shieldValue;
     public int monsterPrefabID;
     public int blueSoul;
-    public int redSoulPercent;
-    public int redSoul;
+    public int maxRedSoul;
     public int exp;
 
     public int levelCheck = -1;
@@ -72,24 +71,24 @@ public class Enemy : MonoBehaviour {
         hp = monsterData[0].hp;
         //damageValue = 0;
         ackValue = 0;
-        shieldValue = 0;
+        shieldValue = monsterData[0].shield;
 
         monsterPrefabID = monsterData[0].monsterPrefabID;
         blueSoul = monsterData[0].blueSoul;
-        redSoulPercent = monsterData[0].redSoulPercent;
-        redSoul = monsterData[0].redSoul;
+        maxRedSoul = monsterData[0].maxRedSoul;
         exp = monsterData[0].exp;
 
         hpText.text = "" + hp;
         damageValueText.text = "" + damageValue;
         ackValueText.text = "" + ackValue;
         shieldValueText.text = "" + shieldValue;
+        monsterPrefeb.sprite = Resources.Load<Sprite>("UI/EnemyMonster" + monsterPrefabID.ToString());
     }
 
     public void Equip()
     {
 
-        monsterPrefeb.sprite = Resources.Load<Sprite>("UI/EnemyMonster" + monsterPrefabID.ToString());
+        //monsterPrefeb.sprite = Resources.Load<Sprite>("UI/EnemyMonster" + monsterPrefabID.ToString());
         damageValue = EnemyCardInfo.damageValue;
         if (EnemyCardInfo.cardType == 1)
         {

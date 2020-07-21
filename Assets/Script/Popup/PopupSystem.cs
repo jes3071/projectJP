@@ -49,6 +49,7 @@ public class PopupSystem : MonoBehaviour {
     public void VictoryButton()
     {
         mapPopup.SetActive(true);
+        BattleManager.stageLevel++;
         battleMap = false;
         SeeMapRoad();
         MapMove();

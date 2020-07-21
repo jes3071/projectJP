@@ -346,6 +346,7 @@ MonoBehaviour:
   CardTouchBlock: {fileID: 0}
   victoryPopup: {fileID: 0}
   defeatPopup: {fileID: 0}
+  animator: {fileID: 0}
   playerEquipCard: {fileID: 0}
   enemyEquipCard: {fileID: 0}
   enemyCard: {fileID: 0}
