@@ -86,6 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224687035435847842}
   - component: {fileID: 222137003041227378}
+  - component: {fileID: 95896793466588840}
   m_Layer: 5
   m_Name: UIBattlePlayerHand
   m_TagString: Untagged
@@ -139,6 +140,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &95896793466588840
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1412496376517202}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 60028f668e097cd42bb14b48612e9c2d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114047389987194260
 MonoBehaviour:
   m_ObjectHideFlags: 1
