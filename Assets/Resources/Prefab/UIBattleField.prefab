@@ -827,7 +827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1762664527884390
 GameObject:
   m_ObjectHideFlags: 1
@@ -1284,14 +1284,12 @@ MonoBehaviour:
     hp: 0
     shield: 0
     blueSoul: 0
-    redSoulPercent: 0
-    redSoul: 0
+    maxRedSoul: 0
     exp: 0
   ackValue: 0
   monsterPrefabID: 0
   blueSoul: 0
-  redSoulPercent: 0
-  redSoul: 0
+  maxRedSoul: 0
   exp: 0
   levelCheck: -1
   hpText: {fileID: 114102193664813088}
@@ -1301,7 +1299,7 @@ MonoBehaviour:
   cardType: {fileID: 0}
   state: {fileID: 114485487201981980}
   monster: {fileID: 0}
-  monsterPrefeb: {fileID: 114291913965647960}
+  monsterPrefeb: {fileID: 0}
 --- !u!114 &114050461587263282
 MonoBehaviour:
   m_ObjectHideFlags: 1
