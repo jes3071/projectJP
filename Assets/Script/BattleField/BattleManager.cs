@@ -86,7 +86,7 @@ public class BattleManager : MonoBehaviour {
         Player.damageValue = 0;
         //Player.hp = 10;
         Player.shieldValue = 0;
-        Enemy.hp = 1;
+        //Enemy.hp = 1;
         Enemy.shieldValue = 0;
 }
 
