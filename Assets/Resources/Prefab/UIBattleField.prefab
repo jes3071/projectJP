@@ -2033,14 +2033,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56eb2c665bf693d4ea0fcad50fb79c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData:
+  - characterName: 
+    characterOpen: 0
+    blueSoul: 0
+    redSoul: 0
+    lv: 0
+    hp: 0
+    shield: 0
+    exp: 0
+    stageLevel: 0
   level: 0
   ackValue: 0
+  characterOpen: 0
+  lv: 0
+  exp: 0
   hpText: {fileID: 114381376336331422}
   damageValueText: {fileID: 114936758183658930}
   ackValueText: {fileID: 114838406400421706}
   shieldValueText: {fileID: 114595789994343748}
   cardType: {fileID: 0}
   state: {fileID: 114513566808166032}
+  blueSoulText: {fileID: 0}
+  redSoulText: {fileID: 0}
 --- !u!114 &114587497799194868
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -122,6 +122,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1797313544245278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4930775005464884}
+  - component: {fileID: 114110583769372488}
+  m_Layer: 0
+  m_Name: PlayerDataBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1927958010489950
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +184,7 @@ Transform:
   - {fileID: 4642099428763554}
   - {fileID: 4490866821058334}
   - {fileID: 4524771485136158}
+  - {fileID: 4930775005464884}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -249,6 +266,19 @@ Transform:
   m_Father: {fileID: 4223403821707326}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4930775005464884
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1797313544245278}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4223403821707326}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114051683330554866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,6 +299,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec2618a9acf848b4d93124fda216c97d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114110583769372488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1797313544245278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc43bdba1876854d934f9eb6e8df80c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114137534213442022
