@@ -346,6 +346,8 @@ MonoBehaviour:
   CardTouchBlock: {fileID: 0}
   victoryPopup: {fileID: 0}
   defeatPopup: {fileID: 0}
+  pBackFill: {fileID: 0}
+  eBackFill: {fileID: 0}
   animator: {fileID: 0}
   playerEquipCard: {fileID: 0}
   enemyEquipCard: {fileID: 0}
@@ -354,7 +356,12 @@ MonoBehaviour:
   mapCheck: {fileID: 114137534213442022}
   cardToHand: {fileID: 0}
   TurnText: {fileID: 0}
+  blueSoulText: {fileID: 0}
+  redSoulText: {fileID: 0}
+  pDamagedText: {fileID: 0}
+  eDamagedText: {fileID: 0}
   lastLevel: -1
+  redSoul: 0
 --- !u!114 &114521357257053312
 MonoBehaviour:
   m_ObjectHideFlags: 1

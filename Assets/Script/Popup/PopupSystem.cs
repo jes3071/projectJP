@@ -14,6 +14,7 @@ public class PopupSystem : MonoBehaviour {
     public GameObject buttonOnOff;
     public GameObject toStart;
     public GameObject battleOnOff;
+    
 
     public bool battleMap = false;
 

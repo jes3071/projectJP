@@ -27,6 +27,9 @@ public class BattleManager : MonoBehaviour {
     public GameObject CardTouchBlock;
     public GameObject victoryPopup;
     public GameObject defeatPopup;
+    public GameObject pBackFill;
+    public GameObject eBackFill;
+
     public Animator animator;
 
     public Player playerEquipCard;
@@ -37,10 +40,15 @@ public class BattleManager : MonoBehaviour {
     public CardSpawn cardToHand;
 
     public Text TurnText;
+    public Text blueSoulText;
+    public Text redSoulText;
+    public Text pDamagedText;
+    public Text eDamagedText;
 
     public static int stageLevel = -1;
     public int lastLevel = -1;
     public static int randomMonster;
+    public int redSoul;
 
     //public GameObject usingCard;
 
@@ -54,6 +62,8 @@ public class BattleManager : MonoBehaviour {
         CardTouchBlock = GameObject.Find("FixedUIHelper").transform.Find("UIBattlePlayerHand/CardTouchBlock").gameObject;
         victoryPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleVictoryPopup").gameObject;
         defeatPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleDefeatPopup").gameObject;
+        pBackFill = GameObject.Find("FixedUIHelper").transform.Find("UIBattleField/Player/PlayerTurnState/PlayerTurnStateFill").gameObject;
+        eBackFill = GameObject.Find("FixedUIHelper").transform.Find("UIBattleField/Enemy/EnemyTurnState/EnemyTurnStateFill").gameObject;
         //animator = GetComponent<Animator>();
         //StartCoroutine("GameStart");
     }
@@ -102,6 +112,7 @@ public class BattleManager : MonoBehaviour {
             playerFillCheck.GetComponent<Image>().fillAmount = .0f;
             playerTurnCheck.SetActive(false);
         }
+        pBackFill.GetComponent<Image>().fillAmount = .0f;
         CardTouchBlock.GetComponent<Image>().raycastTarget = false;
         turnTime = 0;
         playerEquipCard.UnEquip();
@@ -118,6 +129,7 @@ public class BattleManager : MonoBehaviour {
             enemyFillCheck.GetComponent<Image>().fillAmount = .0f;
             enemyTurnCheck.SetActive(false);
         }
+        eBackFill.GetComponent<Image>().fillAmount = .0f;
     }
 
     public void PlayerCostActive()
@@ -220,7 +232,7 @@ public class BattleManager : MonoBehaviour {
                 EnemyTurnChecker();
                 eTimer = 0;
             }
-
+            eBackFill.GetComponent<Image>().fillAmount = eTurnTime / enemyTurnCost;
         }
 
         if (DropPoint.uCard != null)
@@ -231,7 +243,7 @@ public class BattleManager : MonoBehaviour {
             turnOnOff = true;
             PlayerCostActive(); // 플레이어 카드의 코스트를 받아온 후 비활성화된 코스트 이미지 활성화
             //EnemyCostActive();
-
+            
             //EnemyCostActive();
             if (playerFillCheck.GetComponent<Image>().fillAmount != 1 ||
                 enemyFillCheck.GetComponent<Image>().fillAmount != 1 && turnOnOff == true)
@@ -246,6 +258,7 @@ public class BattleManager : MonoBehaviour {
                     PlayerTurnChecker();
                     pTimer = 0;
                 }
+                pBackFill.GetComponent<Image>().fillAmount = turnTime / playerTurnCost;
 
             }
             if (playerFillCheck.GetComponent<Image>().fillAmount == 1 &&
@@ -257,19 +270,23 @@ public class BattleManager : MonoBehaviour {
                     Enemy.shieldValue += Enemy.damageValue;
                     if(Player.damageValue > Enemy.shieldValue)
                     {
+                        Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
+                        eDamagedText.text = (Player.damageValue - Enemy.shieldValue).ToString();
                         Enemy.shieldValue = 0;
-                        Enemy.hp -= (Player.damageValue - Enemy.damageValue);
                         animator.SetInteger("enemydamaged", 1);
-                        Debug.Log("적 피 깎임");
+                        //Debug.Log("적 피 깎임");
                     }
                     else if(Player.damageValue <= Enemy.shieldValue)
                     {
                         Enemy.shieldValue -= Player.damageValue;
-                        Debug.Log("적 실드 깎임");
+                        //Debug.Log("적 실드 깎임");
                     }
 
                     if (Enemy.hp <= 0)
                     {
+                        blueSoulText.text = enemyEquipCard.blueSoul.ToString();
+                        redSoul = Random.Range(0, enemyEquipCard.maxRedSoul + 1);
+                        redSoulText.text = redSoul.ToString();
                         victoryPopup.SetActive(true);
                         //stageLevel++;
                     }
@@ -279,15 +296,16 @@ public class BattleManager : MonoBehaviour {
                     Player.shieldValue += Player.damageValue;
                     if (Enemy.damageValue > Player.shieldValue)
                     {
+                        Player.hp -= (Enemy.damageValue - Player.shieldValue);
+                        pDamagedText.text = (Enemy.damageValue - Player.shieldValue).ToString();
                         Player.shieldValue = 0;
-                        Player.hp -= (Enemy.damageValue - Player.damageValue);
                         animator.SetInteger("playerdamaged", 1);
-                        Debug.Log("나 피 깎임");
+                        //Debug.Log("나 피 깎임");
                     }
                     else if (Enemy.damageValue <= Player.shieldValue)
                     {
                         Player.shieldValue -= Enemy.damageValue;
-                        Debug.Log("나 실드 깎임");
+                        //Debug.Log("나 실드 깎임");
                     }
 
                     if (Player.hp <= 0)
@@ -303,27 +321,29 @@ public class BattleManager : MonoBehaviour {
                     if (Player.shieldValue >= Enemy.damageValue)
                     {
                         Player.shieldValue -= Enemy.damageValue;
-                        Debug.Log("나 실드 깎임22");
+                        //Debug.Log("나 실드 깎임22");
                     }
                     else if(Player.shieldValue < Enemy.damageValue)
                     {
                         Player.hp -= (Enemy.damageValue - Player.shieldValue);
+                        pDamagedText.text = (Enemy.damageValue - Player.shieldValue).ToString();
                         Player.shieldValue = 0;
                         animator.SetInteger("playerdamaged", 1);
-                        Debug.Log("나 피 깎임22");
+                        //Debug.Log("나 피 깎임22");
                     }
 
                     if (Enemy.shieldValue >= Player.damageValue)
                     {
                         Enemy.shieldValue -= Player.damageValue;
-                        Debug.Log("적 실드 깎임22");
+                        //Debug.Log("적 실드 깎임22");
                     }
                     else if (Enemy.shieldValue < Player.damageValue)
                     {
                         Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
+                        eDamagedText.text = (Player.damageValue - Enemy.shieldValue).ToString();
                         Enemy.shieldValue = 0;
                         animator.SetInteger("enemydamaged", 1);
-                        Debug.Log("적 피 깎임22");
+                        //Debug.Log("적 피 깎임22");
                     }
 
                     if (Player.hp <= 0)
@@ -332,6 +352,9 @@ public class BattleManager : MonoBehaviour {
                     }
                     else if (Enemy.hp <= 0 && Player.hp > 0)
                     {
+                        blueSoulText.text = enemyEquipCard.blueSoul.ToString();
+                        redSoul = Random.Range(0, enemyEquipCard.maxRedSoul + 1);
+                        redSoulText.text = redSoul.ToString();
                         victoryPopup.SetActive(true);
                         //stageLevel++;
                     }
@@ -353,18 +376,22 @@ public class BattleManager : MonoBehaviour {
                     if (Enemy.shieldValue >= Player.damageValue)
                     {
                         Enemy.shieldValue -= Player.damageValue;
-                        Debug.Log("적 실드 깎임");
+                        //Debug.Log("적 실드 깎임");
                     }
                     else if (Enemy.shieldValue < Player.damageValue)
                     {
                         Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
+                        eDamagedText.text = (Player.damageValue - Enemy.shieldValue).ToString();
                         Enemy.shieldValue = 0;
                         animator.SetInteger("enemydamaged", 1);
-                        Debug.Log("적 피 깎임");
+                        //Debug.Log("적 피 깎임");
                     }
 
                     if(Enemy.hp <= 0)
                     {
+                        blueSoulText.text = enemyEquipCard.blueSoul.ToString();
+                        redSoul = Random.Range(0, enemyEquipCard.maxRedSoul + 1);
+                        redSoulText.text = redSoul.ToString();
                         victoryPopup.SetActive(true);
                         //stageLevel++;
                     }
@@ -384,14 +411,16 @@ public class BattleManager : MonoBehaviour {
                     if (Player.shieldValue >= Enemy.damageValue)
                     {
                         Player.shieldValue -= Enemy.damageValue;
-                        Debug.Log("나 실드 깎임");
+                        //Debug.Log("나 실드 깎임");
                     }
                     else if (Player.shieldValue < Enemy.damageValue)
                     {
                         Player.hp -= (Enemy.damageValue - Player.shieldValue);
+                        pDamagedText.text = (Enemy.damageValue - Player.shieldValue).ToString();
                         Player.shieldValue = 0;
                         animator.SetInteger("playerdamaged", 1);
-                        Debug.Log("나 피 깎임");
+                        //Debug.Log(runTime);
+                        //Debug.Log("나 피 깎임");
                     }
 
                     if (Player.hp <= 0)
@@ -425,7 +454,9 @@ public class BattleManager : MonoBehaviour {
 
     public void EnemyEquipCtrl()
     {
-        animator.SetInteger("playerdamaged", -1);
+        //animator.SetInteger("playerdamaged", -1);
+        
+        Invoke("PlayerDamagedReset", 1);
         enemyEquipCard.Apply();
         eTurnTime = 0;
         enemyEquipCard.UnEquip();
@@ -434,7 +465,13 @@ public class BattleManager : MonoBehaviour {
         enemyEquipCard.Equip(); // 해당 카드 장착(공,방 및 데미지 확인)
         enemyFillCheck.GetComponent<Image>().fillAmount = .0f;
         EnemyCostActive();
+        eBackFill.GetComponent<Image>().fillAmount = .0f;
+    }
 
+    public void PlayerDamagedReset()
+    {
+        animator.SetInteger("playerdamaged", -1);
+        //Debug.Log(runTime);
     }
     
     private void PlayerTurnChecker()
