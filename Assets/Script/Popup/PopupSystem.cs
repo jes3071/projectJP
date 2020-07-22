@@ -63,6 +63,12 @@ public class PopupSystem : MonoBehaviour {
         battleOnOff.SetActive(false);
         battleOnOff = GameObject.Find("System").transform.Find("BattleManger").gameObject;
         battleOnOff.SetActive(false);
+        SaveGameData();
+    }
+
+    public void SaveGameData()
+    {
+
     }
 
     public void SeeMapRoad()

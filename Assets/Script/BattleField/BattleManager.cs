@@ -287,6 +287,8 @@ public class BattleManager : MonoBehaviour {
                         blueSoulText.text = enemyEquipCard.blueSoul.ToString();
                         redSoul = Random.Range(0, enemyEquipCard.maxRedSoul + 1);
                         redSoulText.text = redSoul.ToString();
+                        Player.blueSoul += enemyEquipCard.blueSoul;
+                        Player.redSoul += redSoul;
                         victoryPopup.SetActive(true);
                         //stageLevel++;
                     }
@@ -316,8 +318,8 @@ public class BattleManager : MonoBehaviour {
                 }
                 else if (playerCardInfo[0].cardType == 1 && enemyCardInfo[0].cardType == 1)
                 {
-                    Debug.Log(Player.shieldValue);
-                    Debug.Log(Enemy.damageValue);
+                    //Debug.Log(Player.shieldValue);
+                    //Debug.Log(Enemy.damageValue);
                     if (Player.shieldValue >= Enemy.damageValue)
                     {
                         Player.shieldValue -= Enemy.damageValue;
@@ -355,6 +357,8 @@ public class BattleManager : MonoBehaviour {
                         blueSoulText.text = enemyEquipCard.blueSoul.ToString();
                         redSoul = Random.Range(0, enemyEquipCard.maxRedSoul + 1);
                         redSoulText.text = redSoul.ToString();
+                        Player.blueSoul += enemyEquipCard.blueSoul;
+                        Player.redSoul += redSoul;
                         victoryPopup.SetActive(true);
                         //stageLevel++;
                     }
@@ -392,6 +396,8 @@ public class BattleManager : MonoBehaviour {
                         blueSoulText.text = enemyEquipCard.blueSoul.ToString();
                         redSoul = Random.Range(0, enemyEquipCard.maxRedSoul + 1);
                         redSoulText.text = redSoul.ToString();
+                        Player.blueSoul += enemyEquipCard.blueSoul;
+                        Player.redSoul += redSoul;
                         victoryPopup.SetActive(true);
                         //stageLevel++;
                     }

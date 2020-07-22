@@ -5,12 +5,20 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
+    public List<PlayerData> playerData = new List<PlayerData>(new PlayerData[1]);
+
     public int level;
     public static int hp;
-
+    
     public static int damageValue;
     public int ackValue;
     public static int shieldValue;
+    
+    public int characterOpen;
+    public static int blueSoul;
+    public static int redSoul;
+    public int lv;
+    public int exp;
 
     public Text hpText;
     public Text damageValueText;
@@ -19,18 +27,28 @@ public class Player : MonoBehaviour {
     public Sprite cardType;
     public Image state;
 
+    public Text blueSoulText;
+    public Text redSoulText;
+
     // Use this for initialization
     void Start () {
         //cardObject = GetComponent<GameObject>();
-        hp = 10;
-        damageValue = 0;
-        ackValue = 0;
-        shieldValue = 0;
+        playerData[0] = PlayerDataBase.cardList[0];
+        hp = playerData[0].hp;
+        blueSoul = playerData[0].blueSoul;
+        redSoul = playerData[0].blueSoul;
+        lv = playerData[0].lv;
+        exp = playerData[0].exp;
+        //damageValue = 0;
+        //ackValue = 0;
+        shieldValue = playerData[0].shield;
 
         hpText.text = "" + hp;
-        damageValueText.text = "" + damageValue;
+        //damageValueText.text = "" + damageValue;
         ackValueText.text = "" + ackValue;
         shieldValueText.text = "" + shieldValue;
+        blueSoulText.text = "" + blueSoul;
+        redSoulText.text = "" + redSoul;
         state.sprite = Resources.Load<Sprite>("UI/NullImage");
     }
 
@@ -80,5 +98,7 @@ public class Player : MonoBehaviour {
 	void Update () {
         hpText.text = "" + hp;
         shieldValueText.text = "" + shieldValue;
+        blueSoulText.text = "" + blueSoul;
+        redSoulText.text = "" + redSoul;
     }
 }
