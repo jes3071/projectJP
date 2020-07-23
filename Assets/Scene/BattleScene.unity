@@ -1408,11 +1408,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224223263926899362, guid: a46584ef6f5f08d42ac351212f1d5642,
     type: 2}
   m_PrefabInternal: {fileID: 1559092478}
---- !u!20 &1619903672 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 20900789860917062, guid: a27d2c9eabfafda4ab1b7c837f621fbb,
-    type: 2}
-  m_PrefabInternal: {fileID: 1877744765}
 --- !u!1 &1652414932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,7 +1633,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 1619903672}
+  m_Camera: {fileID: 2022726852}
   m_PlaneDistance: 5
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -1900,6 +1895,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &2022726852 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20157106473281266, guid: a27d2c9eabfafda4ab1b7c837f621fbb,
+    type: 2}
+  m_PrefabInternal: {fileID: 1877744765}
 --- !u!114 &2033268974 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114436464619178374, guid: c25fa4cea65f4c144ae398b305cf2ca2,
