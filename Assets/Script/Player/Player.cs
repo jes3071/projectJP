@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
         characterOpen = playerData[0].characterOpen;
         hp = playerData[0].hp;
         blueSoul = playerData[0].blueSoul;
-        redSoul = playerData[0].blueSoul;
+        redSoul = playerData[0].redSoul;
         lv = playerData[0].lv;
         exp = playerData[0].exp;
         //damageValue = 0;
