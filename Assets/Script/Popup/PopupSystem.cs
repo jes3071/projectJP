@@ -21,6 +21,7 @@ public class PopupSystem : MonoBehaviour {
 
     public SaveData saveData;
     public PlayerDataBase playerDataBase;
+    public Player player;
 
     public bool battleMap = false;
 

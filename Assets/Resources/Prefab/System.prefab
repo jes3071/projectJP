@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1061727426442908
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcc43bdba1876854d934f9eb6e8df80c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadCheck: 0
+  stageLevel: 0
 --- !u!114 &114137534213442022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -363,8 +365,12 @@ MonoBehaviour:
   buttonOnOff: {fileID: 0}
   toStart: {fileID: 0}
   battleOnOff: {fileID: 0}
+  loadButton: {fileID: 0}
+  startButton: {fileID: 0}
+  saveSystem: {fileID: 0}
   saveData: {fileID: 114293138797109532}
   playerDataBase: {fileID: 114110583769372488}
+  player: {fileID: 0}
   battleMap: 0
 --- !u!114 &114291671440466702
 MonoBehaviour:
@@ -388,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cba8a1b22b30ef47b5e44a456948ee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDataBase: {fileID: 0}
+  playerDataBase: {fileID: 114110583769372488}
   player: {fileID: 0}
 --- !u!114 &114481466810523430
 MonoBehaviour:
