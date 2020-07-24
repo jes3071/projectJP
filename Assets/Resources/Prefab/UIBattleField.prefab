@@ -707,7 +707,7 @@ GameObject:
   - component: {fileID: 222710003528103464}
   - component: {fileID: 114873974817795572}
   m_Layer: 5
-  m_Name: BlockedText
+  m_Name: GetShieldText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1188,7 +1188,7 @@ GameObject:
   - component: {fileID: 222752829122264972}
   - component: {fileID: 114835823294858532}
   m_Layer: 5
-  m_Name: BlockedText
+  m_Name: GetShieldText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
