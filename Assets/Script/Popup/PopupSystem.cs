@@ -14,6 +14,8 @@ public class PopupSystem : MonoBehaviour {
     public GameObject buttonOnOff;
     public GameObject toStart;
     public GameObject battleOnOff;
+
+    public SaveData saveData;
     
 
     public bool battleMap = false;
@@ -23,8 +25,7 @@ public class PopupSystem : MonoBehaviour {
         mapPopup = GameObject.Find("FixedUIHelper").transform.Find("UIMapPopup").gameObject;
         victoryPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleVictoryPopup").gameObject;
         defeatPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleDefeatPopup").gameObject;
-        toStart = GameObject.Find("UILobbyStartPopup").gameObject; 
-
+        toStart = GameObject.Find("UILobbyStartPopup").gameObject;
         InitilaizeButton();
     }
 
@@ -68,7 +69,7 @@ public class PopupSystem : MonoBehaviour {
 
     public void SaveGameData()
     {
-
+        saveData.Save();
     }
 
     public void SeeMapRoad()

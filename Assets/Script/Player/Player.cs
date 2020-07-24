@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
 
     public List<PlayerData> playerData = new List<PlayerData>(new PlayerData[1]);
-
-    public int level;
+    
     public static int hp;
     
     public static int damageValue;
     public int ackValue;
     public static int shieldValue;
-    
+
+    public string characterName;
     public int characterOpen;
     public static int blueSoul;
     public static int redSoul;
@@ -34,6 +34,9 @@ public class Player : MonoBehaviour {
     void Start () {
         //cardObject = GetComponent<GameObject>();
         playerData[0] = PlayerDataBase.cardList[0];
+
+        characterName = playerData[0].characterName;
+        characterOpen = playerData[0].characterOpen;
         hp = playerData[0].hp;
         blueSoul = playerData[0].blueSoul;
         redSoul = playerData[0].blueSoul;

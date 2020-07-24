@@ -7,8 +7,9 @@ using System.Collections.Generic;
 
 public class CsvFileWriter : CsvFileCommon, IDisposable
 {
-	// Private members
-	private StreamWriter Writer;
+
+    // Private members
+    private StreamWriter Writer;
 	private string OneQuote = null;
 	private string TwoQuotes = null;
 	private string QuotedFormat = null;
@@ -30,8 +31,8 @@ public class CsvFileWriter : CsvFileCommon, IDisposable
 	/// <param name="path">The name of the CSV file to write to</param>
 	public CsvFileWriter(string path)
 	{
-		Writer = new StreamWriter(path);
-	}
+        Writer = new StreamWriter(path);
+    }
 	
 	/// <summary>
 	/// Writes a row of columns to the current CSV file.
@@ -50,9 +51,9 @@ public class CsvFileWriter : CsvFileCommon, IDisposable
 			TwoQuotes = String.Format("{0}{0}", Quote);
 			QuotedFormat = String.Format("{0}{{0}}{0}", Quote);
 		}
-		
-		// Write each column
-		for (int i = 0; i < columns.Count; i++)
+        
+        // Write each column
+        for (int i = 0; i < columns.Count; i++)
 		{
 			// Add delimiter if this isn't the first column
 			if (i > 0)
