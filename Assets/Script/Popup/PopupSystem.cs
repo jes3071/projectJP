@@ -15,6 +15,9 @@ public class PopupSystem : MonoBehaviour {
     public GameObject buttonOnOff;
     public GameObject toStart;
     public GameObject battleOnOff;
+    public GameObject loadButton;
+    public GameObject startButton;
+    public GameObject saveSystem;
 
     public SaveData saveData;
     public PlayerDataBase playerDataBase;
@@ -28,12 +31,26 @@ public class PopupSystem : MonoBehaviour {
         victoryPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleVictoryPopup").gameObject;
         defeatPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleDefeatPopup").gameObject;
         toStart = GameObject.Find("UILobbyStartPopup").gameObject;
+        loadButton = GameObject.Find("FixedUIHelper").transform.Find("UILobbyStartPopup/TouchToLoad").gameObject;
+        startButton = GameObject.Find("FixedUIHelper").transform.Find("UILobbyStartPopup/TouchToStart/TouchToStartText").gameObject;
+        saveSystem = GameObject.Find("System").transform.Find("SaveData").gameObject;
         InitilaizeButton();
     }
 
     // Use this for initialization
     void Start () {
-        
+
+        playerDataBase.CheckLoadData();
+        if (playerDataBase.loadCheck == 1)
+        {
+            loadButton.SetActive(true);
+            startButton.GetComponent<Text>().text = "새로하기";
+        }
+        else
+        {
+            loadButton.SetActive(false);
+            startButton.GetComponent<Text>().text = "시작하기";
+        }
 
     }
 
@@ -43,19 +60,30 @@ public class PopupSystem : MonoBehaviour {
         toStart.SetActive(false);
     }
 
+    public void TouchToLoad()
+    {
+        playerDataBase.LoadGame();
+        mapPopup.SetActive(true);
+        BattleManager.stageLevel = PlayerDataBase.cardList[0].stageLevel;
+        SeeMapRoad();
+        MapMove();
+        battleOnOff = GameObject.Find("FixedUIHelper").transform.Find("UIBattleTop").gameObject;
+        battleOnOff.SetActive(true);
+        toStart.SetActive(false);
+    }
+
     public void SelectCharacter()
     {
         playerDataBase.NewGame();
         mapPopup.SetActive(true);
         characterSelect.SetActive(false);
-        BattleManager.stageLevel = PlayerDataBase.cardList[0].stageLevel;
-        SeeMapRoad();
-        MapMove();
-        //if()
-        //mapClick = GameObject.Find("Area" + 0).transform.Find("Position" + 0).gameObject;
-        //mapClick.GetComponent<Button>().interactable = true;
-        //mapSelect = GameObject.Find("Area" + 0).transform.Find("Position" + 0).transform.Find("SelectActive").gameObject;
-        //mapSelect.SetActive(true);
+        //BattleManager.stageLevel = PlayerDataBase.cardList[0].stageLevel;
+        //SeeMapRoad();
+        //MapMove();
+        mapClick = GameObject.Find("Area" + 0).transform.Find("Position" + 0).gameObject;
+        mapClick.GetComponent<Button>().interactable = true;
+        mapSelect = GameObject.Find("Area" + 0).transform.Find("Position" + 0).transform.Find("SelectActive").gameObject;
+        mapSelect.SetActive(true);
         battleOnOff = GameObject.Find("FixedUIHelper").transform.Find("UIBattleTop").gameObject;
         battleOnOff.SetActive(true);
 
@@ -83,12 +111,9 @@ public class PopupSystem : MonoBehaviour {
         battleOnOff.SetActive(false);
         battleOnOff = GameObject.Find("System").transform.Find("BattleManger").gameObject;
         battleOnOff.SetActive(false);
-        SaveGameData();
-    }
-
-    public void SaveGameData()
-    {
+        //saveSystem.SetActive(true);
         saveData.Save();
+        //saveSystem.SetActive(false);
     }
 
     public void GoToStartScene()

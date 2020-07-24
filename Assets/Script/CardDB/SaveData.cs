@@ -41,6 +41,8 @@ public class SaveData : MonoBehaviour {
             writer.WriteRow(columns);
 
             columns.Clear();
+
+            writer.Dispose();
         }
     }
 
@@ -79,6 +81,8 @@ public class SaveData : MonoBehaviour {
             writer.WriteRow(columns);
 
             columns.Clear();
+
+            writer.Dispose();
         }
     }
 }
