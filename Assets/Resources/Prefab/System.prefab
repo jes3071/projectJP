@@ -453,6 +453,10 @@ MonoBehaviour:
   redSoulText: {fileID: 0}
   pDamagedText: {fileID: 0}
   eDamagedText: {fileID: 0}
+  pgetshieldText: {fileID: 0}
+  egetshieldText: {fileID: 0}
+  pblockedText: {fileID: 0}
+  eblockedText: {fileID: 0}
   lastLevel: -1
   redSoul: 0
 --- !u!114 &114521357257053312
