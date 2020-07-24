@@ -16,7 +16,6 @@ public class PopupSystem : MonoBehaviour {
     public GameObject battleOnOff;
 
     public SaveData saveData;
-    
 
     public bool battleMap = false;
 
@@ -38,14 +37,23 @@ public class PopupSystem : MonoBehaviour {
     public void TouchToStart()
     {
         mapPopup.SetActive(true);
-        mapClick = GameObject.Find("Area" + 0).transform.Find("Position" + 0).gameObject;
-        mapClick.GetComponent<Button>().interactable = true;
-        mapSelect = GameObject.Find("Area" + 0).transform.Find("Position" + 0).transform.Find("SelectActive").gameObject;
-        mapSelect.SetActive(true);
+        BattleManager.stageLevel = PlayerDataBase.cardList[0].stageLevel;
+        SeeMapRoad();
+        MapMove();
+        //if()
+        //mapClick = GameObject.Find("Area" + 0).transform.Find("Position" + 0).gameObject;
+        //mapClick.GetComponent<Button>().interactable = true;
+        //mapSelect = GameObject.Find("Area" + 0).transform.Find("Position" + 0).transform.Find("SelectActive").gameObject;
+        //mapSelect.SetActive(true);
         battleOnOff = GameObject.Find("FixedUIHelper").transform.Find("UIBattleTop").gameObject;
         battleOnOff.SetActive(true);
 
         toStart.SetActive(false);
+    }
+
+    public void TouchToExit()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void VictoryButton()
@@ -72,15 +80,32 @@ public class PopupSystem : MonoBehaviour {
         saveData.Save();
     }
 
+    public void GoToStartScene()
+    {
+        battleMap = false;
+        toStart.SetActive(true);
+        defeatPopup.SetActive(false);
+        battleOnOff = GameObject.Find("FixedUIHelper/UIBattleField").gameObject;
+        battleOnOff.SetActive(false);
+        battleOnOff = GameObject.Find("FixedUIHelper/UIBattlePlayerHand").gameObject;
+        battleOnOff.SetActive(false);
+        battleOnOff = GameObject.Find("FixedUIHelper/UIBattlePlayerDeck").gameObject;
+        battleOnOff.SetActive(false);
+        battleOnOff = GameObject.Find("System").transform.Find("BattleManger").gameObject;
+        battleOnOff.SetActive(false);
+        saveData.DefeatReset();
+        Debug.Log("리셋됨");
+    }
+
     public void SeeMapRoad()
     {
         for(int i = 0; i < 5; i++)
         {
-            if (BattleManager.stageLevel == i)
+            if (BattleManager.stageLevel >= i)
             {
                 fireImage = GameObject.Find("Area" + i).transform.Find("Artefact").transform.Find("FireImage").gameObject;
                 fireImage.SetActive(true);
-                break;
+                //break;
             }
         }
     }
