@@ -353,6 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f95343b8b008e44b1cded27d58d9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterSelect: {fileID: 0}
   mapPopup: {fileID: 0}
   victoryPopup: {fileID: 0}
   defeatPopup: {fileID: 0}
@@ -363,6 +364,7 @@ MonoBehaviour:
   toStart: {fileID: 0}
   battleOnOff: {fileID: 0}
   saveData: {fileID: 114293138797109532}
+  playerDataBase: {fileID: 114110583769372488}
   battleMap: 0
 --- !u!114 &114291671440466702
 MonoBehaviour:
@@ -386,6 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cba8a1b22b30ef47b5e44a456948ee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDataBase: {fileID: 0}
   player: {fileID: 0}
 --- !u!114 &114481466810523430
 MonoBehaviour:

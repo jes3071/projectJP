@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PopupSystem : MonoBehaviour {
 
+    public GameObject characterSelect;
     public GameObject mapPopup;
     public GameObject victoryPopup;
     public GameObject defeatPopup;
@@ -16,11 +17,13 @@ public class PopupSystem : MonoBehaviour {
     public GameObject battleOnOff;
 
     public SaveData saveData;
+    public PlayerDataBase playerDataBase;
 
     public bool battleMap = false;
 
     private void Awake()
     {
+        characterSelect = GameObject.Find("FixedUIHelper").transform.Find("UILoobyCharacterSelectPopup").gameObject;
         mapPopup = GameObject.Find("FixedUIHelper").transform.Find("UIMapPopup").gameObject;
         victoryPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleVictoryPopup").gameObject;
         defeatPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleDefeatPopup").gameObject;
@@ -36,7 +39,15 @@ public class PopupSystem : MonoBehaviour {
 
     public void TouchToStart()
     {
+        characterSelect.SetActive(true);
+        toStart.SetActive(false);
+    }
+
+    public void SelectCharacter()
+    {
+        playerDataBase.NewGame();
         mapPopup.SetActive(true);
+        characterSelect.SetActive(false);
         BattleManager.stageLevel = PlayerDataBase.cardList[0].stageLevel;
         SeeMapRoad();
         MapMove();

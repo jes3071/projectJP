@@ -284,6 +284,7 @@ public class BattleManager : MonoBehaviour {
 
                     if (Enemy.hp <= 0)
                     {
+                        Enemy.hp = 0;
                         blueSoulText.text = enemyEquipCard.blueSoul.ToString();
                         redSoul = Random.Range(0, enemyEquipCard.maxRedSoul + 1);
                         redSoulText.text = redSoul.ToString();
@@ -312,6 +313,7 @@ public class BattleManager : MonoBehaviour {
 
                     if (Player.hp <= 0)
                     {
+                        Player.hp = 0;
                         defeatPopup.SetActive(true);
                     }
 
@@ -350,10 +352,12 @@ public class BattleManager : MonoBehaviour {
 
                     if (Player.hp <= 0)
                     {
+                        Player.hp = 0;
                         defeatPopup.SetActive(true);
                     }
                     else if (Enemy.hp <= 0 && Player.hp > 0)
                     {
+                        Enemy.hp = 0;
                         blueSoulText.text = enemyEquipCard.blueSoul.ToString();
                         redSoul = Random.Range(0, enemyEquipCard.maxRedSoul + 1);
                         redSoulText.text = redSoul.ToString();
@@ -393,6 +397,7 @@ public class BattleManager : MonoBehaviour {
 
                     if(Enemy.hp <= 0)
                     {
+                        Enemy.hp = 0;
                         blueSoulText.text = enemyEquipCard.blueSoul.ToString();
                         redSoul = Random.Range(0, enemyEquipCard.maxRedSoul + 1);
                         redSoulText.text = redSoul.ToString();
@@ -431,6 +436,7 @@ public class BattleManager : MonoBehaviour {
 
                     if (Player.hp <= 0)
                     {
+                        Player.hp = 0;
                         defeatPopup.SetActive(true);
                     }
                 }
