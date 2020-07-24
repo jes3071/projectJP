@@ -368,7 +368,7 @@ MonoBehaviour:
   loadButton: {fileID: 0}
   startButton: {fileID: 0}
   saveSystem: {fileID: 0}
-  saveData: {fileID: 114293138797109532}
+  saveData: {fileID: 0}
   playerDataBase: {fileID: 114110583769372488}
   player: {fileID: 0}
   battleMap: 0
