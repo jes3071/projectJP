@@ -142,6 +142,7 @@ public class PopupSystem : MonoBehaviour {
         battleOnOff.SetActive(false);
         battleOnOff = GameObject.Find("System").transform.Find("BattleManger").gameObject;
         battleOnOff.SetActive(false);
+        playerDataBase.NewGame();
         saveData.DefeatReset();
         Debug.Log("리셋됨");
     }
@@ -185,6 +186,14 @@ public class PopupSystem : MonoBehaviour {
 
     public void MapMove()
     {
+        if(BattleManager.stageLevel == -1)
+        {
+            mapClick = GameObject.Find("Area" + 0).transform.Find("Position" + 0).gameObject;
+            mapClick.GetComponent<Button>().interactable = true;
+            mapSelect = GameObject.Find("Area" + 0).transform.Find("Position" + 0).transform.Find("SelectActive").gameObject;
+            mapSelect.SetActive(true);
+        }
+
         if (BattleManager.stageLevel == 0)
         {
             mapClick = GameObject.Find("Area" + 0).transform.Find("Position" + 0).gameObject;

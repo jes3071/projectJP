@@ -7,6 +7,8 @@ public class PlayerDataBase : MonoBehaviour {
 
     public static List<PlayerData> cardList = new List<PlayerData>();
 
+    public SaveData saveData;
+
     public int loadCheck;
     static string strFile = "C:/Users/박상현/Documents/projectjp/Assets/Resources/GameData/GameData - PlayerData.csv";
     
@@ -16,9 +18,20 @@ public class PlayerDataBase : MonoBehaviour {
     {
         if (fileInfo.Exists)
         {
+            //LoadGame();
+            //if (cardList[0].stageLevel != -1)
+            //{
+            //    Debug.Log("존재");
+            //    loadCheck = 1;
+            //    // 처리
+            //}
+            //else
+            //{
+            //    Debug.Log("미존재");
+            //    loadCheck = 0;
+            //}
             Debug.Log("존재");
             loadCheck = 1;
-            // 처리
         }
         else
         {
@@ -52,6 +65,7 @@ public class PlayerDataBase : MonoBehaviour {
             }
             Debug.Log("새로시작");
         }
+        saveData.DefeatReset();
     }
 
     public void LoadGame()
