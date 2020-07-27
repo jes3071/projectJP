@@ -78,6 +78,8 @@ public class PopupSystem : MonoBehaviour {
         BattleManager.stageLevel = PlayerDataBase.cardList[0].stageLevel;
         SeeMapRoad();
         MapMove();
+        battleOnOff = GameObject.Find("FixedUIHelper").transform.Find("UIBattleField").gameObject;
+        battleOnOff.SetActive(true);
         battleOnOff = GameObject.Find("FixedUIHelper").transform.Find("UIBattleTop").gameObject;
         battleOnOff.SetActive(true);
         toStart.SetActive(false);
@@ -269,6 +271,8 @@ public class PopupSystem : MonoBehaviour {
     {
         battleMap = true;
         mapPopup.SetActive(false);
+        battleOnOff = GameObject.Find("FixedUIHelper").transform.Find("UIBattleField").gameObject;
+        battleOnOff.SetActive(false);
         battleOnOff = GameObject.Find("FixedUIHelper").transform.Find("UIBattleField").gameObject;
         battleOnOff.SetActive(true);
         battleOnOff = GameObject.Find("FixedUIHelper").transform.Find("UIBattlePlayerHand").gameObject;

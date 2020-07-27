@@ -46,12 +46,12 @@ public class Player : MonoBehaviour {
         stageLevel = playerData[0].stageLevel;
         //damageValue = 0;
         //ackValue = 0;
-        shieldValue = playerData[0].shield;
+        //shieldValue = playerData[0].shield;
 
         hpText.text = "" + hp;
         //damageValueText.text = "" + damageValue;
         ackValueText.text = "" + ackValue;
-        shieldValueText.text = "" + shieldValue;
+        //shieldValueText.text = "" + shieldValue;
         blueSoulText.text = "" + blueSoul;
         redSoulText.text = "" + redSoul;
         state.sprite = Resources.Load<Sprite>("UI/NullImage");

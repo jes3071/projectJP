@@ -273,23 +273,41 @@ public class BattleManager : MonoBehaviour {
                 //플레이어랑 적 누가 방어를 사용했는지, 사용했으면 방어 먼저 사용하게
                 if (playerCardInfo[0].cardType == 1 && enemyCardInfo[0].cardType == 2) // 공격 , 뒤에 && 적이 공격...등
                 {
-                    Enemy.shieldValue += Enemy.damageValue;
-                    egetshieldText.text = Enemy.damageValue.ToString();
-                    animator.SetInteger("enemygetshield", 1);
-                    if (Player.damageValue > Enemy.shieldValue)
+                    //Enemy.shieldValue += Enemy.damageValue;
+                    //egetshieldText.text = Enemy.damageValue.ToString();
+                    //animator.SetInteger("enemygetshield", 1);
+                    if(Enemy.damageValue >= Player.damageValue) // 적의 방어가 더 높았다면
                     {
-                        Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
-                        eDamagedText.text = (Player.damageValue - Enemy.shieldValue).ToString();
-                        Enemy.shieldValue = 0;
-                        animator.SetInteger("enemydamaged", 1);
-                        //Debug.Log("적 피 깎임");
+                        Enemy.shieldValue += Enemy.damageValue - Player.damageValue;
+                        egetshieldText.text = (Enemy.damageValue - Player.damageValue).ToString();
+                        animator.SetInteger("enemygetshield", 1);
                     }
-                    else if(Player.damageValue <= Enemy.shieldValue)
+                    else if(Enemy.damageValue < Player.damageValue) // 플레이어의 공격이 더 높았다면
                     {
-                        Enemy.shieldValue -= Player.damageValue;
-                        eblockedText.text = Player.damageValue.ToString();
-                        animator.SetInteger("enemyblocked", 1);
-                        //Debug.Log("적 실드 깎임");
+                        if(Player.damageValue - Enemy.damageValue > Enemy.shieldValue) // 공격-방어 값이 남은 방어도보다 높다면
+                        {
+                            if(Enemy.shieldValue == 0) // 적의 방어도가 없었다면
+                            {
+                                Enemy.hp -= (Player.damageValue - Enemy.damageValue);
+                                eDamagedText.text = (-(Player.damageValue - Enemy.damageValue)).ToString();
+                                animator.SetInteger("enemydamaged", 1);
+                            }
+                            else // 방어도가 있었다면
+                            {
+                                eblockedText.text = (-Enemy.shieldValue).ToString();
+                                animator.SetInteger("enemyblocked", 1);
+                                Enemy.hp -= (Player.damageValue - Enemy.damageValue - Enemy.shieldValue);
+                                eDamagedText.text = (-(Player.damageValue - Enemy.damageValue - Enemy.shieldValue)).ToString();
+                                Enemy.shieldValue = 0;
+                                animator.SetInteger("enemydamaged", 1);
+                            }
+                        }
+                        else if (Player.damageValue - Enemy.damageValue <= Enemy.shieldValue) // 공-방 값이 남은 방어도보다 낮다면
+                        {
+                            Enemy.shieldValue -= Player.damageValue - Enemy.damageValue;
+                            eblockedText.text = (-(Player.damageValue - Enemy.damageValue)).ToString();
+                            animator.SetInteger("enemyblocked", 1);
+                        }
                     }
 
                     if (Enemy.hp <= 0)
@@ -306,28 +324,48 @@ public class BattleManager : MonoBehaviour {
                 }
                 else if (playerCardInfo[0].cardType == 2 && enemyCardInfo[0].cardType == 1)
                 {
-                    Player.shieldValue += Player.damageValue;
-                    pgetshieldText.text = Player.damageValue.ToString();
-                    animator.SetInteger("playergetshield", 1);
-                    if (Enemy.damageValue > Player.shieldValue)
+                    //Player.shieldValue += Player.damageValue;
+                    //pgetshieldText.text = Player.damageValue.ToString();
+                    //animator.SetInteger("playergetshield", 1);
+                    if(Player.damageValue >= Enemy.damageValue)
                     {
-                        Player.hp -= (Enemy.damageValue - Player.shieldValue);
-                        pDamagedText.text = (Enemy.damageValue - Player.shieldValue).ToString();
-                        Player.shieldValue = 0;
-                        animator.SetInteger("playerdamaged", 1);
-                        //Debug.Log("나 피 깎임");
+                        Player.shieldValue += Player.damageValue - Enemy.damageValue;
+                        pgetshieldText.text = (Player.damageValue - Enemy.damageValue).ToString();
+                        animator.SetInteger("playergetshield", 1);
                     }
-                    else if (Enemy.damageValue <= Player.shieldValue)
+                    else if (Player.damageValue < Enemy.damageValue)
                     {
-                        Player.shieldValue -= Enemy.damageValue;
-                        pblockedText.text = Enemy.damageValue.ToString();
-                        animator.SetInteger("playerblocked", 1);
-                        //Debug.Log("나 실드 깎임");
+                        if(Enemy.damageValue - Player.damageValue > Player.shieldValue)
+                        {
+                            if(Player.shieldValue == 0)
+                            {
+                                Player.hp -= (Enemy.damageValue - Player.damageValue);
+                                pDamagedText.text = (-(Enemy.damageValue - Player.damageValue)).ToString();
+                                animator.SetInteger("playerdamaged", 1);
+                            }
+                            else
+                            {
+                                pblockedText.text = (-Player.shieldValue).ToString();
+                                animator.SetInteger("playerblocked", 1);
+                                Player.hp -= (Enemy.damageValue - Player.damageValue - Player.shieldValue);
+                                pDamagedText.text = (-(Enemy.damageValue - Player.damageValue - Player.shieldValue)).ToString();
+                                Player.shieldValue = 0;
+                                animator.SetInteger("playerdamaged", 1);
+                            }
+                            
+                        }
+                        else if(Enemy.damageValue - Player.damageValue <= Player.shieldValue)
+                        {
+                            Player.shieldValue -= Enemy.damageValue - Player.damageValue;
+                            pblockedText.text = (-(Enemy.damageValue - Player.damageValue)).ToString();
+                            animator.SetInteger("playerblocked", 1);
+                        }
                     }
 
                     if (Player.hp <= 0)
                     {
                         Player.hp = 0;
+                        turnOnOff = false;
                         defeatPopup.SetActive(true);
                     }
 
@@ -339,38 +377,61 @@ public class BattleManager : MonoBehaviour {
                     if (Player.shieldValue >= Enemy.damageValue)
                     {
                         Player.shieldValue -= Enemy.damageValue;
-                        pblockedText.text = Enemy.damageValue.ToString();
+                        pblockedText.text = (-Enemy.damageValue).ToString();
                         animator.SetInteger("playerblocked", 1);
-                        //Debug.Log("나 실드 깎임22");
+                        //Debug.Log("나 실드 깎임");
                     }
                     else if(Player.shieldValue < Enemy.damageValue)
                     {
-                        Player.hp -= (Enemy.damageValue - Player.shieldValue);
-                        pDamagedText.text = (Enemy.damageValue - Player.shieldValue).ToString();
-                        Player.shieldValue = 0;
-                        animator.SetInteger("playerdamaged", 1);
-                        //Debug.Log("나 피 깎임22");
+                        if(Player.shieldValue == 0)
+                        {
+                            Player.hp -= (Enemy.damageValue - Player.shieldValue);
+                            pDamagedText.text = (-(Enemy.damageValue - Player.shieldValue)).ToString();
+                            Player.shieldValue = 0;
+                            animator.SetInteger("playerdamaged", 1);
+                        }
+                        else
+                        {
+                            pblockedText.text = (-Player.shieldValue).ToString();
+                            animator.SetInteger("playerblocked", 1);
+                            Player.hp -= (Enemy.damageValue - Player.shieldValue);
+                            pDamagedText.text = (-(Enemy.damageValue - Player.shieldValue)).ToString();
+                            Player.shieldValue = 0;
+                            animator.SetInteger("playerdamaged", 1);
+                        }
                     }
 
                     if (Enemy.shieldValue >= Player.damageValue)
                     {
                         Enemy.shieldValue -= Player.damageValue;
-                        eblockedText.text = Player.damageValue.ToString();
+                        eblockedText.text = (-(Enemy.shieldValue - Player.damageValue)).ToString();
                         animator.SetInteger("enemyblocked", 1);
-                        //Debug.Log("적 실드 깎임22");
+                        //Debug.Log("적 실드 깎임");
                     }
                     else if (Enemy.shieldValue < Player.damageValue)
                     {
-                        Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
-                        eDamagedText.text = (Player.damageValue - Enemy.shieldValue).ToString();
-                        Enemy.shieldValue = 0;
-                        animator.SetInteger("enemydamaged", 1);
-                        //Debug.Log("적 피 깎임22");
+                        if(Enemy.shieldValue == 0)
+                        {
+                            Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
+                            eDamagedText.text = (-(Player.damageValue - Enemy.shieldValue)).ToString();
+                            Enemy.shieldValue = 0;
+                            animator.SetInteger("enemydamaged", 1);
+                        }
+                        else
+                        {
+                            eblockedText.text = (-Enemy.shieldValue).ToString();
+                            animator.SetInteger("enemyblocked", 1);
+                            Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
+                            eDamagedText.text = (-(Player.damageValue - Enemy.shieldValue)).ToString();
+                            Enemy.shieldValue = 0;
+                            animator.SetInteger("enemydamaged", 1);
+                        }
                     }
 
                     if (Player.hp <= 0)
                     {
                         Player.hp = 0;
+                        turnOnOff = false;
                         defeatPopup.SetActive(true);
                     }
                     else if (Enemy.hp <= 0 && Player.hp > 0)
@@ -405,18 +466,29 @@ public class BattleManager : MonoBehaviour {
                 {
                     if (Enemy.shieldValue >= Player.damageValue)
                     {
+                        eblockedText.text = (-(Enemy.shieldValue-Player.damageValue)).ToString();
                         Enemy.shieldValue -= Player.damageValue;
-                        eblockedText.text = Player.damageValue.ToString();
                         animator.SetInteger("enemyblocked", 1);
                         //Debug.Log("적 실드 깎임");
                     }
                     else if (Enemy.shieldValue < Player.damageValue)
                     {
-                        Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
-                        eDamagedText.text = (Player.damageValue - Enemy.shieldValue).ToString();
-                        Enemy.shieldValue = 0;
-                        animator.SetInteger("enemydamaged", 1);
-                        //Debug.Log("적 피 깎임");
+                        if (Enemy.shieldValue == 0)
+                        {
+                            Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
+                            eDamagedText.text = (-(Player.damageValue - Enemy.shieldValue)).ToString();
+                            Enemy.shieldValue = 0;
+                            animator.SetInteger("enemydamaged", 1);
+                        }
+                        else
+                        {
+                            eblockedText.text = (-Enemy.shieldValue).ToString();
+                            animator.SetInteger("enemyblocked", 1);
+                            Enemy.hp -= (Player.damageValue - Enemy.shieldValue);
+                            eDamagedText.text = (-(Player.damageValue - Enemy.shieldValue)).ToString();
+                            Enemy.shieldValue = 0;
+                            animator.SetInteger("enemydamaged", 1);
+                        }
                     }
 
                     if(Enemy.hp <= 0)
@@ -447,24 +519,35 @@ public class BattleManager : MonoBehaviour {
                 {
                     if (Player.shieldValue >= Enemy.damageValue)
                     {
+                        pblockedText.text = (-(Player.shieldValue-Enemy.damageValue)).ToString();
                         Player.shieldValue -= Enemy.damageValue;
-                        pblockedText.text = Enemy.damageValue.ToString();
                         animator.SetInteger("playerblocked", 1);
                         //Debug.Log("나 실드 깎임");
                     }
                     else if (Player.shieldValue < Enemy.damageValue)
                     {
-                        Player.hp -= (Enemy.damageValue - Player.shieldValue);
-                        pDamagedText.text = (Enemy.damageValue - Player.shieldValue).ToString();
-                        Player.shieldValue = 0;
-                        animator.SetInteger("playerdamaged", 1);
-                        //Debug.Log(runTime);
-                        //Debug.Log("나 피 깎임");
+                        if (Player.shieldValue == 0)
+                        {
+                            Player.hp -= (Enemy.damageValue - Player.shieldValue);
+                            pDamagedText.text = (-(Enemy.damageValue - Player.shieldValue)).ToString();
+                            Player.shieldValue = 0;
+                            animator.SetInteger("playerdamaged", 1);
+                        }
+                        else
+                        {
+                            pblockedText.text = (-Player.shieldValue).ToString();
+                            animator.SetInteger("playerblocked", 1);
+                            Player.hp -= (Enemy.damageValue - Player.shieldValue);
+                            pDamagedText.text = (-(Enemy.damageValue - Player.shieldValue)).ToString();
+                            Player.shieldValue = 0;
+                            animator.SetInteger("playerdamaged", 1);
+                        }
                     }
 
                     if (Player.hp <= 0)
                     {
                         Player.hp = 0;
+                        turnOnOff = false;
                         defeatPopup.SetActive(true);
                     }
                 }
@@ -497,8 +580,15 @@ public class BattleManager : MonoBehaviour {
     public void EnemyEquipCtrl()
     {
         //animator.SetInteger("playerdamaged", -1);
+        if(victoryPopup.activeSelf == true)
+        {
+            PlayerDamagedReset();
+        }
+        else
+        {
+            Invoke("PlayerDamagedReset", 1);
+        }
         
-        Invoke("PlayerDamagedReset", 1);
         enemyEquipCard.Apply();
         eTurnTime = 0;
         enemyEquipCard.UnEquip();

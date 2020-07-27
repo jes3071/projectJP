@@ -57,24 +57,110 @@ public class EnemyCardInfo : MonoBehaviour {
                 }
                 if (EnemyCardDataBase.cardList[routine].monsterType == 2)
                 {
-                    //Debug.Log("스테이지2");
-                    //Debug.Log(EnemyCardDataBase.cardList[routine].itemName);
                     thisCard[0] = EnemyCardDataBase.cardList[routine++];
 
-                    if (routine == 7)
+                    if (routine == 6)
                         routine = 4;
                 }
             }
-            //thisCard[0] = EnemyCardDataBase.cardList[routine++];
+        }
+        if (BattleManager.stageLevel == 1)
+        {
+            if (BattleManager.randomMonster == 0)
+            {
+                if (routine < 6)
+                {
+                    routine = 6;
+                }
+                if (EnemyCardDataBase.cardList[routine].monsterType == 3)
+                {
+                    thisCard[0] = EnemyCardDataBase.cardList[routine++];
 
+                    if (routine == 9)
+                        routine = 6;
+                }
+            }
+            else if (BattleManager.randomMonster == 1)
+            {
+                if (routine < 9)
+                {
+                    routine = 9;
+                }
+                if (EnemyCardDataBase.cardList[routine].monsterType == 4)
+                {
+                    thisCard[0] = EnemyCardDataBase.cardList[routine++];
+
+                    if (routine == 13)
+                        routine = 9;
+                }
+            }
+            else if (BattleManager.randomMonster == 2)
+            {
+                if (routine < 13)
+                {
+                    routine = 13;
+                }
+                if (EnemyCardDataBase.cardList[routine].monsterType == 5)
+                {
+                    thisCard[0] = EnemyCardDataBase.cardList[routine++];
+
+                    if (routine == 16)
+                        routine = 13;
+                }
+            }
+        }
+        if (BattleManager.stageLevel == 2)
+        {
+            if (BattleManager.randomMonster == 0)
+            {
+                if (routine < 16)
+                {
+                    routine = 16;
+                }
+                if (EnemyCardDataBase.cardList[routine].monsterType == 6)
+                {
+                    thisCard[0] = EnemyCardDataBase.cardList[routine++];
+
+                    if (routine == 22)
+                        routine = 16;
+                }
+            }
+            else if (BattleManager.randomMonster == 1)
+            {
+                if (routine < 22)
+                {
+                    routine = 22;
+                }
+                if (EnemyCardDataBase.cardList[routine].monsterType == 7)
+                {
+                    thisCard[0] = EnemyCardDataBase.cardList[routine++];
+
+                    if (routine == 34)
+                        routine = 22;
+                }
+            }
+        }
+        if (BattleManager.stageLevel == 3)
+        {
+            if (routine < 34)
+            {
+                routine = 34;
+            }
+            if (EnemyCardDataBase.cardList[routine].monsterType == 8)
+            {
+                thisCard[0] = EnemyCardDataBase.cardList[routine++];
+
+                if (routine == 44)
+                    routine = 34;
+            }
         }
 
-        //rand = Random.Range(0, EnemyCardDataBase.cardList.Count);
-        //thisCard[0] = CardDataBase.cardList[rand];
+            //rand = Random.Range(0, EnemyCardDataBase.cardList.Count);
+            //thisCard[0] = CardDataBase.cardList[rand];
 
 
 
-        turnCost = thisCard[0].turnCost;
+            turnCost = thisCard[0].turnCost;
         cardType = thisCard[0].cardType;
         damageValue = thisCard[0].damageValue;
 
