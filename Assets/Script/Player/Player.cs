@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
     public static int redSoul;
     public int lv;
     public int exp;
+    public int stageLevel;
 
     public Text hpText;
     public Text damageValueText;
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour {
         redSoul = playerData[0].redSoul;
         lv = playerData[0].lv;
         exp = playerData[0].exp;
+        stageLevel = playerData[0].stageLevel;
         //damageValue = 0;
         //ackValue = 0;
         shieldValue = playerData[0].shield;

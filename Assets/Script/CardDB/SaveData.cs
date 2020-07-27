@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class SaveData : MonoBehaviour {
 
@@ -12,7 +13,7 @@ public class SaveData : MonoBehaviour {
     {
         using (var writer = new CsvFileWriter("Assets/Resources/GameData/GameData - PlayerData.csv"))
         {
-            //var writer = new CsvFileWriter("Assets/Resources/GameData/GameData - PlayerData.csv");
+
             List<string> columns = new List<string>() { "CharacterName", "CharacterOpen", "BlueSoul", "RedSoul",
         "Lv", "Hp", "Shield", "Exp", "StageLevel" };// making Index Row
 
@@ -43,6 +44,7 @@ public class SaveData : MonoBehaviour {
             columns.Clear();
 
             writer.Dispose();
+            AssetDatabase.Refresh();
         }
     }
 
@@ -50,7 +52,7 @@ public class SaveData : MonoBehaviour {
     {
         using (var writer = new CsvFileWriter("Assets/Resources/GameData/GameData - PlayerData.csv"))
         {
-            //var writer = new CsvFileWriter("Assets/Resources/GameData/GameData - PlayerData.csv");
+
             List<string> columns = new List<string>() { "CharacterName", "CharacterOpen", "BlueSoul", "RedSoul",
         "Lv", "Hp", "Shield", "Exp", "StageLevel" };// making Index Row
 
@@ -83,6 +85,7 @@ public class SaveData : MonoBehaviour {
             columns.Clear();
 
             writer.Dispose();
+            AssetDatabase.Refresh();
         }
     }
 }

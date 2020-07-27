@@ -27,5 +27,6 @@ public class PlayerData // 세이브 데이터 내용
         shield = Shield;
         blueSoul = BlueSoul;
         exp = Exp;
+        stageLevel = StageLevel;
     }
 }

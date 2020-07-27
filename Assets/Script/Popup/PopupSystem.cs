@@ -18,6 +18,7 @@ public class PopupSystem : MonoBehaviour {
     public GameObject loadButton;
     public GameObject startButton;
     public GameObject saveSystem;
+    public GameObject optionPopup;
 
     public SaveData saveData;
     public PlayerDataBase playerDataBase;
@@ -35,6 +36,7 @@ public class PopupSystem : MonoBehaviour {
         loadButton = GameObject.Find("FixedUIHelper").transform.Find("UILobbyStartPopup/TouchToLoad").gameObject;
         startButton = GameObject.Find("FixedUIHelper").transform.Find("UILobbyStartPopup/TouchToStart/TouchToStartText").gameObject;
         saveSystem = GameObject.Find("System").transform.Find("SaveData").gameObject;
+        optionPopup = GameObject.Find("FixedUIHelper").transform.Find("UIOptionPopup").gameObject;  
         InitilaizeButton();
     }
 
@@ -53,6 +55,14 @@ public class PopupSystem : MonoBehaviour {
             startButton.GetComponent<Text>().text = "시작하기";
         }
 
+    }
+
+    public void OptionPopupActive()
+    {
+        if(optionPopup.activeSelf == false)
+            optionPopup.SetActive(true);
+        else
+            optionPopup.SetActive(false);
     }
 
     public void TouchToStart()

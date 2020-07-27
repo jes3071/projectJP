@@ -28,12 +28,10 @@ public class EnemyCardInfo : MonoBehaviour {
         {
             if(EnemyCardDataBase.cardList[routine].monsterType == 0)
             {
-                //Debug.Log(EnemyCardDataBase.cardList[routine].itemName);
                 thisCard[0] = EnemyCardDataBase.cardList[routine++];
                 if (routine == 2)
                     routine = 0;
             }
-            //thisCard[0] = EnemyCardDataBase.cardList[routine++];
         }
         if (BattleManager.stageLevel == 0)
         {
@@ -45,8 +43,6 @@ public class EnemyCardInfo : MonoBehaviour {
                 }
                 if (EnemyCardDataBase.cardList[routine].monsterType == 1)
                 {
-                    //Debug.Log("스테이지2");
-                    //Debug.Log(EnemyCardDataBase.cardList[routine].itemName);
                     thisCard[0] = EnemyCardDataBase.cardList[routine++];
 
                     if (routine == 4)

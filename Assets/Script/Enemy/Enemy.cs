@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour {
             monsterData[0] = EnemyDataBase.cardList[8];
         }
 
-        Debug.Log(monsterData[0].monsterName);
+        //Debug.Log(monsterData[0].monsterName);
         hp = monsterData[0].hp;
         //damageValue = 0;
         ackValue = 0;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -226,7 +226,7 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114606245291236758, guid: fe8b95b6c96fa8a43ad352a4be465d0d,
+    - target: {fileID: 114126370038552798, guid: fe8b95b6c96fa8a43ad352a4be465d0d,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -236,15 +236,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1152580230}
-    - target: {fileID: 114126370038552798, guid: fe8b95b6c96fa8a43ad352a4be465d0d,
+    - target: {fileID: 114606245291236758, guid: fe8b95b6c96fa8a43ad352a4be465d0d,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1152580230}
-    - target: {fileID: 1096963922239344, guid: fe8b95b6c96fa8a43ad352a4be465d0d, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe8b95b6c96fa8a43ad352a4be465d0d, type: 2}
   m_IsPrefabParent: 0
@@ -587,6 +583,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114647365921336600, guid: c25fa4cea65f4c144ae398b305cf2ca2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1152580230}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c25fa4cea65f4c144ae398b305cf2ca2, type: 2}
   m_IsPrefabParent: 0
@@ -966,6 +967,11 @@ Prefab:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 114628198549640156, guid: bd2e06ff1c871a146aa48dad4728bb5b,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1152580230}
+    - target: {fileID: 114837166177967504, guid: bd2e06ff1c871a146aa48dad4728bb5b,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

@@ -1015,7 +1015,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: TouchToStart
+        m_MethodName: TouchToLoad
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
