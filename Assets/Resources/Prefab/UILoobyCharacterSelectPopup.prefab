@@ -1367,7 +1367,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC5C4\uCCAD\uB09C \uD06C\uAE30\uC758 \uD2B9\uB300\uBC29\uD328"
+  m_Text: "\uC5C4\uCCAD\uB09C \uC704\uB825\uC758 \uD2B9\uB300\uBC29\uD328"
 --- !u!114 &114457868433964690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1447,7 +1447,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: e8966b4287f0e0d4385e7091c76fadf7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5dfe9ed2b786655448405069c8e2b63f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
