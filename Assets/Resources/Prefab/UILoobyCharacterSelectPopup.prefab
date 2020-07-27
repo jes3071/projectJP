@@ -657,7 +657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224096476633974362}
   m_Layer: 5
-  m_Name: Description
+  m_Name: Cha0Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -869,7 +869,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 0481d85bf739815458d29981c2bb6f17, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4a9ba8557ece7b440aaebcb0c858687a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1144,7 +1144,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ad828f3e615bc184fa230ff583a419b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: de87962d73ab48344bbbb5ec8cacaaf9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1969,7 +1969,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -818389561
+  randomSeed: -913002430
   InitialModule:
     serializedVersion: 3
     enabled: 1
