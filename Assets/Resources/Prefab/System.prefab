@@ -343,7 +343,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadCheck: 0
-  stageLevel: 0
 --- !u!114 &114137534213442022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -368,7 +367,8 @@ MonoBehaviour:
   loadButton: {fileID: 0}
   startButton: {fileID: 0}
   saveSystem: {fileID: 0}
-  saveData: {fileID: 0}
+  optionPopup: {fileID: 0}
+  saveData: {fileID: 114293138797109532}
   playerDataBase: {fileID: 114110583769372488}
   player: {fileID: 0}
   battleMap: 0
