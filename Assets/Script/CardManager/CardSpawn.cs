@@ -87,7 +87,7 @@ public class CardSpawn : MonoBehaviour {
         pDamagedText.text = "-1";
         animator.SetInteger("playerdamaged", 1);
         handAnim.SetInteger("reroll", 1);
-        Invoke("NewCard", 0.5f);
+        Invoke("NewCard", 0.33f);
     }
 
     public void NewCard()
@@ -105,7 +105,7 @@ public class CardSpawn : MonoBehaviour {
         }
         curCount = 0;
         handAnim.SetInteger("reroll", -1);
-        Invoke("AnimChange", 1);
+        Invoke("AnimChange", 0.66f);
     }
 
     //public void HandChange()
