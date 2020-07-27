@@ -138,6 +138,10 @@ public class ThisCard : MonoBehaviour
             {
                 thisSprite = Resources.Load<Sprite>("UI/Battle/WeaponCardBase2");
             }
+            else if(itemType == 4) // 특대검
+            {
+                thisSprite = Resources.Load<Sprite>("UI/Battle/WeaponCardBase3");
+            }
 
             for(int i = 0; i < 10; i++)
             {
@@ -163,6 +167,11 @@ public class ThisCard : MonoBehaviour
             {
                 thisSprite = Resources.Load<Sprite>("UI/Battle/ShieldCardBase2");
             }
+            else if (itemType == 4) //특대 방패
+            {
+                thisSprite = Resources.Load<Sprite>("UI/Battle/ShieldCardBase3");
+            }
+
             for (int i = 0; i < 10; i++)
             {
                 if (index == (i+10))

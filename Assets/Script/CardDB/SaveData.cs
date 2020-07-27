@@ -13,10 +13,10 @@ public class SaveData : MonoBehaviour {
     {
         using (var writer = new CsvFileWriter("Assets/Resources/GameData/GameData - PlayerData.csv"))
         {
-
+                
             List<string> columns = new List<string>() { "CharacterName", "CharacterOpen", "BlueSoul", "RedSoul",
         "Lv", "Hp", "Shield", "Exp", "StageLevel" };// making Index Row
-
+            
             writer.WriteRow(columns);
 
             columns.Clear();

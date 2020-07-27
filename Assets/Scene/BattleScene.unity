@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -826,15 +826,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114177092248200922, guid: 51737d9e947294a449f61bf4f13c712f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1088788260}
     - target: {fileID: 114338476017653436, guid: 51737d9e947294a449f61bf4f13c712f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 952251802}
-    - target: {fileID: 1423019724932732, guid: 51737d9e947294a449f61bf4f13c712f, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51737d9e947294a449f61bf4f13c712f, type: 2}
   m_IsPrefabParent: 0
@@ -958,6 +959,12 @@ Animator:
   m_PrefabParentObject: {fileID: 95527486684625432, guid: 229ad51b22bf67845842fadb5cd07880,
     type: 2}
   m_PrefabInternal: {fileID: 2087318708}
+--- !u!114 &1088788260 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114516175928784052, guid: ce251545215ce944fab873ea7570dbf3,
+    type: 2}
+  m_PrefabInternal: {fileID: 2108885804}
+  m_Script: {fileID: 11500000, guid: e838af899a1558448951880f4daeb18f, type: 3}
 --- !u!1001 &1098846332
 Prefab:
   m_ObjectHideFlags: 0
@@ -1566,10 +1573,15 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1152580230}
     - target: {fileID: 1389266214978164, guid: a46584ef6f5f08d42ac351212f1d5642, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114143702012053586, guid: a46584ef6f5f08d42ac351212f1d5642,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToStartScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a46584ef6f5f08d42ac351212f1d5642, type: 2}
@@ -2204,10 +2216,16 @@ Prefab:
       propertyPath: mapCheck
       value: 
       objectReference: {fileID: 1152580230}
-    - target: {fileID: 1412496376517202, guid: ce251545215ce944fab873ea7570dbf3, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 114516175928784052, guid: ce251545215ce944fab873ea7570dbf3,
+        type: 2}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1015287161}
+    - target: {fileID: 114516175928784052, guid: ce251545215ce944fab873ea7570dbf3,
+        type: 2}
+      propertyPath: pDamagedText
+      value: 
+      objectReference: {fileID: 1891874822}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce251545215ce944fab873ea7570dbf3, type: 2}
   m_IsPrefabParent: 0

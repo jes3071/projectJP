@@ -63,7 +63,7 @@ public class BattleManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        CardTouchBlock = GameObject.Find("FixedUIHelper").transform.Find("UIBattlePlayerHand/CardTouchBlock").gameObject;
+        CardTouchBlock = GameObject.Find("FixedUIHelper").transform.Find("UIBattlePlayerDeck/CardTouchBlock").gameObject;
         victoryPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleVictoryPopup").gameObject;
         defeatPopup = GameObject.Find("FixedUIHelper").transform.Find("UIBattleDefeatPopup").gameObject;
         pBackFill = GameObject.Find("FixedUIHelper").transform.Find("UIBattleField/Player/PlayerTurnState/PlayerTurnStateFill").gameObject;
@@ -223,6 +223,13 @@ public class BattleManager : MonoBehaviour {
         }
 
         TurnText.text = ((int)runTime).ToString() + " Turn";
+
+        if(Player.hp <= 0)
+        {
+            Player.hp = 0;
+            turnOnOff = false;
+            defeatPopup.SetActive(true);
+        }
 
         if (turnOnOff == true)
         {

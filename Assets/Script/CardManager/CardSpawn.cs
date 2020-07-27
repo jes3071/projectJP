@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardSpawn : MonoBehaviour {
 
@@ -19,10 +20,16 @@ public class CardSpawn : MonoBehaviour {
 
     public static ThisCard uCard;
     public PopupSystem mapCheck;
+    public Animator animator;
+    public Animator handAnim;
+
+    public Text pDamagedText;
+    public GameObject touchBlock;
 
     public void Start()
     {
         Deck = GameObject.Find("FixedUIHelper").transform.Find("UIBattlePlayerDeckPopup").gameObject;
+        touchBlock = GameObject.Find("FixedUIHelper").transform.Find("UIBattlePlayerDeck/CardTouchBlock").gameObject;
         //maxCount
     }
 
@@ -74,15 +81,42 @@ public class CardSpawn : MonoBehaviour {
 
     public void ReDraw()
     {
+        touchBlock.GetComponent<Image>().raycastTarget = true;
+        animator.SetInteger("playerdamaged", -1);
+        Player.hp--;
+        pDamagedText.text = "-1";
+        animator.SetInteger("playerdamaged", 1);
+        handAnim.SetInteger("reroll", 1);
+        Invoke("NewCard", 0.5f);
+    }
+
+    public void NewCard()
+    {
         for (i = 0; i < 4; i++)
         {
-            if (spawnPoints[i].childCount == 0)
-            {
-                Instantiate(card, spawnPoints[i]);
-                curCount++;
-                break;
-            }
+            child = GameObject.Find("CardSpawner").transform.Find("" + (i + 1)).gameObject;
+            uCard = child.transform.GetChild(0).GetComponent<ThisCard>();
+
+            PlayerDeck.playerDeck.Add(new Card(uCard.index, uCard.itemName, uCard.itemDescription,
+           uCard.itemType, uCard.turnCost, uCard.cardType, uCard.damageValue,
+           1, 0, null, null));
+
+            Destroy(child.transform.GetChild(0).gameObject);
         }
+        curCount = 0;
+        handAnim.SetInteger("reroll", -1);
+        Invoke("AnimChange", 1);
+    }
+
+    //public void HandChange()
+    //{
+    //    handAnim.SetInteger("reroll", 1);
+    //}
+
+    public void AnimChange()
+    {
+        animator.SetInteger("playerdamaged", -1);
+        touchBlock.GetComponent<Image>().raycastTarget = false;
     }
 
     public void DeckOpen()

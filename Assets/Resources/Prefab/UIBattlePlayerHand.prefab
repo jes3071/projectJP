@@ -242,6 +242,10 @@ MonoBehaviour:
   Deck: {fileID: 0}
   cardClone: []
   mapCheck: {fileID: 0}
+  animator: {fileID: 0}
+  handAnim: {fileID: 95896793466588840}
+  pDamagedText: {fileID: 0}
+  touchBlock: {fileID: 0}
 --- !u!114 &114700088606230638
 MonoBehaviour:
   m_ObjectHideFlags: 1
