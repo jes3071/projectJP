@@ -556,7 +556,6 @@ GameObject:
   - component: {fileID: 224731406344894232}
   - component: {fileID: 222491994216958462}
   - component: {fileID: 114731772394709282}
-  - component: {fileID: 114989308757190506}
   m_Layer: 5
   m_Name: PlayerTurnStateSquare
   m_TagString: Untagged
@@ -659,7 +658,6 @@ GameObject:
   - component: {fileID: 224159814907138002}
   - component: {fileID: 222041388154311280}
   - component: {fileID: 114902657817009544}
-  - component: {fileID: 114074578806973980}
   m_Layer: 5
   m_Name: EnemyTurnStateSquare
   m_TagString: Untagged
@@ -2115,18 +2113,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114074578806973980
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1503004081383672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
 --- !u!114 &114084430954270068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2414,7 +2400,7 @@ MonoBehaviour:
   m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 884891673640e1a44a44a868774712cd, type: 2}
+  m_Material: {fileID: 2100000, guid: 6572856ab7922eb41be84a1484b110fa, type: 2}
   m_Color: {r: 0.38235295, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -3344,7 +3330,7 @@ MonoBehaviour:
   m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 884891673640e1a44a44a868774712cd, type: 2}
+  m_Material: {fileID: 2100000, guid: 6572856ab7922eb41be84a1484b110fa, type: 2}
   m_Color: {r: 0, g: 0.24802218, b: 0.49264705, a: 0.697}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -3826,18 +3812,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: -9
---- !u!114 &114989308757190506
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1438628042494496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
 --- !u!198 &198081877946434636
 ParticleSystem:
   m_ObjectHideFlags: 1
