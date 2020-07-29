@@ -12,17 +12,17 @@ public class CardDataBase : MonoBehaviour {
 
     void Awake()
     {
-        if (fileInfo.Exists)
-        {
-            LoadCardData();
-            //Debug.Log("존재");
-        }
-        else
-        {
-            WarriorCard();
-            //Debug.Log("미존재");
-        }
-        
+        //if (fileInfo.Exists)
+        //{
+        //    LoadCardData();
+        //    //Debug.Log("존재");
+        //}
+        //else
+        //{
+        //    WarriorCard();
+        //    //Debug.Log("미존재");
+        //}
+        WarriorCard();
     }
 
     public void LoadCardData()
