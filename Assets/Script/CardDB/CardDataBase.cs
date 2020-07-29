@@ -13,6 +13,8 @@ public class CardDataBase : MonoBehaviour {
 
     public void WarriorCard()
     {
+        cardList.RemoveAll(s => s.index == 0);
+        cardList.RemoveAll(s => s.index != 0);
         List<Dictionary<string, object>> data = CSVReader.Read("GameData/GameData - Card");
 
         for (var i = 0; i < data.Count; i++)
@@ -29,6 +31,8 @@ public class CardDataBase : MonoBehaviour {
 
     public void MagicianCard()
     {
+        cardList.RemoveAll(s => s.index == 0);
+        cardList.RemoveAll(s => s.index != 0);
         List<Dictionary<string, object>> data = CSVReader.Read("GameData/GameData - Card");
 
         for (var i = 20; i < data.Count; i++)

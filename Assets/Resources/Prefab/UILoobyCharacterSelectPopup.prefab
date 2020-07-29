@@ -71,6 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224699982220608982}
   - component: {fileID: 222611549094103346}
+  - component: {fileID: 114930462787113442}
   m_Layer: 5
   m_Name: UILoobyCharacterSelectPopup
   m_TagString: Untagged
@@ -1269,7 +1270,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114457868433964690}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114930462787113442}
+        m_MethodName: NextButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114332378548563198
@@ -1868,6 +1880,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
+--- !u!114 &114930462787113442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1104859243755318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61847daf6b49ed34bb90c948412127e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 0}
+  warriorImage: {fileID: 0}
+  magicianImage: {fileID: 0}
+  buttonOnOff: {fileID: 0}
 --- !u!114 &114988250955282212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1906,7 +1933,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114108518077845316}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114930462787113442}
+        m_MethodName: PrevButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!198 &198398707625721442

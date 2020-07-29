@@ -21,6 +21,7 @@ public class PopupSystem : MonoBehaviour {
     public GameObject optionPopup;
 
     public SaveData saveData;
+    public SaveCardData saveCardData;
     public PlayerDataBase playerDataBase;
     public Player player;
 
@@ -90,16 +91,12 @@ public class PopupSystem : MonoBehaviour {
         playerDataBase.NewGame();
         mapPopup.SetActive(true);
         characterSelect.SetActive(false);
-        //BattleManager.stageLevel = PlayerDataBase.cardList[0].stageLevel;
-        //SeeMapRoad();
-        //MapMove();
         mapClick = GameObject.Find("Area" + 0).transform.Find("Position" + 0).gameObject;
         mapClick.GetComponent<Button>().interactable = true;
         mapSelect = GameObject.Find("Area" + 0).transform.Find("Position" + 0).transform.Find("SelectActive").gameObject;
         mapSelect.SetActive(true);
         battleOnOff = GameObject.Find("FixedUIHelper").transform.Find("UIBattleTop").gameObject;
         battleOnOff.SetActive(true);
-
         toStart.SetActive(false);
     }
 
@@ -124,9 +121,8 @@ public class PopupSystem : MonoBehaviour {
         battleOnOff.SetActive(false);
         battleOnOff = GameObject.Find("System").transform.Find("BattleManger").gameObject;
         battleOnOff.SetActive(false);
-        //saveSystem.SetActive(true);
         saveData.Save();
-        //saveSystem.SetActive(false);
+        saveCardData.SaveCard();
     }
 
     public void GoToStartScene()
@@ -144,6 +140,7 @@ public class PopupSystem : MonoBehaviour {
         battleOnOff.SetActive(false);
         playerDataBase.NewGame();
         saveData.DefeatReset();
+        saveCardData.DefeatCard();
         Debug.Log("리셋됨");
     }
 
