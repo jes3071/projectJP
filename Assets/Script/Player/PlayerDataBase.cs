@@ -18,18 +18,6 @@ public class PlayerDataBase : MonoBehaviour {
     {
         if (fileInfo.Exists)
         {
-            //LoadGame();
-            //if (cardList[0].stageLevel != -1)
-            //{
-            //    Debug.Log("존재");
-            //    loadCheck = 1;
-            //    // 처리
-            //}
-            //else
-            //{
-            //    Debug.Log("미존재");
-            //    loadCheck = 0;
-            //}
             Debug.Log("존재");
             loadCheck = 1;
         }
