@@ -7,7 +7,7 @@ public class CardDataBase : MonoBehaviour {
 
     public static List<Card> cardList = new List<Card>();
 
-    static string strFile = "C:/Users/박상현/Documents/projectjp/Assets/Resources/GameData/GameData - PlayerData.csv";
+    static string strFile = "Assets/Resources/GameData/GameData - PlayerData.csv";
     FileInfo fileInfo = new FileInfo(strFile);
 
     void Awake()

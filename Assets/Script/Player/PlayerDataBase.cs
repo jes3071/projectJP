@@ -10,7 +10,7 @@ public class PlayerDataBase : MonoBehaviour {
     public SaveData saveData;
 
     public int loadCheck;
-    static string strFile = "C:/Users/박상현/Documents/projectjp/Assets/Resources/GameData/GameData - PlayerData.csv";
+    static string strFile = "Assets/Resources/GameData/GameData - PlayerData.csv";
     
     FileInfo fileInfo = new FileInfo(strFile);
 
