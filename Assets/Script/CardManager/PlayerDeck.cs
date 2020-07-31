@@ -27,7 +27,7 @@ public class PlayerDeck : MonoBehaviour {
         //Deck = GetComponent<GameObject>
 
         x = 0;
-        deckSize = 20;
+        deckSize = 40;
 
         //플레이어 덱에 구성되는 10장의 카드
         for (int i = 0; i < deckSize; i++) 

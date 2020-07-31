@@ -48,20 +48,20 @@ public class EnemyDeck : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        for (int j = 0; j < enemyDeck.Count; j++)
-        {
-            if (enemyDeck[j].inPlayerHand == 1)
-            {
-                enemyDeck.RemoveAt(j);
-                //container.RemoveAt(j);
-                //Debug.Log("1");
-            }
+        //for (int j = 0; j < enemyDeck.Count; j++)
+        //{
+        //    if (enemyDeck[j].inPlayerHand == 1)
+        //    {
+        //        enemyDeck.RemoveAt(j);
+        //        //container.RemoveAt(j);
+        //        //Debug.Log("1");
+        //    }
 
-        }
-        for (int i = 0; i < enemyDeck.Count; i++)
-        {
-            container[i] = enemyDeck[i];
-        }
+        //}
+        //for (int i = 0; i < enemyDeck.Count; i++)
+        //{
+        //    container[i] = enemyDeck[i];
+        //}
 
 
 

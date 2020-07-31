@@ -33,7 +33,7 @@ public class CardDataBase : MonoBehaviour {
 
         for (var i = 0; i < data.Count; i++)
         {
-            if ((int)data[i]["Index"] < 20)
+            if ((int)data[i]["Index"] < 40)
             {
                 cardList.Add(new Card((int)data[i]["Index"], (string)data[i]["ItemName"], (string)data[i]["ItemDescription"],
                 (int)data[i]["ItemType"], (int)data[i]["TurnCost"],
@@ -51,7 +51,7 @@ public class CardDataBase : MonoBehaviour {
 
         for (var i = 0; i < data.Count; i++)
         {
-            if((int)data[i]["Index"] < 20)
+            if((int)data[i]["Index"] < 40)
             {
                 cardList.Add(new Card((int)data[i]["Index"], (string)data[i]["ItemName"], (string)data[i]["ItemDescription"],
                 (int)data[i]["ItemType"], (int)data[i]["TurnCost"],
