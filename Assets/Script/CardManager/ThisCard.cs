@@ -143,7 +143,7 @@ public class ThisCard : MonoBehaviour
                 thisSprite = Resources.Load<Sprite>("UI/Battle/WeaponCardBase3");
             }
 
-            for(int i = 0; i < 10; i++)
+            for(int i = 0; i < 14; i++)
             {
                 if(index == i)
                 {
@@ -172,9 +172,9 @@ public class ThisCard : MonoBehaviour
                 thisSprite = Resources.Load<Sprite>("UI/Battle/ShieldCardBase3");
             }
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 14; i++)
             {
-                if (index == (i+10))
+                if (index == (i+14))
                 {
                     cardSprite = Resources.Load<Sprite>("UI/Battle/Item/ShieldCardItemImage" + i);
                     break;
