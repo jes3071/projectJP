@@ -30,9 +30,10 @@ public class Player : MonoBehaviour {
 
     public Text blueSoulText;
     public Text redSoulText;
+    public Text topHpText;
 
     // Use this for initialization
-    void Start () {
+    public void Start () {
         //cardObject = GetComponent<GameObject>();
         playerData[0] = PlayerDataBase.cardList[0];
 
@@ -105,5 +106,6 @@ public class Player : MonoBehaviour {
         shieldValueText.text = "" + shieldValue;
         blueSoulText.text = "" + blueSoul;
         redSoulText.text = "" + redSoul;
+        topHpText.text = hp + "/10";
     }
 }

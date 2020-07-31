@@ -85,6 +85,9 @@ public class SaveData : MonoBehaviour {
             columns.Clear();
 
             writer.Dispose();
+
+            
+
             AssetDatabase.Refresh();
         }
     }

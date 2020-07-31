@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class PopupSystem : MonoBehaviour {
 
@@ -127,21 +128,27 @@ public class PopupSystem : MonoBehaviour {
 
     public void GoToStartScene()
     {
-        battleMap = false;
-        toStart.SetActive(true);
-        defeatPopup.SetActive(false);
-        battleOnOff = GameObject.Find("FixedUIHelper/UIBattleField").gameObject;
-        battleOnOff.SetActive(false);
-        battleOnOff = GameObject.Find("FixedUIHelper/UIBattlePlayerHand").gameObject;
-        battleOnOff.SetActive(false);
-        battleOnOff = GameObject.Find("FixedUIHelper/UIBattlePlayerDeck").gameObject;
-        battleOnOff.SetActive(false);
-        battleOnOff = GameObject.Find("System").transform.Find("BattleManger").gameObject;
-        battleOnOff.SetActive(false);
-        playerDataBase.NewGame();
-        saveData.DefeatReset();
-        saveCardData.DefeatCard();
-        Debug.Log("리셋됨");
+        System.IO.File.Delete("Assets/Resources/GameData/GameData - PlayerData.csv");
+        System.IO.File.Delete("Assets/Resources/GameData/GameData - SaveCardData.csv");
+        AssetDatabase.Refresh();
+        //Invoke("TouchToExit", 1);
+        TouchToExit();
+        //battleMap = false;
+        //toStart.SetActive(true);
+        //defeatPopup.SetActive(false);
+        //battleOnOff = GameObject.Find("FixedUIHelper/UIBattleField").gameObject;
+        //battleOnOff.SetActive(false);
+        //battleOnOff = GameObject.Find("FixedUIHelper/UIBattlePlayerHand").gameObject;
+        //battleOnOff.SetActive(false);
+        //battleOnOff = GameObject.Find("FixedUIHelper/UIBattlePlayerDeck").gameObject;
+        //battleOnOff.SetActive(false);
+        //battleOnOff = GameObject.Find("System").transform.Find("BattleManger").gameObject;
+        //battleOnOff.SetActive(false);
+        //playerDataBase.NewGame();
+        //saveData.DefeatReset();
+        //saveCardData.DefeatCard();
+        //Start();
+        //Debug.Log("리셋됨");
     }
 
     public void SeeMapRoad()

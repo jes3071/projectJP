@@ -405,10 +405,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1152580230}
-    - target: {fileID: 1499470414555000, guid: c25fa4cea65f4c144ae398b305cf2ca2, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c25fa4cea65f4c144ae398b305cf2ca2, type: 2}
   m_IsPrefabParent: 0
@@ -529,50 +525,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1152580230}
-    - target: {fileID: 1104859243755318, guid: 31dd725cd587a2b41bdff308f96b80d0, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224805262397673520, guid: 31dd725cd587a2b41bdff308f96b80d0,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224805262397673520, guid: 31dd725cd587a2b41bdff308f96b80d0,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224805262397673520, guid: 31dd725cd587a2b41bdff308f96b80d0,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 224757262132449744, guid: 31dd725cd587a2b41bdff308f96b80d0,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224757262132449744, guid: 31dd725cd587a2b41bdff308f96b80d0,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224757262132449744, guid: 31dd725cd587a2b41bdff308f96b80d0,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 224805262397673520, guid: 31dd725cd587a2b41bdff308f96b80d0,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -50
-      objectReference: {fileID: 0}
-    - target: {fileID: 224757262132449744, guid: 31dd725cd587a2b41bdff308f96b80d0,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -50
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31dd725cd587a2b41bdff308f96b80d0, type: 2}
   m_IsPrefabParent: 0
@@ -705,6 +657,11 @@ Prefab:
       propertyPath: victoryPopup
       value: 
       objectReference: {fileID: 24381703}
+    - target: {fileID: 114137534213442022, guid: fa1fa4a362a1711488690841d032a099,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 376664349}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa1fa4a362a1711488690841d032a099, type: 2}
   m_IsPrefabParent: 0
@@ -2104,6 +2061,11 @@ Prefab:
     - target: {fileID: 114564954932313424, guid: 229ad51b22bf67845842fadb5cd07880,
         type: 2}
       propertyPath: redSoulText
+      value: 
+      objectReference: {fileID: 2033268974}
+    - target: {fileID: 114564954932313424, guid: 229ad51b22bf67845842fadb5cd07880,
+        type: 2}
+      propertyPath: topHpText
       value: 
       objectReference: {fileID: 2033268974}
     m_RemovedComponents: []

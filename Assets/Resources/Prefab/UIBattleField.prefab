@@ -3145,6 +3145,7 @@ MonoBehaviour:
   state: {fileID: 114513566808166032}
   blueSoulText: {fileID: 0}
   redSoulText: {fileID: 0}
+  topHpText: {fileID: 0}
 --- !u!114 &114587497799194868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -25506,7 +25507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 6.3}
+  m_AnchoredPosition: {x: 0, y: 6.300003}
   m_SizeDelta: {x: 290, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224140264604468002
@@ -26348,7 +26349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 6.3}
+  m_AnchoredPosition: {x: 0, y: 6.300003}
   m_SizeDelta: {x: 144, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224675059989187884

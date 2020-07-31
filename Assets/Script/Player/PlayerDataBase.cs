@@ -32,19 +32,23 @@ public class PlayerDataBase : MonoBehaviour {
     {
         cardList.RemoveAll(s => s.characterOpen == 0);
         cardList.RemoveAll(s => s.characterOpen != 0);
-        List<Dictionary<string, object>> data = CSVReader.Read("GameData/GameData - StartData");
+        //List<Dictionary<string, object>> data = CSVReader.Read("GameData/GameData - StartData");
         
         if(Player.redSoul != 0)
         {
+            saveData.DefeatReset();
+            List<Dictionary<string, object>> data = CSVReader.Read("GameData/GameData - StartData");
             for (var i = 0; i < data.Count; i++)
             {
                 cardList.Add(new PlayerData((string)data[i]["CharacterName"], (int)data[i]["CharacterOpen"], (int)data[i]["BlueSoul"],
                     Player.redSoul, (int)data[i]["Lv"], (int)data[i]["Hp"], (int)data[i]["Shield"],
                     (int)data[i]["Exp"], (int)data[i]["StageLevel"]));
             }
+            saveData.DefeatReset();
         }
         else
         {
+            List<Dictionary<string, object>> data = CSVReader.Read("GameData/GameData - StartData");
             for (var i = 0; i < data.Count; i++)
             {
                 cardList.Add(new PlayerData((string)data[i]["CharacterName"], (int)data[i]["CharacterOpen"], (int)data[i]["BlueSoul"],
@@ -53,7 +57,7 @@ public class PlayerDataBase : MonoBehaviour {
             }
             Debug.Log("새로시작");
         }
-        saveData.DefeatReset();
+        //saveData.DefeatReset();
     }
 
     public void LoadGame()
