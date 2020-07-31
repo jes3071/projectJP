@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//using UnityEditor;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class PopupSystem : MonoBehaviour {
 
@@ -103,7 +105,10 @@ public class PopupSystem : MonoBehaviour {
 
     public void TouchToExit()
     {
+        #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+
     }
 
     public void VictoryButton()
