@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 
 public class SaveData : MonoBehaviour {
 
@@ -44,7 +44,7 @@ public class SaveData : MonoBehaviour {
             columns.Clear();
 
             writer.Dispose();
-            AssetDatabase.Refresh();
+            //AssetDatabase.Refresh();
         }
     }
 
@@ -88,7 +88,7 @@ public class SaveData : MonoBehaviour {
 
             
 
-            AssetDatabase.Refresh();
+            //AssetDatabase.Refresh();
         }
     }
 }

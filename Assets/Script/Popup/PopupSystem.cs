@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
+//using UnityEditor;
 
 public class PopupSystem : MonoBehaviour {
 
@@ -130,7 +130,7 @@ public class PopupSystem : MonoBehaviour {
     {
         System.IO.File.Delete("Assets/Resources/GameData/GameData - PlayerData.csv");
         System.IO.File.Delete("Assets/Resources/GameData/GameData - SaveCardData.csv");
-        AssetDatabase.Refresh();
+        //AssetDatabase.Refresh();
         //Invoke("TouchToExit", 1);
         TouchToExit();
         //battleMap = false;

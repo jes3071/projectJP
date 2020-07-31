@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 
 public class SaveCardData : MonoBehaviour
 {
@@ -35,7 +35,7 @@ public class SaveCardData : MonoBehaviour
             }
 
             writer.Dispose();
-            AssetDatabase.Refresh();
+            //AssetDatabase.Refresh();
         }
     }
 
